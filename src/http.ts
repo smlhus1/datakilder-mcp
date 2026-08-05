@@ -1,3 +1,4 @@
+import { readCache, writeCache } from "./cache.js";
 import { SourceError } from "./source.js";
 
 /**
@@ -23,6 +24,12 @@ interface RequestOptions {
   headers?: Record<string, string>;
   /** Retries on 429/503. Kept low — a slow tool is better than a hung one. */
   retries?: number;
+  /**
+   * How long this exact response may be reused. Per call, not per source: Entur's
+   * stop places are stable for weeks while its departures are realtime.
+   * Omit or 0 to always hit the network.
+   */
+  cacheTtlMs?: number;
 }
 
 async function request(url: string, opts: RequestOptions = {}, attempt = 0): Promise<Response> {
@@ -70,6 +77,12 @@ async function request(url: string, opts: RequestOptions = {}, attempt = 0): Pro
  * is a much worse error message than saying so.
  */
 export async function getJson<T = unknown>(url: string, opts: RequestOptions = {}): Promise<T> {
+  const key = cacheKey(url, opts);
+  if (opts.cacheTtlMs) {
+    const hit = readCache(key);
+    if (hit !== null) return JSON.parse(hit) as T;
+  }
+
   const res = await request(url, opts);
 
   if (!res.ok) {
@@ -90,11 +103,41 @@ export async function getJson<T = unknown>(url: string, opts: RequestOptions = {
     );
   }
 
+  let parsed: T;
   try {
-    return JSON.parse(text) as T;
+    parsed = JSON.parse(text) as T;
   } catch {
     throw new SourceError(`${url} ga ugyldig JSON (${text.length} tegn lest).`);
   }
+
+  // Only successful, parseable responses are cached — never an error page.
+  if (opts.cacheTtlMs) writeCache(key, text, opts.cacheTtlMs);
+  return parsed;
+}
+
+/** The body is part of the key: SSB and Entur ask different questions of one URL. */
+function cacheKey(url: string, opts: RequestOptions): string {
+  return `${opts.method ?? "GET"} ${url} ${opts.body ? JSON.stringify(opts.body) : ""}`;
+}
+
+/**
+ * Same client, plain text out. Exists for WMS, which answers XML — and answers
+ * errors as XML with status 200, so the caller has to inspect the body.
+ */
+export async function getText(url: string, opts: RequestOptions = {}): Promise<string> {
+  const key = cacheKey(url, opts);
+  if (opts.cacheTtlMs) {
+    const hit = readCache(key);
+    if (hit !== null) return hit;
+  }
+
+  const res = await request(url, opts);
+  if (!res.ok) {
+    throw new SourceError(`${url} ga HTTP ${res.status} ${res.statusText}`, res.status);
+  }
+  const text = await readCapped(res);
+  if (opts.cacheTtlMs) writeCache(key, text, opts.cacheTtlMs);
+  return text;
 }
 
 async function readCapped(res: Response): Promise<string> {

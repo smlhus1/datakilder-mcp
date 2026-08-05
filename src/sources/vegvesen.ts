@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
@@ -30,7 +31,7 @@ async function objekttyper({ sok }: { sok?: string }) {
   // inkluder=minimum: the full catalogue is 9.3 MB (every attribute definition for
   // all 424 types) and tripped the client's byte cap. The trimmed form is 544 KB
   // and carries everything this tool needs — id and name.
-  const alle = await getJson<Objekttype[]>(`${NVDB}/vegobjekttyper?inkluder=minimum`, { headers: HEADERS });
+  const alle = await getJson<Objekttype[]>(`${NVDB}/vegobjekttyper?inkluder=minimum`, { headers: HEADERS, cacheTtlMs: TTL.maned });
   const treff = sok
     ? alle.filter((t) => t.navn.toLowerCase().includes(sok.toLowerCase()))
     : alle;
@@ -83,7 +84,7 @@ async function vegobjekter({
     antall: String(Math.min(antall, 100)),
   });
 
-  const d = await getJson<VegobjektSvar>(`${NVDB}/vegobjekter/${type}?${p}`, { headers: HEADERS });
+  const d = await getJson<VegobjektSvar>(`${NVDB}/vegobjekter/${type}?${p}`, { headers: HEADERS, cacheTtlMs: TTL.dag });
 
   return {
     objekttype: type,

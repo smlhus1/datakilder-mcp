@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
@@ -59,7 +60,7 @@ function normaliserOrgnr(input: string): string {
 async function foretak({ orgnr }: { orgnr: string }) {
   const id = normaliserOrgnr(orgnr);
   try {
-    return tidy(await getJson<Enhet>(`${BASE}/enheter/${id}`));
+    return tidy(await getJson<Enhet>(`${BASE}/enheter/${id}`, { cacheTtlMs: TTL.dag }));
   } catch (err) {
     if (err instanceof SourceError && err.status === 404) {
       throw new SourceError(`Fant ingen enhet med organisasjonsnummer ${id} i Enhetsregisteret.`);
@@ -74,6 +75,7 @@ async function søk({ navn, kommunenummer, antall = 10 }: { navn: string; kommun
 
   const res = await getJson<{ _embedded?: { enheter?: Enhet[] }; page?: { totalElements?: number } }>(
     `${BASE}/enheter?${params}`,
+    { cacheTtlMs: TTL.dag },
   );
   const treff = res._embedded?.enheter ?? [];
   return {

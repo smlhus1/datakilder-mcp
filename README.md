@@ -58,11 +58,12 @@ selv, uten at noen har hardkodet en integrasjon.
 | **Kartverket / Geonorge** | `kartverket_sted` · `kartverket_adresse` · `kartverket_adresse_fra_punkt` · `kartverket_hoyde` | CC BY 4.0 |
 | **Statens vegvesen** (NVDB) | `vegvesen_objekttyper` · `vegvesen_vegobjekter` | NLOD 2.0 |
 | **Entur** (kollektiv) | `entur_stoppested` · `entur_avganger` · `entur_reise` | NLOD 2.0 |
-| **Kart** (generisk WMS) | `kart_lag` · `kart_punkt` | varierer per tjeneste |
+| **Kart** (generisk WMS) | `kart_finn` · `kart_lag` · `kart_punkt` | varierer per tjeneste |
 | **UDIR** (skoleregister) | `udir_skoler` · `udir_skole` | NLOD 2.0 |
 | **Artsdatabanken** | `arter_art` | CC BY 4.0 |
 | **Eurostat** | `eurostat_info` · `eurostat_data` | Eurostat-vilkår |
 | **Felles datakatalog** | `fdk_sok` · `fdk_detaljer` | NLOD 2.0 |
+| **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
 
 Pluss `kilder` — lister alt serveren dekker.
 
@@ -77,6 +78,19 @@ hver utgiver — og et kartlag ingen har tenkt på ennå er allerede nåbart. `k
 Det er også grunnen til at Kystverket, Riksantikvaren, NGU, NIBIO, Havforskningsinstituttet,
 Polarinstituttet, Landbruksdirektoratet og Norge i bilder ikke har egne moduler — API-ene deres
 *er* kartlag, og `kart_lag`/`kart_punkt` når dem allerede.
+
+**`kart_finn` gjør dem faktisk mulige å finne.** Verktøyene over krevde at du kjente URL-en til
+tjenesten, noe som gjorde den største dekningen i serveren praktisk usynlig. Nå søker du i en
+indeks over 130 norske WMS-tjenester (`data/kartindeks.json`, høstet av
+`scripts/hent-kartindeks.mjs`): `kart_finn("flom")` → NVEs flomtjeneste → lag → egenskaper i et punkt.
+Verdt å merke seg: **NVE står som blokkert over fordi hydrologi-API-et krever nøkkel — men
+flomdataene deres er kartlag, og dermed nåbare uansett.**
+
+### `sted_kontekst` — ett kall i stedet for fire
+Kommune, adresse, høyde, været nå, farevarsel og nærmeste holdeplasser for et koordinat.
+Sammensatt av kilder som allerede finnes. Delvis feil er designet inn: hver del kjører uavhengig,
+og det som ikke lot seg hente står i feltet `mangler` — for «ingen farevarsel» og «vi fikk ikke
+sjekket farevarsel» må aldri se like ut.
 
 ### Kilder som ikke lot seg bygge
 Ærlig ført i `kilder.json`, med grunn:
@@ -119,9 +133,16 @@ export const minKilde: Source = {
 };
 ```
 
-All HTTP går gjennom `src/http.ts` — User-Agent, timeout, retry på 429/503, byte-tak og sjekk av
-content-type (flere av disse API-ene svarer på en dårlig spørring med en HTML-side og status 200).
-**Ikke skriv en klient til.**
+All HTTP går gjennom `src/http.ts` — User-Agent, timeout, retry på 429/503, byte-tak, sjekk av
+content-type (flere av disse API-ene svarer på en dårlig spørring med en HTML-side og status 200)
+og **cache**. **Ikke skriv en klient til.**
+
+### Cache
+TTL settes **per kall, ikke per kilde**, fordi skillet går tvers gjennom en kilde: Enturs
+stoppesteder er stabile i uker, mens avgangene er sanntid og aldri skal caches. Vær i minutter,
+registre i døgn, stedsnavn og kodeverk i måneder. MET **ber eksplisitt i vilkårene** om at klienter
+cacher — det er folkeskikk, ikke bare fart. Målt: værvarsel 118 ms → 1 ms.
+Cache ligger i `$XDG_CACHE_HOME/datakilder-mcp`.
 
 ## Testing
 

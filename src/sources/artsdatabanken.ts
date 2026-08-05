@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { type Source } from "../source.js";
 
@@ -28,7 +29,7 @@ interface Taxon {
 }
 
 async function art({ sok, antall = 15 }: { sok: string; antall?: number }) {
-  const treff = await getJson<Taxon[]>(`${BASE}/taxon?term=${encodeURIComponent(sok)}`);
+  const treff = await getJson<Taxon[]>(`${BASE}/taxon?term=${encodeURIComponent(sok)}`, { cacheTtlMs: TTL.maned });
   return {
     sok,
     antallTreff: treff.length,

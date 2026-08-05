@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { flattenJsonStat, type JsonStat2 } from "../jsonstat.js";
 import { SourceError, type Source } from "../source.js";
@@ -32,7 +33,7 @@ interface TableMeta {
 }
 
 async function tableInfo({ tabell }: { tabell: string }) {
-  const meta = await getJson<TableMeta>(`${BASE}/${encodeURIComponent(tabell)}`);
+  const meta = await getJson<TableMeta>(`${BASE}/${encodeURIComponent(tabell)}`, { cacheTtlMs: TTL.uke });
   return {
     tabell,
     tittel: meta.title,
@@ -54,7 +55,7 @@ async function tableInfo({ tabell }: { tabell: string }) {
 }
 
 async function tableValues({ tabell, variabel, søk }: { tabell: string; variabel: string; søk?: string }) {
-  const meta = await getJson<TableMeta>(`${BASE}/${encodeURIComponent(tabell)}`);
+  const meta = await getJson<TableMeta>(`${BASE}/${encodeURIComponent(tabell)}`, { cacheTtlMs: TTL.uke });
   const v = meta.variables.find((x) => x.code.toLowerCase() === variabel.toLowerCase());
   if (!v) {
     throw new SourceError(
@@ -85,6 +86,7 @@ async function tableData({ tabell, utvalg }: { tabell: string; utvalg: Array<{ k
   const data = await getJson<JsonStat2>(`${BASE}/${encodeURIComponent(tabell)}`, {
     method: "POST",
     body,
+    cacheTtlMs: TTL.dag,
   });
 
   return { tabell, tittel: data.label, rader: flattenJsonStat(data) };

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
@@ -41,7 +42,7 @@ interface Enhet {
 let alle: Enhet[] | null = null;
 
 async function hentAlle(): Promise<Enhet[]> {
-  if (!alle) alle = await getJson<Enhet[]>(`${BASE}/enheter`);
+  if (!alle) alle = await getJson<Enhet[]>(`${BASE}/enheter`, { cacheTtlMs: TTL.uke });
   return alle;
 }
 
@@ -101,7 +102,7 @@ async function skoler({
 
 async function skole({ id }: { id: number }) {
   try {
-    return tidy(await getJson<Enhet>(`${BASE}/enhet/${id}`));
+    return tidy(await getJson<Enhet>(`${BASE}/enhet/${id}`, { cacheTtlMs: TTL.uke }));
   } catch (err) {
     if (err instanceof SourceError && err.status === 404) {
       throw new SourceError(`Fant ingen enhet med NSR-id ${id}. Finn id-en med udir_skoler.`);

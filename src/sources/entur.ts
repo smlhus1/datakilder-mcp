@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
@@ -41,7 +42,7 @@ interface GeoSvar {
 
 async function stoppested({ sok, antall = 5 }: { sok: string; antall?: number }) {
   const p = new URLSearchParams({ text: sok, size: String(Math.min(antall, 20)), lang: "no" });
-  const d = await getJson<GeoSvar>(`${GEOCODER}/autocomplete?${p}`, { headers: HEADERS });
+  const d = await getJson<GeoSvar>(`${GEOCODER}/autocomplete?${p}`, { headers: HEADERS, cacheTtlMs: TTL.uke });
   return {
     sok,
     stoppesteder: d.features.map((f) => ({

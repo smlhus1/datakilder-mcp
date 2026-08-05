@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { flattenJsonStat, type JsonStat2 } from "../jsonstat.js";
 import { type Source } from "../source.js";
@@ -32,7 +33,7 @@ async function data({
   for (const [k, v] of Object.entries(filtre)) p.set(k, v);
   if (sisteperioder) p.set("lastTimePeriod", String(sisteperioder));
 
-  const d = await getJson<JsonStat2 & { label?: string }>(`${BASE}/data/${encodeURIComponent(datasett)}?${p}`);
+  const d = await getJson<JsonStat2 & { label?: string }>(`${BASE}/data/${encodeURIComponent(datasett)}?${p}`, { cacheTtlMs: TTL.dag });
 
   return {
     datasett,
@@ -56,6 +57,7 @@ async function info({ datasett }: { datasett: string }) {
   // response carries the full dimension metadata but almost no values.
   const d = await getJson<Metadata>(
     `${BASE}/data/${encodeURIComponent(datasett)}?format=JSON&lang=EN&lastTimePeriod=1`,
+    { cacheTtlMs: TTL.uke },
   );
 
   return {

@@ -1,0 +1,918 @@
+{
+ "_om": "WMS-tjenester høstet fra data.norge.no. Bygget av scripts/hent-kartindeks.mjs.",
+ "hentet": "2026-08-05",
+ "antallTjenester": 130,
+ "antallOppforinger": 130,
+ "tjenester": [
+  {
+   "url": "https://karttjenester.ikt-agder.no/arcgis/services/arendal/grunnkart/MapServer/WMSServer",
+   "utgiver": "Arendal kommune",
+   "titler": [
+    "Grunnkart - Arendal kommune"
+   ]
+  },
+  {
+   "url": "https://kart.artsdatabanken.no/WMS/lkm.aspx",
+   "utgiver": "Artsdatabanken",
+   "titler": [
+    "Bioklimatiske soner og -seksjoner WMS"
+   ]
+  },
+  {
+   "url": "https://wms.artsdatabanken.no/",
+   "utgiver": "Artsdatabanken",
+   "titler": [
+    "Naturtyper i Norge - Landskap WFS"
+   ]
+  },
+  {
+   "url": "https://kart.artsdatabanken.no/WMS/artskartfa.aspx",
+   "utgiver": "Artsdatabanken",
+   "titler": [
+    "Artskart fremmede arter WMS"
+   ]
+  },
+  {
+   "url": "https://geo.barentswatch.no/geoserver/bw/ows",
+   "utgiver": "Barentswatch",
+   "titler": [
+    "Bølgevarsel - Kryssende bølger"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.kirkebyggenkel",
+   "utgiver": "Barne- og familiedepartementet",
+   "titler": [
+    "Kirkebygg - forenklet WFS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.skytebaner_dfs",
+   "utgiver": "Det frivillige Skyttervesen",
+   "titler": [
+    "Skyteanlegg DFS WFS"
+   ]
+  },
+  {
+   "url": "https://ogc.dsb.no/wms.ashx",
+   "utgiver": "Direktoratet for samfunnssikkerhet og beredskap",
+   "titler": [
+    "Nødnett-dekning for håndholdt radioterminal"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.korallrevforbudsomrader",
+   "utgiver": "Fiskeridirektoratet",
+   "titler": [
+    "Korallrev - forbudsområder WFS"
+   ]
+  },
+  {
+   "url": "https://gis.fiskeridir.no/server/services/fiskeridirWMS_fiskeriaktivtet/MapServer/WMSServer",
+   "utgiver": "Fiskeridirektoratet",
+   "titler": [
+    "Fiskeriaktivitet - fiskefartøy - Fiskeriaktivitet utenlandske fiskefartøy årlig"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.stoysonerforsvaretsflyplasser",
+   "utgiver": "Forsvarsbygg",
+   "titler": [
+    "Støysoner for Forsvarets flyplasser WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/pfas/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Organiske miljøgifter i marine sedimenter - Sum 7PFAS-verdier WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/menneske_tapt-fiskeredskap/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Menneskelig påvirkning -Tapte fiskeredskaper (langs videotransekt) - Menneskelig påvirkning -Tapte fiskeredskaper WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/hornkorall_paragorgia_arborea/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Hornkoraller - Paragorgia arborea WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/data/utbredelseskart/wms/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Artsutbredelse Sjøpattedyr WFS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/polygon_blotbunnskorallskog/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Bløtbunnskorallskog WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/overflatetemperatur_gjennomsnitt/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Vannmasser - Overflatetemperatur WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/polygon_hardbunnssvampsamfunn/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Svampskog WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/data/oseanografi/Overflatestrom_Atlanterhavet/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Overflatestrøm Atlanterhavet WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/nin_videostasjoner/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Referansedata - Videostasjoner WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/polygon_sjofjaerbunn/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Sjøfjærbunn WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/svampehage_predikert/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Naturtyper – Svamphage, predikert - Naturtyper - Svamphage, predikert WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.sarbaremarinebunndyrobservasjonsdata",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Sårbare marine bunndyr – observasjonsdata WFS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/menneske_soppel/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Menneskelig påvirkning - Marint søppel per videotransekt, WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/hcb/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Organiske miljøgifter i marine sedimenter - HCB-nivåer WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/pyren/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Organiske miljøgifter i marine sedimenter - Pyren-nivåer WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/slede_arter/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareanoprøver Slede - artsmangfold, individer og biomasse - Slede arter WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/svamper_video/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Artsmangfold – Svampobservasjoner per videotransekt WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/magik/tarebiomasse_predikert/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Naturtyper - Tarebiomasse, predikert WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_stasjoner/bunnprover_linjestasjoner/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareano bunnprøver linjer WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/korallobservasjoner_video/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Artsmangfold - Videoobserverte korallbunntyper WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.mareanobunnproverlinjer",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareano bunnprøver linjer WFS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Organiske miljøgifter i marine sedimenter WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/data/fraraadning/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Rådgivningskart for seismiske og elektromagnetiske undersøkelser WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/biotop_punkt_barentshavet/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Biotoper - Video observasjoner for klassifisering WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/bomtraal_arter/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareanoprøver Bomtrål - artsmangfold, individer og biomasse - Bomtrål arter WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi:korallrev_modellerte_omraader/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Sårbare marine biotoper – modellert utbredelse Umbellula bestander - korallrev_modellerte_omraader"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_stasjoner/soppel_100m/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Søppel pr. Mareano-stasjon WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/arter_video/wms",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Artsmangfold – Videoobservasjoner WMS"
+   ]
+  },
+  {
+   "url": "https://kart.hi.no/mareano/mareano_biologi/grabb_biomasse/ows",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareanoprøver Grabb - artsmangfold, individer og biomasse - Grabb biomasse WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.mareanovideostasjoner",
+   "utgiver": "Havforskningsinstituttet",
+   "titler": [
+    "Mareano videostasjoner WFS"
+   ]
+  },
+  {
+   "url": "https://wms-geo.kystverket.no/density",
+   "utgiver": "Kystverket",
+   "titler": [
+    "AIS tetthetsplott"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/kulturlandskap_verdifulle/mapserver/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Kulturlandskap - verdifulle  WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/snoscooterloyper/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Snøscooterløyper WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/geoserver/fjordkatalogen/wms",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Fjordkatalogen WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/villrein/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Villreinområder WMS"
+   ]
+  },
+  {
+   "url": "https://kart3.miljodirektoratet.no/arcgis/services/avloep/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Avløpsanlegg - Avløp WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/sensitive_artsdata/sensitive_artsdata_maskering/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Sensitive artsdata WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/geoserver/marin_verneplan/wms",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Nasjonal marin verneplan - Rådgivende utvalgs A-liste WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_kuverdi/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Naturtyper - verdsatte WMS"
+   ]
+  },
+  {
+   "url": "https://kart2.miljodirektoratet.no/arcgis/services/vanntyper_kyst/vanntyper_kyst/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Marine vanntyper WMS"
+   ]
+  },
+  {
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_hb13/mapserver/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Naturtyper på land og i ferskvann (HB13) WMS"
+   ]
+  },
+  {
+   "url": "https://kart2.miljodirektoratet.no/arcgis/services/friluftsliv_ferdselsareplan_dekning/MapServer/WMSServer",
+   "utgiver": "Miljødirektoratet",
+   "titler": [
+    "Friluftslivets ferdselsårer - dekningskart WMS"
+   ]
+  },
+  {
+   "url": "http://kart3.nois.no/modum/wms/",
+   "utgiver": "Modum kommune",
+   "titler": [
+    "Kommuneplan WMS, Modum"
+   ]
+  },
+  {
+   "url": "http://clusterb.gisline.no/wms-mt",
+   "utgiver": "Nome kommune",
+   "titler": [
+    "WMS- Kartdata- Midt- Telemark"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.nib-prosjekter",
+   "utgiver": "Norge i bilder",
+   "titler": [
+    "Digitale ortofoto - Norge i bilder WMS-Prosjekt"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.nib",
+   "utgiver": "Norge i bilder",
+   "titler": [
+    "Digitale ortofoto - Norge i bilder WMS-Ortofoto"
+   ]
+  },
+  {
+   "url": "https://services.norgeibilder.no/wms/mosaikk",
+   "utgiver": "Norge i bilder",
+   "titler": [
+    "Digitale ortofoto - Norge i bilder WMS-Mosaikk (ny)"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/GrusPukkWMS5",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Grus og pukk WMS"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarinSannsynligeKorallrevWMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Marin sannsynlige korallrev WMS"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarinLinjerProverWMS2",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Marine linjer og prøver WMS"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarineGrunnkartWMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Dybdekoter10m"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarinBunnsedimenterWMS/",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Marine sedimentasjonsmiljø, detaljert"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarinNaturtyperWMS2",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Marine naturtyper WMS"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/BerggrunnOkologiWMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Kalkinnhold i berggrunn - BerggrunnOkologiWMS"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/MarinBunnsedimenterWMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "BunnsedimenterDannelse_detaljert"
+   ]
+  },
+  {
+   "url": "http://geo.ngu.no/mapserver/MarinGeokjemiWMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Svovel"
+   ]
+  },
+  {
+   "url": "https://geo.ngu.no/mapserver/NatursteinWMS3",
+   "utgiver": "Norges geologiske undersøkelse",
+   "titler": [
+    "Mineralressurser: industrimineral, naturstein og metaller - Naturstein WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Skredfaresoner WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/SnoskredAktsomhet/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Aktsomhetskart for snøskred WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/Nedborfelt2/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Nedbørfelt WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/SvekketIs1/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "wms svekket is"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/VerneplanforVassdrag/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Verneplan for vassdrag WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/seNorgeGrid_png/ImageServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "NVE snø og klima WMS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/Flomaktsomhet/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Flom aktsomhetsområder WMS"
+   ]
+  },
+  {
+   "url": "http://wfs.geonorge.no/skwms1/wfs.nettanlegg",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Nettanlegg utbygd - Nettanlegg WFS"
+   ]
+  },
+  {
+   "url": "https://kart.nve.no/enterprise/services/Sikringstiltak2/MapServer/WMSServer",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "titler": [
+    "Sikringstiltak i vassdrag WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/ar5forvaltning2",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Arealressurskart - FKB-AR5 - Forvaltning - 2 - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/sr16_beta",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "SR16-beta - Skogressurskart 16x16 meter betaversjon"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/markfuktighetskart",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Markfuktighetsklasser - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/beite",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Beitebruk - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/sr16",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "SR16 - Skogressurskart 16x16 meter - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/barkbille",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Barkbilleovervåking"
+   ]
+  },
+  {
+   "url": "https://reindrift.nibio.no/cgi-bin/reindrift",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Reindrift - Årstidsbeite - Vårbeite - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/vernskog2",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Vernskog - WMS"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/grunnkart_arealanalyse",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "Nasjonalt grunnkart for arealanalyse WMS - årsversjon 2025"
+   ]
+  },
+  {
+   "url": "https://wms.nibio.no/cgi-bin/ar5",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "titler": [
+    "FKB-AR5 - WMS"
+   ]
+  },
+  {
+   "url": "https://geodata.npolar.no/arcgis/services/Basisdata/NP_Basiskart_JanMayen_WMS/MapServer/WMSServer",
+   "utgiver": "Norsk Polarinstitutt",
+   "titler": [
+    "NP Basiskart Jan Mayen WMS"
+   ]
+  },
+  {
+   "url": "https://kart.ra.no/wms/kulturmiljoer",
+   "utgiver": "Riksantikvaren",
+   "titler": [
+    "Kulturminner - Kulturmiljøer WMS"
+   ]
+  },
+  {
+   "url": "https://kart.ra.no/wms/brukerminner",
+   "utgiver": "Riksantikvaren",
+   "titler": [
+    "Kulturminner - Brukerminner WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.norges_grunnkart",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Norges grunnkart WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.bergrettigheter",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Bergrettigheter WFS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.adm_enheter_historisk",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Administrative enheter - historiske versjoner WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.inspire_au",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "INSPIRE Administrative units WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.norgesmaritimegrenser",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Norges maritime grenser WFS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.trafikkmengde",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Trafikkmengde WFS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.politisonerdistrikter",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Politisoner og -distrikter WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wcs.hoyde-dtm-nhm-topobathy-25833",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Høydedata - laser - Topobaty nasjonal detaljert terrengmodell 25833 WCS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.lassettingsplasser",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Låssettingsplasser WFS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.hoyde-hoydedata-metadata-prosjekt",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Høydedata - laser - Høydedata Metadata prosjekt WFS"
+   ]
+  },
+  {
+   "url": "http://openwms.statkart.no/skwms1/wms.dokfulldekkart",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "DOK fullstendighetdekningskart WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.georef3",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Georef 3 WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.stedsnavnenkel",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Stedsnavn WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.inspire_sr",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "INSPIRE Sea regions WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.matrikkel",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Matrikkelen Enkel WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.radioaktivitetMarintMiljo",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Radioaktivitet i marint miljø WFS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-sr",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "INSPIRE Sea Regions WFS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.kartdata",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Kartdata WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.vannkraft",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Vannkraft, Utbygd og ikke utbygd - Vannkraft WFS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dom-nhm-25832",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Høydedata - laser - Nasjonal høydemodell Digital overflatemodell 25832 WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.arbeidsgiveravgiftsoner",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Arbeidsgiveravgiftsoner WFS"
+   ]
+  },
+  {
+   "url": "https://openwms.statkart.no/skwms1/wms.ssr2",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Klage, iverksatt vedtak trukket tilbake"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.historiskekart",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Historiske kart WMS"
+   ]
+  },
+  {
+   "url": "https://openwms.statkart.no/skwms1/wms.kartdata3graatone",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Kartdata3 gråtone WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.arctic_adm",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Arktiske administrative enheter WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.arctic_people",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Indigenous peoples of the Arctic counties"
+   ]
+  },
+  {
+   "url": "https://wcs.geonorge.no/skwms1/wcs.hoyde-dom-nhm-25835",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Høydedata - laser - Nasjonal høydemodell Digital overflatemodell 25835 WCS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.fastmerker2",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Fastmerker & Basestajoner WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-prosjekt-punkttetthet",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Høydedata - laser - Digital terrengmodell prosjekt punkttetthet WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.inspire_tn_ro",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "INSPIRE Transport Network Road WMS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.terrengmodell",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Terrengmodell WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-ad",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "INSPIRE Addresses WFS"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.ankerplasser",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Ankerplasser (WMS)"
+   ]
+  },
+  {
+   "url": "https://wms.geonorge.no/skwms1/wms.dtm2",
+   "utgiver": "Statens kartverk",
+   "titler": [
+    "Dybdedata terrengmodeller DTM WCS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.stoy_veg",
+   "utgiver": "Statens vegvesen",
+   "titler": [
+    "Støykartlegging veg etter T-1442 WFS"
+   ]
+  },
+  {
+   "url": "https://kart.ssb.no/api/mapserver/v1/wms/sentrumssoner",
+   "utgiver": "Statistisk sentralbyrå",
+   "titler": [
+    "Sentrumssoner WMS"
+   ]
+  },
+  {
+   "url": "https://kart.ssb.no/api/mapserver/v1/wms/boliger_paa_rutenett",
+   "utgiver": "Statistisk sentralbyrå",
+   "titler": [
+    "Boligstatistikk på rutenett WMS"
+   ]
+  },
+  {
+   "url": "https://wfs.geonorge.no/skwms1/wfs.barmarksloyper",
+   "utgiver": "Statsforvalteren",
+   "titler": [
+    "Barmarksløyper i Finnmark WFS"
+   ]
+  },
+  {
+   "url": "http://kart.tonsberg.kommune.no/webinnsyn/wms",
+   "utgiver": "Tønsberg kommune",
+   "titler": [
+    "WMS- Kartdata- 12K"
+   ]
+  },
+  {
+   "url": "https://kartiskolen.no/geoserver/barnetrakk_grid/wms",
+   "utgiver": "Universitetet i Bergen",
+   "titler": [
+    "Barnetråkk - aggregert - WMS"
+   ]
+  }
+ ]
+}

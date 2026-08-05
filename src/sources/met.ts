@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
@@ -43,7 +44,7 @@ async function varsel({ lat, lon, hoyde, timer = 24 }: { lat: number; lon: numbe
   // wrong on a mountain 15 km away. Pass it when the caller knows it.
   if (Number.isFinite(hoyde as number)) p.set("altitude", String(Math.round(hoyde as number)));
 
-  const data = await getJson<Forecast>(`${BASE}/locationforecast/2.0/compact?${p}`);
+  const data = await getJson<Forecast>(`${BASE}/locationforecast/2.0/compact?${p}`, { cacheTtlMs: TTL.minutter });
   const serie = data.properties.timeseries.slice(0, Math.min(timer, 96));
 
   return {
@@ -81,7 +82,7 @@ interface Alerts {
 
 async function farevarsel({ lat, lon }: { lat: number; lon: number }) {
   const p = new URLSearchParams({ lat: coord(lat, "lat"), lon: coord(lon, "lon") });
-  const data = await getJson<Alerts>(`${BASE}/metalerts/2.0/current.json?${p}`);
+  const data = await getJson<Alerts>(`${BASE}/metalerts/2.0/current.json?${p}`, { cacheTtlMs: TTL.minutter });
   return {
     antall: data.features.length,
     varsler: data.features.map((f) => ({
@@ -104,8 +105,8 @@ async function solOgMane({ lat, lon, dato }: { lat: number; lon: number; dato: s
     new URLSearchParams({ lat: coord(lat, "lat"), lon: coord(lon, "lon"), date: dato, offset: "+01:00", ...extra });
 
   const [sol, mane] = await Promise.all([
-    getJson<SunMoon>(`${BASE}/sunrise/3.0/sun?${q()}`),
-    getJson<SunMoon>(`${BASE}/sunrise/3.0/moon?${q()}`),
+    getJson<SunMoon>(`${BASE}/sunrise/3.0/sun?${q()}`, { cacheTtlMs: TTL.uke }),
+    getJson<SunMoon>(`${BASE}/sunrise/3.0/moon?${q()}`, { cacheTtlMs: TTL.uke }),
   ]);
 
   return {

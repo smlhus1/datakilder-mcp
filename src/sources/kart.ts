@@ -1,4 +1,7 @@
 import { z } from "zod";
+import { createRequire } from "node:module";
+import { TTL } from "../cache.js";
+import { getText } from "../http.js";
 import { SourceError, type Source } from "../source.js";
 
 /**
@@ -21,9 +24,19 @@ import { SourceError, type Source } from "../source.js";
  * Verified live 2026-08-05 against wms.geonorge.no.
  */
 
-const TIMEOUT_MS = 30_000;
-const MAX_BYTES = 8 * 1024 * 1024;
-const USER_AGENT = "datakilder-mcp (+https://github.com/smlhus1/datakilder-mcp)";
+const require = createRequire(import.meta.url);
+
+/**
+ * Harvested WMS services (scripts/hent-kartindeks.mjs). Committed rather than
+ * fetched at runtime: it changes a few times a year, and a tool that needs two
+ * network round trips before it can answer is a tool nobody reaches for.
+ */
+interface Kartindeks {
+  hentet: string;
+  antallTjenester: number;
+  tjenester: Array<{ url: string; utgiver?: string; titler: string[] }>;
+}
+const INDEKS: Kartindeks = require("../../data/kartindeks.json");
 
 function assertWmsUrl(url: string): URL {
   let u: URL;
@@ -38,32 +51,14 @@ function assertWmsUrl(url: string): URL {
   return u;
 }
 
-/** WMS answers errors as XML with status 200, so the body has to be inspected. */
-async function wmsText(url: string): Promise<string> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  let res: Response;
-  try {
-    res = await fetch(url, { headers: { "User-Agent": USER_AGENT }, signal: controller.signal });
-  } catch (err) {
-    clearTimeout(timer);
-    throw new SourceError(
-      (err as Error).name === "AbortError" ? `Tjenesten svarte ikke innen ${TIMEOUT_MS / 1000} s.` : `Nådde ikke tjenesten: ${(err as Error).message}`,
-    );
-  }
-  clearTimeout(timer);
-
-  if (!res.ok) throw new SourceError(`Tjenesten ga HTTP ${res.status} ${res.statusText}.`);
-
-  const buf = Buffer.from(await res.arrayBuffer());
-  if (buf.byteLength > MAX_BYTES) {
-    throw new SourceError(`Svaret oversteg ${MAX_BYTES / 1024 / 1024} MB.`);
-  }
-  const text = buf.toString("utf8");
-
+/**
+ * WMS answers errors as XML with status 200, so the body has to be inspected —
+ * a check that would be invisible if this used getJson.
+ */
+async function wmsText(url: string, ttlMs: number): Promise<string> {
+  const text = await getText(url, { cacheTtlMs: ttlMs });
   const feil = /<ServiceException[^>]*>([\s\S]*?)<\/ServiceException>/.exec(text);
   if (feil) throw new SourceError(`Tjenesten avviste spørringen: ${feil[1].trim().slice(0, 200)}`);
-
   return text;
 }
 
@@ -77,7 +72,7 @@ async function lag({ url, sok }: { url: string; sok?: string }) {
   u.searchParams.set("request", "GetCapabilities");
   u.searchParams.set("version", "1.3.0");
 
-  const xml = await wmsText(u.toString());
+  const xml = await wmsText(u.toString(), TTL.uke);
 
   // Only <Layer> blocks that carry a <Name> are requestable; group layers without
   // one are containers and would fail if handed to GetMap.
@@ -135,11 +130,69 @@ async function punkt({
   };
   for (const [k, v] of Object.entries(params)) u.searchParams.set(k, v);
 
-  const svar = await wmsText(u.toString());
+  const svar = await wmsText(u.toString(), TTL.dag);
   return {
     lag,
     punkt: { lat, lon },
     svar: svar.trim().slice(0, 4000) || "(tomt svar — laget har trolig ingen data i dette punktet)",
+  };
+}
+
+
+/**
+ * Search the harvested index for a map service.
+ *
+ * Without this, kart_lag and kart_punkt only work if the caller already knows a
+ * service URL — which made the largest block of coverage in this server
+ * effectively invisible. Two levels on purpose: matching service titles is
+ * instant, while searching layer names has to fetch GetCapabilities per service
+ * (cached for a week), so the caller opts into that cost.
+ */
+async function finn({ sok, iLag = false }: { sok: string; iLag?: boolean }) {
+  const q = sok.toLowerCase();
+  const tjenester = INDEKS.tjenester.filter((t) =>
+    `${t.utgiver ?? ""} ${t.titler.join(" ")} ${t.url}`.toLowerCase().includes(q),
+  );
+
+  if (!iLag) {
+    return {
+      sok,
+      indeksHentet: INDEKS.hentet,
+      antallTjenesterIIndeks: INDEKS.antallTjenester,
+      antallTreff: tjenester.length,
+      tjenester: tjenester.slice(0, 25),
+      hint:
+        tjenester.length === 0
+          ? "Ingen tjeneste matchet på navn. Prøv iLag=true for å søke i selve lagnavnene, eller et bredere ord."
+          : "Bruk url-en i kart_lag for å se lagene, eller kart_punkt direkte hvis du vet lagnavnet.",
+    };
+  }
+
+  // Layer search: only over services whose capabilities we can actually read.
+  // Bounded to 12 — each miss is a network round trip, and an unbounded sweep
+  // over 130 services would take minutes on a cold cache.
+  const kandidater = (tjenester.length ? tjenester : INDEKS.tjenester).slice(0, 12);
+  const funn: Array<{ tjeneste: string; utgiver?: string; lag: string; tittel?: string }> = [];
+  const feilet: string[] = [];
+
+  for (const t of kandidater) {
+    try {
+      const res = await lag({ url: t.url, sok });
+      for (const l of res.lag.slice(0, 5)) {
+        funn.push({ tjeneste: t.url, utgiver: t.utgiver, lag: l.navn, tittel: l.tittel });
+      }
+    } catch {
+      feilet.push(t.url);
+    }
+  }
+
+  return {
+    sok,
+    sokteI: kandidater.length,
+    antallLagtreff: funn.length,
+    lag: funn.slice(0, 40),
+    // Named, not swallowed: a service that is down should not look like "no results".
+    tjenesterSomIkkeSvarte: feilet.length,
   };
 }
 
@@ -154,6 +207,20 @@ export const kart: Source = {
     termsUrl: "https://www.geonorge.no/verktoy/vilkar-for-bruk/",
   },
   tools: [
+    {
+      name: "finn",
+      title: "Kart: finn en karttjeneste uten å kjenne URL-en",
+      description:
+        "Søker i en indeks over norske WMS-tjenester høstet fra data.norge.no. " +
+        "Bruk denne FØRST når du leter etter kartdata (flomsoner, dybdedata, artsutbredelse ...) " +
+        "og ikke vet hvilken tjeneste som har dem. iLag=true søker også i selve lagnavnene " +
+        "(tregere første gang, men treffer bredere).",
+      inputSchema: {
+        sok: z.string().describe("F.eks. \"flom\", \"Artsdatabanken\", \"dybde\""),
+        iLag: z.boolean().optional().describe("Søk også i lagnavn inne i tjenestene"),
+      },
+      run: finn,
+    },
     {
       name: "lag",
       title: "Kart: hvilke lag finnes i en WMS-tjeneste?",

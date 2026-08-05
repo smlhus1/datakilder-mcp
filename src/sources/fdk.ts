@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { type Source } from "../source.js";
 
@@ -40,6 +41,7 @@ async function sok({ sok, katalog = "data-services", antall = 10 }: { sok: strin
   const d = await getJson<{ hits: Treff[]; page?: { totalElements?: number } }>(`${SEARCH}/${katalog}`, {
     method: "POST",
     body: { query: sok, pagination: { size: Math.min(antall, 50), page: 0 } },
+    cacheTtlMs: TTL.dag,
   });
 
   return {
@@ -61,7 +63,7 @@ async function sok({ sok, katalog = "data-services", antall = 10 }: { sok: strin
 }
 
 async function detaljer({ id, katalog = "data-services" }: { id: string; katalog?: Katalog }) {
-  const r = await getJson<Record<string, any>>(`${RESOURCE}/${katalog}/${encodeURIComponent(id)}`);
+  const r = await getJson<Record<string, any>>(`${RESOURCE}/${katalog}/${encodeURIComponent(id)}`, { cacheTtlMs: TTL.uke });
 
   const flat = (v: unknown): string[] => (Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : typeof v === "string" ? [v] : []);
 

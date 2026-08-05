@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { TTL } from "../cache.js";
 import { getJson } from "../http.js";
 import { type Source } from "../source.js";
 
@@ -33,7 +34,7 @@ interface StedsnavnSvar {
 
 async function sted({ sok, antall = 10 }: { sok: string; antall?: number }) {
   const p = new URLSearchParams({ sok, fuzzy: "true", treffPerSide: String(Math.min(antall, 50)) });
-  const d = await getJson<StedsnavnSvar>(`${STEDSNAVN}/navn?${p}`);
+  const d = await getJson<StedsnavnSvar>(`${STEDSNAVN}/navn?${p}`, { cacheTtlMs: TTL.maned });
   return {
     sok,
     totaltAntallTreff: d.metadata.totaltAntallTreff,
@@ -75,7 +76,7 @@ function tidyAdresser(d: AdresseSvar) {
 
 async function adresse({ sok, antall = 10 }: { sok: string; antall?: number }) {
   const p = new URLSearchParams({ sok, treffPerSide: String(Math.min(antall, 50)) });
-  const d = await getJson<AdresseSvar>(`${ADRESSER}/sok?${p}`);
+  const d = await getJson<AdresseSvar>(`${ADRESSER}/sok?${p}`, { cacheTtlMs: TTL.maned });
   return { sok, totaltAntallTreff: d.metadata.totaltAntallTreff, adresser: tidyAdresser(d) };
 }
 
@@ -86,7 +87,7 @@ async function adresseFraPunkt({ lat, lon, radius = 200 }: { lat: number; lon: n
     radius: String(Math.min(radius, 2000)),
     treffPerSide: "5",
   });
-  const d = await getJson<AdresseSvar>(`${ADRESSER}/punktsok?${p}`);
+  const d = await getJson<AdresseSvar>(`${ADRESSER}/punktsok?${p}`, { cacheTtlMs: TTL.maned });
   return { punkt: { lat, lon }, radius, adresser: tidyAdresser(d) };
 }
 
@@ -98,7 +99,7 @@ async function hoyde({ lat, lon }: { lat: number; lon: number }) {
   // Geonorge names the axes ost/nord, and with koordsys 4258 they are lon/lat —
   // easy to swap by accident, so the mapping is spelled out here.
   const p = new URLSearchParams({ ost: String(lon), nord: String(lat), koordsys: "4258" });
-  const d = await getJson<HoydeSvar>(`${HOYDE}/punkt?${p}`);
+  const d = await getJson<HoydeSvar>(`${HOYDE}/punkt?${p}`, { cacheTtlMs: TTL.maned });
   const punkt = d.punkter?.[0];
   return {
     posisjon: { lat, lon },

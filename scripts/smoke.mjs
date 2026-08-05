@@ -191,6 +191,22 @@ const CASES = [
     describe: (r) => `${r.totaltAntallTreff} API-treff, første: ${r.treff[0].utgiver}`,
   },
   {
+    tool: "kart_finn",
+    args: { sok: "flom" },
+    check: (r) => r.tjenester.length > 0,
+    describe: (r) => `"flom" → ${r.tjenester[0].utgiver} (av ${r.antallTjenesterIIndeks} tjenester)`,
+  },
+  {
+    // The composite must survive partial failure: every field is optional except
+    // that it answers at all.
+    tool: "sted_kontekst",
+    args: { lat: 59.1294, lon: 11.3794 },
+    check: (r) => r.kommunenummer === "3101" && typeof r.hoyde_moh === "number" && r.vaer,
+    describe: (r) =>
+      `${r.kommune}, ${r.hoyde_moh} moh, ${r.vaer.temp} °C, ${r.holdeplasser.length} holdeplasser` +
+      (r.mangler ? ` (mangler: ${r.mangler.length})` : ""),
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",

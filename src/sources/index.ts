@@ -4,6 +4,7 @@ import { brreg } from "./brreg.js";
 import { entur } from "./entur.js";
 import { eurostat } from "./eurostat.js";
 import { fdk } from "./fdk.js";
+import { stedskontekst } from "./kontekst.js";
 import { kart } from "./kart.js";
 import { kartverket } from "./kartverket.js";
 import { met } from "./met.js";
@@ -17,4 +18,4 @@ import { vegvesen } from "./vegvesen.js";
  * Nothing else in the server enumerates sources — tool registration, the
  * `kilder` overview and the attribution lines are all derived from this array.
  */
-export const SOURCES: Source[] = [ssb, brreg, met, kartverket, vegvesen, entur, kart, udir, artsdatabanken, eurostat, fdk];
+export const SOURCES: Source[] = [ssb, brreg, met, kartverket, vegvesen, entur, kart, udir, artsdatabanken, eurostat, fdk, stedskontekst];
