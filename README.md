@@ -88,12 +88,17 @@ ruter 404) · **DiBK** (404 + HTML-docs) · **DSB** (ingen åpne REST-API-er fun
 
 ## Bruk
 
+Ikke publisert på npm ennå — klon og bygg (verifisert fra en fersk klone 5.8.2026):
+
 ```bash
-npm install && npm run build
-npm run smoke        # kaller alle kildene mot ekte API-er
+git clone https://github.com/smlhus1/datakilder-mcp.git
+cd datakilder-mcp
+npm install          # installerer avhengigheter, ikke pakken selv
+npm run build
+npm run smoke        # valgfritt: kaller alle kildene mot ekte API-er
 ```
 
-MCP-klient (Claude Code, `.mcp.json`):
+MCP-klient (Claude Code, `.mcp.json`) — bruk absolutt sti til `dist/index.js`:
 ```json
 { "mcpServers": { "datakilder": { "command": "node", "args": ["<sti>/dist/index.js"] } } }
 ```
