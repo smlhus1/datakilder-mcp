@@ -106,6 +106,69 @@ const CASES = [
     describe: () => "avviser for stort kartutsnitt",
   },
   {
+    tool: "entur_stoppested",
+    args: { sok: "Halden stasjon", antall: 2 },
+    check: (r) => r.stoppesteder.some((s) => s.id.startsWith("NSR:")),
+    describe: (r) => `${r.stoppesteder[0].navn} → ${r.stoppesteder[0].id}`,
+  },
+  {
+    tool: "entur_avganger",
+    args: { stoppestedId: "NSR:StopPlace:337", antall: 2 },
+    check: (r) => r.avganger.length > 0 && r.avganger[0].forventet,
+    describe: (r) => `${r.stoppested}: ${r.avganger[0].linje} mot ${r.avganger[0].retning}`,
+  },
+  {
+    tool: "entur_avganger",
+    args: { stoppestedId: "Halden" },
+    expectError: /ser ikke ut som en Entur-id/,
+    describe: () => "avviser navn brukt som id",
+  },
+  {
+    tool: "kart_lag",
+    args: { url: "https://wms.geonorge.no/skwms1/wms.topo", sok: "topo" },
+    check: (r) => r.antallLag > 0 && r.stotterFeatureInfo,
+    describe: (r) => `${r.antallLag} lag, GetFeatureInfo: ja`,
+  },
+  {
+    tool: "kart_lag",
+    args: { url: "ikke-en-url" },
+    expectError: /gyldig URL/,
+    describe: () => "avviser ugyldig URL",
+  },
+  {
+    // The positive case for GetFeatureInfo: a coordinate must come back as real
+    // attributes, not just a well-formed empty answer.
+    tool: "kart_punkt",
+    args: {
+      url: "https://wms.geonorge.no/skwms1/wms.adm_enheter2",
+      lag: "kommuner",
+      lat: 59.1294,
+      lon: 11.3794,
+    },
+    check: (r) => r.svar.includes("3101"),
+    describe: () => "koordinat → kommunenummer 3101 (Halden)",
+  },
+  {
+    tool: "udir_skoler",
+    args: { navn: "Montessori", kommunenummer: "3101" },
+    check: (r) => r.antallTreff > 0,
+    describe: (r) => `${r.enheter[0].navn} (av ${r.totaltIRegisteret} enheter)`,
+  },
+  {
+    tool: "udir_skoler",
+    args: {},
+    expectError: /navn og\/eller kommunenummer/,
+    describe: () => "krever et filter (registeret er 20 000+)",
+  },
+  {
+    tool: "arter_art",
+    // Search is substring-based: "elg" also matches Elgiva divisa (a fly), so the
+    // assertion uses the scientific name rather than assuming the moose ranks first.
+    args: { sok: "Alces alces", antall: 3 },
+    check: (r) => r.arter.some((a) => /Alces alces/i.test(a.vitenskapeligNavn ?? "")),
+    describe: (r) => `${r.arter[0].norsktNavn ?? r.arter[0].vitenskapeligNavn} (${r.antallTreff} treff)`,
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",

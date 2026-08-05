@@ -59,7 +59,7 @@
       "id": "entur",
       "navn": "Entur — kollektivtrafikk (JourneyPlanner)",
       "tier": 1,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
       "hvorfor": "Familielogistikk i syncka-core. Ikke i FDK-katalogen, men åpent og godt dokumentert."
     },
@@ -67,39 +67,39 @@
       "id": "nve",
       "navn": "Norges vassdrags- og energidirektorat",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "37 API-er: vannføring, snø, strømpris-relatert."
+      "hvorfor": "BLOKKERT: hydapi.nve.no gir 401 — krever gratis API-nøkkel (registrering). Kartlagene (flomsoner m.m.) er allerede dekket av kart-verktøyene. Tas når nøkkel finnes."
     },
     {
       "id": "miljodir",
       "navn": "Miljødirektoratet — luftkvalitet m.m.",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "100 API-er (57 kartlag). Luftkvalitet er den nyttige biten."
+      "hvorfor": "BLOKKERT: katalogen peker på api-luftmalinger.miljodirektoratet.no/swagger, men den serverer ingen spec og /api/stations, /api/stasjoner og /api/v1/stations gir alle 404. Kartlagene dekkes av kart-verktøyene. Trenger dokumentasjon fra Miljødirektoratet."
     },
     {
       "id": "skatteetaten",
       "navn": "Skatteetaten",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": "usikker",
-      "hvorfor": "46 API-er, men de fleste krever autentisering/avtale. Må kartlegges før bygging."
+      "hvorfor": "BLOKKERT: alle registrerte API-er ligger som SwaggerHub-spec og krever Maskinporten-autentisering (virksomhetssertifikat). Ikke åpne data."
     },
     {
       "id": "dsb",
       "navn": "Direktoratet for samfunnssikkerhet og beredskap",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "Produktsikkerhet/tilsyn — relevant for Syncka som produsent."
+      "hvorfor": "IKKE FUNNET: ingen åpne REST-API-er lokalisert i katalogen. Elsmart/produktregister krever innlogging."
     },
     {
       "id": "udir",
       "navn": "Utdanningsdirektoratet",
       "tier": 2,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
       "hvorfor": "Skoledata — familie/Montessori-sporet."
     },
@@ -107,33 +107,33 @@
       "id": "artsdatabanken",
       "navn": "Artsdatabanken",
       "tier": 2,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "Artsobservasjoner. Nyttig og velformet API."
+      "hvorfor": "Artssøk bygget og verifisert (artskart.artsdatabanken.no — api.artsdatabanken.no finnes ikke). /observations 400-er på alle parameterkombinasjoner uten spec; kartlagene dekkes av kart-verktøyene."
     },
     {
       "id": "kystverket",
       "navn": "Kystverket",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "AIS/farled — 14 API-er."
+      "hvorfor": "DEKKET ANNET STED: Kystverkets registrerte API-er er WMS/WFS (maps.kystverket.cloudgis.no, services.kystverket.no) → allerede tilgjengelig via kart_lag/kart_punkt. AIS-sanntid ligger bak BarentsWatch-innlogging."
     },
     {
       "id": "dibk",
       "navn": "Direktoratet for byggkvalitet",
       "tier": 2,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "Byggesak/produktdokumentasjon."
+      "hvorfor": "BLOKKERT: sgregister.dibk.no/api/produkter gir 404 og apidocs er en HTML-side uten maskinlesbar spec. Trenger dokumentasjon."
     },
     {
       "id": "kart_wms",
       "navn": "Generisk WMS/WFS-klient (dekker 614 kartlag)",
       "tier": 2,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "Ett verktøy dekker 58 % av katalogen. GetCapabilities + GetFeature, ikke ett verktøy per lag."
+      "hvorfor": "Generisk WMS-klient bygget: kart_lag (GetCapabilities) + kart_punkt (GetFeatureInfo). Dekker de 614 kartlagene i katalogen. Verifisert mot Geonorge."
     },
     {
       "id": "eurostat",
