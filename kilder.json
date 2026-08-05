@@ -1,0 +1,243 @@
+{
+  "_om": "Arbeidsliste over norske datakilder. ENESTE sannhet for framdrift — hooken leser denne, rapporter genereres fra den. Sett status: todo | done | skipped.",
+  "sveip": {
+    "aktiv": true,
+    "_aktiv": "Når true blokkerer Stop-hooken avslutning så lenge det finnes todo i tier 1-2. Slå av for å jobbe med noe annet.",
+    "commit_hver": 5,
+    "_commit": "Commit + push til eget GH-repo for hver N ferdige kilder (Stians instruks 5.8)."
+  },
+  "grunnlag": {
+    "hentet": "2026-08-05",
+    "fdk_datasett": 9091,
+    "fdk_apier": 1063,
+    "fdk_organisasjoner": 65,
+    "andel_kart_wms_wfs": 0.58,
+    "merknad": "58 % av «API-ene» er WMS/WFS-kartlag — ett protokollmønster, ikke 614 integrasjoner. Dekkes av ett generisk verktøy, ikke ett per lag."
+  },
+  "kilder": [
+    {
+      "id": "ssb",
+      "navn": "Statistisk sentralbyrå (PxWebApi)",
+      "tier": 1,
+      "status": "done",
+      "nokkel": null,
+      "hvorfor": "Brukt i restverdi (tabell 08581). Dimensjonsmodellen er den dyreste å gjette."
+    },
+    {
+      "id": "brreg",
+      "navn": "Brønnøysundregistrene (Enhetsregisteret)",
+      "tier": 1,
+      "status": "done",
+      "nokkel": null,
+      "hvorfor": "CRM, leads, startup-sjekk, leverandørkontroll."
+    },
+    {
+      "id": "met",
+      "navn": "Meteorologisk institutt (Locationforecast m.m.)",
+      "tier": 1,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Kode finnes alt i vaeret/. 36 API-er, ingen kartlag — reell API-portefølje."
+    },
+    {
+      "id": "kartverket",
+      "navn": "Kartverket — stedsnavn, adresse, matrikkel",
+      "tier": 1,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Geokoding brukt i vaeret/. NB: 160 av 223 er kartlag; her menes de ekte REST-API-ene."
+    },
+    {
+      "id": "vegvesen",
+      "navn": "Statens vegvesen — Autosys kjøretøydata",
+      "tier": 1,
+      "status": "todo",
+      "nokkel": "SVV_API_KEY",
+      "hvorfor": "Restverdi-verktøyet venter på denne. Krever ID-porten-registrert nøkkel (gratis)."
+    },
+    {
+      "id": "entur",
+      "navn": "Entur — kollektivtrafikk (JourneyPlanner)",
+      "tier": 1,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Familielogistikk i syncka-core. Ikke i FDK-katalogen, men åpent og godt dokumentert."
+    },
+    {
+      "id": "nve",
+      "navn": "Norges vassdrags- og energidirektorat",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "37 API-er: vannføring, snø, strømpris-relatert."
+    },
+    {
+      "id": "miljodir",
+      "navn": "Miljødirektoratet — luftkvalitet m.m.",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "100 API-er (57 kartlag). Luftkvalitet er den nyttige biten."
+    },
+    {
+      "id": "skatteetaten",
+      "navn": "Skatteetaten",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": "usikker",
+      "hvorfor": "46 API-er, men de fleste krever autentisering/avtale. Må kartlegges før bygging."
+    },
+    {
+      "id": "dsb",
+      "navn": "Direktoratet for samfunnssikkerhet og beredskap",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Produktsikkerhet/tilsyn — relevant for Syncka som produsent."
+    },
+    {
+      "id": "udir",
+      "navn": "Utdanningsdirektoratet",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Skoledata — familie/Montessori-sporet."
+    },
+    {
+      "id": "artsdatabanken",
+      "navn": "Artsdatabanken",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Artsobservasjoner. Nyttig og velformet API."
+    },
+    {
+      "id": "kystverket",
+      "navn": "Kystverket",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "AIS/farled — 14 API-er."
+    },
+    {
+      "id": "dibk",
+      "navn": "Direktoratet for byggkvalitet",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Byggesak/produktdokumentasjon."
+    },
+    {
+      "id": "kart_wms",
+      "navn": "Generisk WMS/WFS-klient (dekker 614 kartlag)",
+      "tier": 2,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Ett verktøy dekker 58 % av katalogen. GetCapabilities + GetFeature, ikke ett verktøy per lag."
+    },
+    {
+      "id": "eurostat",
+      "navn": "Eurostat",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Brukt i restverdi (prisdrift CP0712). Ikke norsk, men samme bruksmønster."
+    },
+    {
+      "id": "ngu",
+      "navn": "Norges geologiske undersøkelse",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "78 API-er, mest kartlag. Lav egennytte."
+    },
+    {
+      "id": "hi",
+      "navn": "Havforskningsinstituttet",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "172 API-er, 152 er kartlag → dekkes av kart_wms."
+    },
+    {
+      "id": "nibio",
+      "navn": "Norsk institutt for bioøkonomi",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "44 API-er, mest kartlag."
+    },
+    {
+      "id": "sokkeldir",
+      "navn": "Sokkeldirektoratet",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "21 API-er, petroleumsdata."
+    },
+    {
+      "id": "riksantikvaren",
+      "navn": "Riksantikvaren",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Kulturminner."
+    },
+    {
+      "id": "fiskeridir",
+      "navn": "Fiskeridirektoratet",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "25 API-er (to org-oppføringer)."
+    },
+    {
+      "id": "polarinstituttet",
+      "navn": "Norsk Polarinstitutt",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "15 API-er."
+    },
+    {
+      "id": "landbruksdir",
+      "navn": "Landbruksdirektoratet",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "14 API-er."
+    },
+    {
+      "id": "digdir",
+      "navn": "Digitaliseringsdirektoratet",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Inkl. FDK selv — katalogsøk som fallback."
+    },
+    {
+      "id": "norgeibilder",
+      "navn": "Norge i bilder",
+      "tier": 3,
+      "status": "todo",
+      "nokkel": null,
+      "hvorfor": "Flyfoto, 10 API-er."
+    },
+    {
+      "id": "kommune_apier",
+      "navn": "Kommunale API-er (Fredrikstad, Kongsberg, Stavanger m.fl.)",
+      "tier": 4,
+      "status": "skipped",
+      "nokkel": null,
+      "hvorfor": "SKIPPET: ~40 kommuner med hver sine få datasett, ingen felles form. Ingen gjenbruksverdi — dekkes ved behov via katalogsøk."
+    },
+    {
+      "id": "ovrige_47_org",
+      "navn": "Øvrige 47 organisasjoner med 1-8 API-er hver",
+      "tier": 4,
+      "status": "skipped",
+      "nokkel": null,
+      "hvorfor": "SKIPPET som gruppe: lang hale. Tas enkeltvis hvis et konkret behov dukker opp."
+    }
+  ]
+}
