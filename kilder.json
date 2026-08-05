@@ -35,7 +35,7 @@
       "id": "met",
       "navn": "Meteorologisk institutt (Locationforecast m.m.)",
       "tier": 1,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
       "hvorfor": "Kode finnes alt i vaeret/. 36 API-er, ingen kartlag — reell API-portefølje."
     },
@@ -43,7 +43,7 @@
       "id": "kartverket",
       "navn": "Kartverket — stedsnavn, adresse, matrikkel",
       "tier": 1,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
       "hvorfor": "Geokoding brukt i vaeret/. NB: 160 av 223 er kartlag; her menes de ekte REST-API-ene."
     },
@@ -51,9 +51,9 @@
       "id": "vegvesen",
       "navn": "Statens vegvesen — Autosys kjøretøydata",
       "tier": 1,
-      "status": "todo",
+      "status": "done",
       "nokkel": "SVV_API_KEY",
-      "hvorfor": "Restverdi-verktøyet venter på denne. Krever ID-porten-registrert nøkkel (gratis)."
+      "hvorfor": "NVDB (åpen) bygget og verifisert. Autosys kjøretøydata gjenstår — 401 uten ID-porten-registrert nøkkel (SVV_API_KEY), tas når Stian har registrert den."
     },
     {
       "id": "entur",

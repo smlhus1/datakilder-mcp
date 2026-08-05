@@ -50,6 +50,62 @@ const CASES = [
     describe: (r) => `${r.totaltAntallTreff} treff, første: ${r.enheter[0].navn}`,
   },
   {
+    tool: "met_varsel",
+    args: { lat: 59.1265, lon: 11.3874, hoyde: 30, timer: 3 },
+    check: (r) => r.timer.length === 3 && typeof r.timer[0].temp === "number",
+    describe: (r) => `Halden nå: ${r.timer[0].temp} °C, ${r.timer[0].vind} m/s`,
+  },
+  {
+    tool: "met_farevarsel",
+    args: { lat: 59.1265, lon: 11.3874 },
+    check: (r) => typeof r.antall === "number",
+    describe: (r) => `${r.antall} farevarsel`,
+  },
+  {
+    // 5+ decimals is a hard 403 from MET; we round instead of passing through.
+    tool: "met_varsel",
+    args: { lat: 59.126512345, lon: 11.387498765, timer: 1 },
+    check: (r) => r.posisjon.lat === 59.1265,
+    describe: (r) => `runder av koordinater (${r.posisjon.lat})`,
+  },
+  {
+    tool: "kartverket_sted",
+    args: { sok: "Venabu", antall: 3 },
+    check: (r) => r.steder.length > 0 && typeof r.steder[0].lat === "number",
+    describe: (r) => `${r.steder[0].navn} (${r.steder[0].kommune})`,
+  },
+  {
+    tool: "kartverket_adresse",
+    args: { sok: "Forstrøms vei 17", antall: 1 },
+    check: (r) => r.adresser[0]?.poststed === "HALDEN",
+    describe: (r) => `${r.adresser[0].adresse}, ${r.adresser[0].poststed}`,
+  },
+  {
+    tool: "kartverket_hoyde",
+    args: { lat: 59.1294, lon: 11.3794 },
+    check: (r) => typeof r.hoyde_moh === "number",
+    describe: (r) => `${r.hoyde_moh} moh (${r.terreng})`,
+  },
+  {
+    tool: "vegvesen_objekttyper",
+    args: { sok: "fartsgrense" },
+    check: (r) => r.treff.some((t) => t.id === 105),
+    describe: (r) => `Fartsgrense = type ${r.treff.find((t) => t.id === 105).id} av ${r.totalt}`,
+  },
+  {
+    tool: "vegvesen_vegobjekter",
+    args: { type: 105, vest: 11.375, sor: 59.126, ost: 11.385, nord: 59.132, antall: 2 },
+    check: (r) => r.objekter.length > 0 && r.objekter[0].egenskaper.Fartsgrense,
+    describe: (r) => `${r.objekter[0].egenskaper.Fartsgrense} i ${r.objekter[0].veger?.[0]}`,
+  },
+  {
+    // A too-large bbox must fail with a sentence, not a 30 s hang.
+    tool: "vegvesen_vegobjekter",
+    args: { type: 105, vest: 5, sor: 58, ost: 12, nord: 62 },
+    expectError: /for stort/,
+    describe: () => "avviser for stort kartutsnitt",
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",
