@@ -83,7 +83,7 @@ async function detaljer({ id, katalog = "data-services" }: { id: string; katalog
 
 export const fdk: Source = {
   id: "fdk",
-  name: "Felles datakatalog (data.norge.no)",
+  name: "Felles datakatalog (data.norge.no) — kun oppslag, ikke datauttrekk",
   homepage: "https://data.norge.no/",
   requiresKeyEnv: null,
   attribution: {
@@ -94,10 +94,12 @@ export const fdk: Source = {
   tools: [
     {
       name: "sok",
-      title: "Datakatalogen: finnes det data om dette?",
+      title: "Datakatalogen: finn et API å bygge mot (henter IKKE data)",
       description:
-        "Søker i den nasjonale katalogen når ingen av de typede kildene dekker spørsmålet. " +
-        "Søk i \"data-services\" for API-er — datasett-oppføringer lenker ofte bare til en nettside.",
+        "Slår opp i den nasjonale katalogen når ingen typet kilde dekker spørsmålet. " +
+        "Returnerer METADATA — navn, utgiver, endepunkt — ikke data. " +
+        "94 % av katalogens datasett-lenker peker på en nettside, så bruk dette til å FINNE et API " +
+        "som fortjener en egen modul, ikke til å svare på et datasp\u00f8rsm\u00e5l.",
       inputSchema: {
         sok: z.string(),
         katalog: z.enum(["datasets", "data-services", "concepts", "information-models", "services"]).optional(),

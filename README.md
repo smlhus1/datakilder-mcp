@@ -23,7 +23,11 @@ uten distribusjon i det hele tatt:   10 av 60
 Discovery er den lette halvdelen. Den vanskelige er at hver kilde har sin egen spørreform:
 SSB er en kube med opake dimensjonskoder, Brreg er flat REST, MET krever User-Agent og
 koordinatavrunding, Entur er GraphQL. Det er den halvdelen denne serveren dekker.
-Katalogsøket ligger her også — som **fallback**, ikke som inngangsdør.
+
+**Derfor finnes det ikke noe `fetch_data`-verktøy her.** Et verktøy som laster ned hva enn en
+katalog-lenke peker på, laster i praksis ned en HTML-side 94 % av gangene. 10 av 11 kilder snakker
+direkte med det ekte API-et og returnerer strukturerte data. Den ellevte (`fdk`) er katalogoppslag
+som *finner et API å bygge mot* — den henter aldri data, og sier det selv i verktøybeskrivelsen.
 
 ## Hva kan du spørre om?
 
