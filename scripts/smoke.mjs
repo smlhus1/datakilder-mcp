@@ -76,9 +76,12 @@ const CASES = [
   },
   {
     tool: "kartverket_adresse",
-    args: { sok: "Forstrøms vei 17", antall: 1 },
-    check: (r) => r.adresser[0]?.poststed === "HALDEN",
-    describe: (r) => `${r.adresser[0].adresse}, ${r.adresser[0].poststed}`,
+    args: { sok: "Karl Johans gate 1", antall: 1 },
+    // Assert the contract, not the ranking: the same street name exists in several
+    // towns (first hit is Sarpsborg, not Oslo), and which one ranks first is not
+    // something this tool promises.
+    check: (r) => r.adresser[0]?.adresse === "Karl Johans gate 1" && typeof r.adresser[0].lat === "number",
+    describe: (r) => `${r.adresser[0].adresse}, ${r.adresser[0].poststed} (${r.totaltAntallTreff} treff)`,
   },
   {
     tool: "kartverket_hoyde",
@@ -169,6 +172,25 @@ const CASES = [
     describe: (r) => `${r.arter[0].norsktNavn ?? r.arter[0].vitenskapeligNavn} (${r.antallTreff} treff)`,
   },
   {
+    tool: "eurostat_info",
+    args: { datasett: "prc_hicp_midx" },
+    check: (r) => r.dimensjoner.some((d) => d.kode === "geo"),
+    describe: (r) => `${r.dimensjoner.length} dimensjoner`,
+  },
+  {
+    // Same json-stat2 parser as SSB — this case is what keeps the shared code honest.
+    tool: "eurostat_data",
+    args: { datasett: "prc_hicp_midx", filtre: { geo: "NO", coicop: "CP0712", unit: "I15" }, sisteperioder: 2 },
+    check: (r) => r.rader.length > 0 && typeof r.rader[0].verdi === "number",
+    describe: (r) => `bruktbil-indeks NO: ${r.rader.at(-1).verdi}`,
+  },
+  {
+    tool: "fdk_sok",
+    args: { sok: "luftkvalitet", katalog: "data-services", antall: 3 },
+    check: (r) => r.treff.length > 0,
+    describe: (r) => `${r.totaltAntallTreff} API-treff, første: ${r.treff[0].utgiver}`,
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",
@@ -177,6 +199,14 @@ const CASES = [
     describe: () => "avviser ugyldig orgnr med forklaring",
   },
 ];
+
+// fdk_detaljer needs an id from fdk_sok. Chaining beats hardcoding one that rots.
+const chained = async (byName) => {
+  const r = await byName.get("fdk_sok").run({ sok: "luftkvalitet", katalog: "data-services", antall: 1 });
+  const d = await byName.get("fdk_detaljer").run({ id: r.treff[0].id, katalog: "data-services" });
+  if (!d.endepunkt.length) throw new Error("ingen endepunkt-URL");
+  return `fdk_detaljer — ${d.endepunkt[0].slice(0, 52)}…`;
+};
 
 const byName = new Map();
 for (const s of SOURCES) for (const t of s.tools) byName.set(`${s.id}_${t.name}`, t);
@@ -210,5 +240,12 @@ for (const c of CASES) {
   }
 }
 
-console.log(failed ? `\n${failed} feilet` : `\nalle ${CASES.length} OK`);
+try {
+  console.log(`✓ ${await chained(byName)}`);
+} catch (err) {
+  console.log(`✗ fdk_detaljer — ${err.message}`);
+  failed++;
+}
+
+console.log(failed ? `\n${failed} feilet` : `\nalle ${CASES.length + 1} OK`);
 process.exit(failed ? 1 : 0);

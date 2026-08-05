@@ -139,7 +139,7 @@
       "id": "eurostat",
       "navn": "Eurostat",
       "tier": 3,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
       "hvorfor": "Brukt i restverdi (prisdrift CP0712). Ikke norsk, men samme bruksmønster."
     },
@@ -147,81 +147,81 @@
       "id": "ngu",
       "navn": "Norges geologiske undersøkelse",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "78 API-er, mest kartlag. Lav egennytte."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "hi",
       "navn": "Havforskningsinstituttet",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "172 API-er, 152 er kartlag → dekkes av kart_wms."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "nibio",
       "navn": "Norsk institutt for bioøkonomi",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "44 API-er, mest kartlag."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "sokkeldir",
       "navn": "Sokkeldirektoratet",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "21 API-er, petroleumsdata."
+      "hvorfor": "DEKKET AV kart: FactMaps-tjenestene er ArcGIS/OGC-kartlag. Petroleumsdata har lav nytte for Stians prosjekter."
     },
     {
       "id": "riksantikvaren",
       "navn": "Riksantikvaren",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "Kulturminner."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "fiskeridir",
       "navn": "Fiskeridirektoratet",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "25 API-er (to org-oppføringer)."
+      "hvorfor": "BLOKKERT: 10 ekte REST-registre finnes (akvakultur, kjøperregister), men endepunktene er ikke registrert i katalogen og api.fiskeridir.no gir 404 på gjettede ruter. Trenger dokumentasjon. Kartlagene dekkes av kart."
     },
     {
       "id": "polarinstituttet",
       "navn": "Norsk Polarinstitutt",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "15 API-er."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "landbruksdir",
       "navn": "Landbruksdirektoratet",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "14 API-er."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "digdir",
       "navn": "Digitaliseringsdirektoratet",
       "tier": 3,
-      "status": "todo",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "Inkl. FDK selv — katalogsøk som fallback."
+      "hvorfor": "FDK katalogsøk bygget som fallback (fdk_sok + fdk_detaljer). Det var slik de ekte endepunktene til Miljødirektoratet og Artsdatabanken ble funnet da gjetting feilet."
     },
     {
       "id": "norgeibilder",
       "navn": "Norge i bilder",
       "tier": 3,
-      "status": "todo",
+      "status": "skipped",
       "nokkel": null,
-      "hvorfor": "Flyfoto, 10 API-er."
+      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
     },
     {
       "id": "kommune_apier",

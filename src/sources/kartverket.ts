@@ -132,7 +132,7 @@ export const kartverket: Source = {
       name: "adresse",
       title: "Kartverket: søk opp adresse",
       description: "Finner offisielle adresser med postnummer, kommune og koordinater.",
-      inputSchema: { sok: z.string().describe("Fritekst, f.eks. \"Forstrøms vei 17\""), antall: z.number().int().min(1).max(50).optional() },
+      inputSchema: { sok: z.string().describe("Fritekst, f.eks. \"Karl Johans gate 1\""), antall: z.number().int().min(1).max(50).optional() },
       run: adresse,
     },
     {

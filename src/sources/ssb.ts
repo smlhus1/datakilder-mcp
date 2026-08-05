@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { getJson } from "../http.js";
+import { flattenJsonStat, type JsonStat2 } from "../jsonstat.js";
 import { SourceError, type Source } from "../source.js";
 
 /**
@@ -28,15 +29,6 @@ interface TableMeta {
     elimination?: boolean;
     time?: boolean;
   }>;
-}
-
-/** json-stat2: values are a flat array; dimensions carry the labels to read it by. */
-interface JsonStat2 {
-  label?: string;
-  value: Array<number | null>;
-  id: string[];
-  size: number[];
-  dimension: Record<string, { label?: string; category: { index: Record<string, number>; label?: Record<string, string> } }>;
 }
 
 async function tableInfo({ tabell }: { tabell: string }) {
@@ -95,40 +87,9 @@ async function tableData({ tabell, utvalg }: { tabell: string; utvalg: Array<{ k
     body,
   });
 
-  return { tabell, tittel: data.label, rader: flatten(data) };
+  return { tabell, tittel: data.label, rader: flattenJsonStat(data) };
 }
 
-/**
- * json-stat2 → plain rows.
- *
- * The API returns a flat value array plus the dimension sizes; a row's position
- * is a mixed-radix number over those sizes. Returning labelled rows means the
- * model never has to do that arithmetic — which it would get subtly wrong.
- */
-function flatten(data: JsonStat2): Array<Record<string, string | number | null>> {
-  const dims = data.id.map((id) => {
-    const d = data.dimension[id];
-    const byIndex: string[] = [];
-    for (const [code, i] of Object.entries(d.category.index)) {
-      byIndex[i] = d.category.label?.[code] ?? code;
-    }
-    return { id, label: d.label ?? id, byIndex };
-  });
-
-  const rows: Array<Record<string, string | number | null>> = [];
-  for (let flat = 0; flat < data.value.length; flat++) {
-    const row: Record<string, string | number | null> = {};
-    let rest = flat;
-    for (let d = dims.length - 1; d >= 0; d--) {
-      const size = data.size[d];
-      row[dims[d].label] = dims[d].byIndex[rest % size];
-      rest = Math.floor(rest / size);
-    }
-    row.verdi = data.value[flat];
-    rows.push(row);
-  }
-  return rows;
-}
 
 export const ssb: Source = {
   id: "ssb",
