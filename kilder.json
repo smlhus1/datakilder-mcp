@@ -67,9 +67,9 @@
       "id": "nve",
       "navn": "Norges vassdrags- og energidirektorat",
       "tier": 2,
-      "status": "skipped",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "BLOKKERT: hydapi.nve.no gir 401 — krever gratis API-nøkkel (registrering). Kartlagene (flomsoner m.m.) er allerede dekket av kart-verktøyene. Tas når nøkkel finnes."
+      "hvorfor": "Nettleietariffer bygget og verifisert — API-et var åpent hele tiden, men katalogoppføringen pekte på en Swagger-viser. Hydrologi-API-et krever fortsatt nøkkel; flomsonene nås via kart-verktøyene."
     },
     {
       "id": "miljodir",

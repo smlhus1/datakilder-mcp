@@ -207,6 +207,27 @@ const CASES = [
       (r.mangler ? ` (mangler: ${r.mangler.length})` : ""),
   },
   {
+    // Found only by reading a Swagger viewer page for its spec URL — the catalogue
+    // entry looked like documentation, not an API.
+    tool: "brreg_regnskap",
+    args: { orgnr: "923609016" },
+    check: (r) => r.aar.length > 0 && typeof r.aar[0].driftsinntekter === "number",
+    describe: (r) => `Equinor ${r.aar[0].fra?.slice(0, 4)}: ${(r.aar[0].driftsinntekter / 1e9).toFixed(1)} mrd`,
+  },
+  {
+    tool: "nve_nettleie",
+    args: { fraDato: "2026-07-01", tilDato: "2026-07-31", fylke: "Østfold" },
+    check: (r) => r.tariffer.length > 0,
+    describe: (r) => `${r.antallNettselskaper} nettselskap i Østfold`,
+  },
+  {
+    // NVE answers 422 with a JSON body, so a bad parameter arrives looking like data.
+    tool: "nve_nettleie",
+    args: { fraDato: "2026-07-01", tilDato: "2026-07-31", kundegruppe: 9 },
+    expectError: /avviste spørringen|Input should be/,
+    describe: () => "fanger 422-som-JSON i stedet for å levere den som data",
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",

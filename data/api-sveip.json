@@ -1,0 +1,3036 @@
+{
+ "hentet": "2026-08-05",
+ "antall": 234,
+ "kandidater": [
+  {
+   "tittel": "Åpent stedsnavn API fra Kartverket",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/stedsnavn/v1/openapi.json"
+   ],
+   "url": "https://ws.geonorge.no/stedsnavn/v1/openapi.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Search Api",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/search-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/search-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nøkkeltall fra årsregnskapet",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs",
+    "https://data.brreg.no/regnskapsregisteret/regnskap/swagger-ui/index.html"
+   ],
+   "url": "https://data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nettleietariffer",
+   "utgiver": "Norges vassdrags- og energidirektorat (nve)",
+   "urls": [
+    "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json"
+   ],
+   "url": "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Image API",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/image-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/image-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Audio API",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/audio-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/audio-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nasjonalt register for PP-tjenester (NPR) API",
+   "utgiver": "Utdanningsdirektoratet",
+   "urls": [
+    "https://data-npr.udir.no/swagger/v4/swagger.json"
+   ],
+   "url": "https://data-npr.udir.no/swagger/v4/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Turbulence",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/turbulence/2.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/turbulence/2.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "API: Lag egne datasett fra SSBs statistikkbank (PxWebApi)",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://data.ssb.no/api/v0/en"
+   ],
+   "url": "https://data.ssb.no/api/v0/en",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "MetAlerts",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/metalerts/2.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/metalerts/2.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "OED API",
+   "utgiver": "Norsk pensjon as",
+   "urls": [
+    "https://webservice.preprod.norskpensjon.no/oed/v3/api-docs"
+   ],
+   "url": "https://webservice.preprod.norskpensjon.no/oed/v3/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Spotwind",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/spotwind/1.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/spotwind/1.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "GREP API v201906",
+   "utgiver": "Utdanningsdirektoratet",
+   "urls": [
+    "https://data.udir.no/swagger/docs/201906"
+   ],
+   "url": "https://data.udir.no/swagger/docs/201906",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Tilda Deling av tilsynsdata - API",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://api.swaggerhub.com/apis/Altinn/data.altinn.no/1.0/"
+   ],
+   "url": "https://api.swaggerhub.com/apis/Altinn/data.altinn.no/1.0/",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Inntektsrammer for nettselskaper",
+   "utgiver": "Norges vassdrags- og energidirektorat (nve)",
+   "urls": [
+    "https://biapi.nve.no/inntektsrammer/swagger/v1/swagger.json"
+   ],
+   "url": "https://biapi.nve.no/inntektsrammer/swagger/v1/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Soundprofile",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/soundprofile/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/soundprofile/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Metgm",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/metgm/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/metgm/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Subjectiveforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/subjectiveforecast/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/subjectiveforecast/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Frost",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://frost.met.no/swagger.json"
+   ],
+   "url": "https://frost.met.no/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Airqualityforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/airqualityforecast/0.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/airqualityforecast/0.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Volcanicashforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/volcanicashforecast/0.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/volcanicashforecast/0.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Skattemelding upersonlig API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Arbeidsgiveravgift API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Inntekt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Aksjonær i virksomhet API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mva fastsetting API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mva-register – avgiftssubjekter med skattemeldingsplikt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-hendelser-api/1.1.1"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-hendelser-api/1.1.1",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Formuesgrunnlag for eiendomsskatt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Pensjonsgivendeinntekt for folketrygden API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Utleggstrekk API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mareano videostasjoner API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_stasjoner:videostasjoner_aarlig"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_stasjoner:videostasjoner_aarlig",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Gytefelt for hvitting, hyse, lyr og sei OGC API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/kystbestandskartlegging/ogc/features/v1"
+   ],
+   "url": "https://kart.hi.no/data/kystbestandskartlegging/ogc/features/v1",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Marine bentiske habitater - generelle biotoper - observerte forekomster OGC API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_sb:Biotoper_observerte_forekomster_for_modellering_2026_wgs84"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_sb:Biotoper_observerte_forekomster_for_modellering_2026_wgs84",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Sårbare marine bunndyr - observasjonsdata",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_biologi:saarbare_marine_bunndyr_observert"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_biologi:saarbare_marine_bunndyr_observert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Radon aktsomhet OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/radonaktsomhet"
+   ],
+   "url": "https://geo.ngu.no/api/features/radonaktsomhet",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Marin grense OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/maringrense"
+   ],
+   "url": "https://geo.ngu.no/api/features/maringrense",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Skattemelding API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Bunnsedimenter (dannelse), detaljert - Bunnsedimenter dannelse detaljert OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/bunnsedimentdannelsedetaljert"
+   ],
+   "url": "https://geo.ngu.no/api/features/bunnsedimentdannelsedetaljert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Løsmasser detaljert OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/losmassedetaljert"
+   ],
+   "url": "https://geo.ngu.no/api/features/losmassedetaljert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Gravbarhet OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/gravbarhet"
+   ],
+   "url": "https://geo.ngu.no/api/features/gravbarhet",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  }
+ ],
+ "resultater": [
+  {
+   "tittel": "Nordic Smart Government Reference API",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://nsg.fellesdatakatalog.brreg.no/v3/api-docs"
+   ],
+   "url": "https://nsg.fellesdatakatalog.brreg.no/v3/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "Kommunereform - API",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/kommunereform/v1/openapi.json"
+   ],
+   "url": "https://ws.geonorge.no/kommunereform/v1/openapi.json",
+   "forventet": "dokumentasjon",
+   "status": 403,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Åpne Data fra Enhetsregisteret - API Dokumentasjon",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://raw.githubusercontent.com/brreg/openAPI/master/specs/enhetsregisteret.json"
+   ],
+   "url": "https://raw.githubusercontent.com/brreg/openAPI/master/specs/enhetsregisteret.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "text/plain"
+  },
+  {
+   "tittel": "Åpent API fra Kartverket for administrative enheter.",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/kommuneinfo/v1/",
+    "https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json"
+   ],
+   "url": "https://ws.geonorge.no/kommuneinfo/v1/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Åpent stedsnavn API fra Kartverket",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/stedsnavn/v1/openapi.json"
+   ],
+   "url": "https://ws.geonorge.no/stedsnavn/v1/openapi.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Search Api",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/search-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/search-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nøkkeltall fra årsregnskapet",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs",
+    "https://data.brreg.no/regnskapsregisteret/regnskap/swagger-ui/index.html"
+   ],
+   "url": "https://data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Kompensasjonsordning for næringslivet etter august 2020 - API",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://data.brreg.no/kompensasjonsordning/api/open-api/v3/docs"
+   ],
+   "url": "https://data.brreg.no/kompensasjonsordning/api/open-api/v3/docs",
+   "forventet": "mulig-api",
+   "status": 500,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nettleietariffer",
+   "utgiver": "Norges vassdrags- og energidirektorat (nve)",
+   "urls": [
+    "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json"
+   ],
+   "url": "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Kompensasjonsordningen for innreisekarantene",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://data.brreg.no/kompensasjonsordning/innreise/api/open-api/v3/docs"
+   ],
+   "url": "https://data.brreg.no/kompensasjonsordning/innreise/api/open-api/v3/docs",
+   "forventet": "mulig-api",
+   "status": 500,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Image API",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/image-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/image-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Audio API",
+   "utgiver": "Vestland fylkeskommune",
+   "urls": [
+    "https://api.ndla.no/audio-api/api-docs"
+   ],
+   "url": "https://api.ndla.no/audio-api/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Nasjonalt register for PP-tjenester (NPR) API",
+   "utgiver": "Utdanningsdirektoratet",
+   "urls": [
+    "https://data-npr.udir.no/swagger/v4/swagger.json"
+   ],
+   "url": "https://data-npr.udir.no/swagger/v4/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Befolkning på rutenett 250 m - Befolkning på rutenett 250m WFS",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://ogc.ssb.no/wfs.ashx?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://ogc.ssb.no/wfs.ashx?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "NVDB Les (Nasjonal vegdatabank)",
+   "utgiver": "Statens vegvesen",
+   "urls": [
+    "https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/openapi/openapi.yaml"
+   ],
+   "url": "https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/openapi/openapi.yaml",
+   "forventet": "dokumentasjon",
+   "status": 400,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Turbulence",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/turbulence/2.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/turbulence/2.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Forenklet Elveg 2.0",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ogcapitest.kartverket.no/rest/services/forenklet_elveg_2_0/api?f=json"
+   ],
+   "url": "https://ogcapitest.kartverket.no/rest/services/forenklet_elveg_2_0/api?f=json",
+   "forventet": "mulig-api",
+   "status": 404,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "API: Lag egne datasett fra SSBs statistikkbank (PxWebApi)",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://data.ssb.no/api/v0/en"
+   ],
+   "url": "https://data.ssb.no/api/v0/en",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Felles datakatalogs organisasjonskatalog",
+   "utgiver": "Digitaliseringsdirektoratet",
+   "urls": [
+    "https://raw.githubusercontent.com/Informasjonsforvaltning/organization-catalog/main/src/main/resources/specification/organization-catalog.yaml"
+   ],
+   "url": "https://raw.githubusercontent.com/Informasjonsforvaltning/organization-catalog/main/src/main/resources/specification/organization-catalog.yaml",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/plain"
+  },
+  {
+   "tittel": "MetAlerts",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/metalerts/2.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/metalerts/2.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "OED API",
+   "utgiver": "Norsk pensjon as",
+   "urls": [
+    "https://webservice.preprod.norskpensjon.no/oed/v3/api-docs"
+   ],
+   "url": "https://webservice.preprod.norskpensjon.no/oed/v3/api-docs",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Kirkebygg - forenklet WFS",
+   "utgiver": "Barne- og familiedepartementet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.kirkebyggenkel?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.kirkebyggenkel?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Spotwind",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/spotwind/1.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/spotwind/1.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "INSPIRE Elevation Vector Elements WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.inspire-el-vec?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-el-vec?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - Benzo[a]pyren-nivåer WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/benzoapyren/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/benzoapyren/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Matrikkelen - Bygningspunkt WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.matrikkelen-bygningspunkt?service=WFS&Request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.matrikkelen-bygningspunkt?service=WFS&Request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Naturtyper - Sjøfjærbunn, predikert WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/magik/sjofjaerbunn_predikert/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/magik/sjofjaerbunn_predikert/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "GREP API v201906",
+   "utgiver": "Utdanningsdirektoratet",
+   "urls": [
+    "https://data.udir.no/swagger/docs/201906"
+   ],
+   "url": "https://data.udir.no/swagger/docs/201906",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Tilda Deling av tilsynsdata - API",
+   "utgiver": "Registerenheten i brønnøysund",
+   "urls": [
+    "https://api.swaggerhub.com/apis/Altinn/data.altinn.no/1.0/"
+   ],
+   "url": "https://api.swaggerhub.com/apis/Altinn/data.altinn.no/1.0/",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Menneskelig påvirkning -Trålspor per videotransekt WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/magik/menneske_traalspor/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/magik/menneske_traalspor/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Elvemuslingbasen - Elvemuslingdatabasen",
+   "utgiver": "Statsforvalteren",
+   "urls": [
+    "https://kart.gislink.no/arcgis/rest/services/Hosted/Elvemuslingbasen/FeatureServer"
+   ],
+   "url": "https://kart.gislink.no/arcgis/rest/services/Hosted/Elvemuslingbasen/FeatureServer",
+   "forventet": "mulig-api",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "Inntektsrammer for nettselskaper",
+   "utgiver": "Norges vassdrags- og energidirektorat (nve)",
+   "urls": [
+    "https://biapi.nve.no/inntektsrammer/swagger/v1/swagger.json"
+   ],
+   "url": "https://biapi.nve.no/inntektsrammer/swagger/v1/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "European Social Survey API",
+   "utgiver": "Sikt - kunnskapssektorens tjenesteleverandør",
+   "urls": [
+    "https://api.ess.sikt.no/docs"
+   ],
+   "url": "https://api.ess.sikt.no/docs",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Skredfaresoner WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Artskart rødlistearter WFS",
+   "utgiver": "Artsdatabanken",
+   "urls": [
+    "https://kart.artsdatabanken.no/WMS/artskart.aspx?version=1.0.0&service=WFS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://kart.artsdatabanken.no/WMS/artskart.aspx?version=1.0.0&service=WFS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Restriksjonsområde - Reindrift - Restriksjonslinje - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://reindrift.nibio.no/cgi-bin/reindrift?"
+   ],
+   "url": "https://reindrift.nibio.no/cgi-bin/reindrift?",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Artskart - funn av arter - Artskart fremmede arter WFS",
+   "utgiver": "Artsdatabanken",
+   "urls": [
+    "https://kart.artsdatabanken.no/WMS/artskartfa.aspx?version=1.0.0&service=WFS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://kart.artsdatabanken.no/WMS/artskartfa.aspx?version=1.0.0&service=WFS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Administrative områder vanndirektivet WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart3.miljodirektoratet.no/arcgis/services/vanndir_adm_omrader/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart3.miljodirektoratet.no/arcgis/services/vanndir_adm_omrader/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Værdata API",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/"
+   ],
+   "url": "https://api.met.no/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Norwegian Offshore Directorate - FactMapsData - Rørledninger",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/311"
+   ],
+   "url": "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/311",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Åpent API for høyde- og dybdedata",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/hoydedata/v1/"
+   ],
+   "url": "https://ws.geonorge.no/hoydedata/v1/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Norwegian Offshore Directorate - FactMapsData - Felt, status",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/502"
+   ],
+   "url": "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/502",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Administrative inndelinger REST-API",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/kommuneinfo/v1/"
+   ],
+   "url": "https://ws.geonorge.no/kommuneinfo/v1/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - Sum DDT-nivåer WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/ddt/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/ddt/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Vannmasser - Bunnstrøm, applikasjonstjeneste",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://marinegrunnkart.avinet.no/"
+   ],
+   "url": "https://marinegrunnkart.avinet.no/",
+   "forventet": "mulig-api",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "Høydedata - laser - Nasjonal høydemodell Digital overflatemodell 25835 WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dom-nhm-25835?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dom-nhm-25835?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Kulturminner - SEFRAK-bygninger OGC API - Features",
+   "utgiver": "Riksantikvaren",
+   "urls": [
+    "https://api.ra.no/KulturminnerSEFRAKbygninger"
+   ],
+   "url": "https://api.ra.no/KulturminnerSEFRAKbygninger",
+   "forventet": "mulig-api",
+   "status": 502,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Høydedata - laser - Topobaty nasjonal detaljert terrengmodell 25835 WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-nhm-topobathy-25835?request=getcapabilities&service=wms"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-nhm-topobathy-25835?request=getcapabilities&service=wms",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Norwegian Offshore Directorate - FactMapsData - Lisensiering APA brutto",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/603"
+   ],
+   "url": "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/603",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Norge digitalt - tjeneste 2013",
+   "utgiver": "",
+   "urls": [
+    "http://wms.server.no/wms.tjeneste?"
+   ],
+   "url": "http://wms.server.no/wms.tjeneste?",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "Innsjødatabase WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Innsjodatabase2/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Innsjodatabase2/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Soundprofile",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/soundprofile/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/soundprofile/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Matrikkelen Enkel WMS gråtone",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.matrikkelgraatone?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.matrikkelgraatone?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Metgm",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/metgm/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/metgm/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "separat_alle",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/geoserver/petroleumsaktivitet_rammer/wms?service=wms&version=1.1.1&request=getcapabilities"
+   ],
+   "url": "https://kart.miljodirektoratet.no/geoserver/petroleumsaktivitet_rammer/wms?service=wms&version=1.1.1&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/vnd.ogc.wms_xml"
+  },
+  {
+   "tittel": "Artskart rødlistearter WMS",
+   "utgiver": "Artsdatabanken",
+   "urls": [
+    "https://kart.artsdatabanken.no/WMS/artskart.aspx?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.artsdatabanken.no/WMS/artskart.aspx?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Subjectiveforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/subjectiveforecast/1.0/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/subjectiveforecast/1.0/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Frost",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://frost.met.no/swagger.json"
+   ],
+   "url": "https://frost.met.no/swagger.json",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Digitale ortofoto - Norge i bilder WMS-Mosaikk",
+   "utgiver": "Norge i bilder",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.nib-mosaikk?SERVICE=WMS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.nib-mosaikk?SERVICE=WMS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/vnd.ogc.se_xml"
+  },
+  {
+   "tittel": "Airqualityforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/airqualityforecast/0.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/airqualityforecast/0.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Hornkoraller - Isidella lofotensis WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/hornkorall_isidella_lofotensis/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/hornkorall_isidella_lofotensis/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Arter funksjonsområder WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/arcgis/services/artfunksjon/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/artfunksjon/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "INSPIRE Transport Network Water WFS",
+   "utgiver": "Kystverket",
+   "urls": [
+    "http://wfs.geonorge.no/skwms1/wfs.inspire-tn-w?service=WFS&Version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "http://wfs.geonorge.no/skwms1/wfs.inspire-tn-w?service=WFS&Version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "WMS- Kartdata- Tinn",
+   "utgiver": "Kartverket",
+   "urls": [
+    "https://wms.gisline.no/WMS-Tinn/?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.gisline.no/WMS-Tinn/?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Friluftslivsområder - statlig sikra  WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_statlig_sikra/mapserver/WMSServer?service=wms&request=getcapabilities"
+   ],
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_statlig_sikra/mapserver/WMSServer?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Støysoner for Forsvarets skyte- og øvingsfelt WFS",
+   "utgiver": "Forsvarsbygg",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.stoy_skytebane?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.stoy_skytebane?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dybdedata - kurver generaliserte WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.dybdekurver_havomraader?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.dybdekurver_havomraader?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dyrkingspotensial gras og korn",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/produksjonspotensial?"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/produksjonspotensial?",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "WMS- Kartdata- Notodden",
+   "utgiver": "Kartverket",
+   "urls": [
+    "http://wms.gisline.no/wms-notodden"
+   ],
+   "url": "http://wms.gisline.no/wms-notodden",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Undersøkelser, alle",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/420"
+   ],
+   "url": "https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/420",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Georef Nib",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.georef_nib?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.georef_nib?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Årstidsbeite - Sommerbeite - WFS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wfs02.nibio.no/cgi-bin/rein/sommerbeite?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs02.nibio.no/cgi-bin/rein/sommerbeite?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Forsvarets skyte- og øvingsfelt land WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.skytefelt?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.skytefelt?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Kirkebygg - forenklet WMS",
+   "utgiver": "Barne- og familiedepartementet",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.kirkebyggforenklet?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.kirkebyggforenklet?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Norsk",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://openwms.statkart.no/skwms1/wms.ssr2?service=wms&request=GetCapabilities"
+   ],
+   "url": "https://openwms.statkart.no/skwms1/wms.ssr2?service=wms&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "Dybdedata skyggerelieff grå WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.havbunnraster3?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.havbunnraster3?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Støysoner for Forsvarets flyplasser WMS",
+   "utgiver": "Forsvarsbygg",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.stoysonerforsvaretsflyplasser?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.stoysonerforsvaretsflyplasser?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "SR16-beta - Skogressurskart 16x16 meter betaversjon",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/sr16_beta?VERSION=1.3.0&SERVICE=WMS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/sr16_beta?VERSION=1.3.0&SERVICE=WMS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "GEBCO skyggerelief WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.gebco_skyggerelieff?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.gebco_skyggerelieff?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "BarentsWatch FiskInfo",
+   "utgiver": "Barentswatch",
+   "urls": [
+    "https://www.barentswatch.no/fiskinfo/"
+   ],
+   "url": "https://www.barentswatch.no/fiskinfo/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Hovedøkosystemer i Norge - versjon 1 WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart2.miljodirektoratet.no/arcgis/services/hovedokosystem/hovedokosystem/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart2.miljodirektoratet.no/arcgis/services/hovedokosystem/hovedokosystem/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Hornkoraller - Primnoa resedaeformis WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/hornkorall_primnoa_resedaeformis/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/hornkorall_primnoa_resedaeformis/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "INSPIRE Sea regions WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.inspire_sr?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.inspire_sr?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Stedsnavn (komplett SSR) - Stedsnavn søketjeneste !!UTGÅTT!!",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/SKWS3Index/ssr/sok?"
+   ],
+   "url": "https://ws.geonorge.no/SKWS3Index/ssr/sok?",
+   "forventet": "mulig-api",
+   "status": 403,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Grønn infrastruktur WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://image001.miljodirektoratet.no/arcgis/services/gronn_infrastruktur/gronn_infrastruktur/MapServer/WMSServer"
+   ],
+   "url": "https://image001.miljodirektoratet.no/arcgis/services/gronn_infrastruktur/gronn_infrastruktur/MapServer/WMSServer",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "WMS_XML"
+  },
+  {
+   "tittel": "Vannmasser - Overflatetemperatur WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/magik/overflatetemperatur_gjennomsnitt/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/magik/overflatetemperatur_gjennomsnitt/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Samebyrettsavgjørelse - WFS",
+   "utgiver": "Landbruksdirektoratet",
+   "urls": [
+    "https://wfs02.nibio.no/cgi-bin/rein/samebyrettsavgjorelse?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://wfs02.nibio.no/cgi-bin/rein/samebyrettsavgjorelse?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - PAH16-nivåer WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/pah16/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/pah16/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "INSPIRE Cadastral Parcels WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.inspire-cp?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-cp?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "HC-plasser i Oslo - Bymiljøetaten sin WFS tjeneste",
+   "utgiver": "Oslo kommune",
+   "urls": [
+    "https://geoserver.data.oslo.systems/geoserver/bym/ows?service=WFS&version=1.0.0&request=GetCapabilities"
+   ],
+   "url": "https://geoserver.data.oslo.systems/geoserver/bym/ows?service=WFS&version=1.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "uåpnbar"
+  },
+  {
+   "tittel": "INSPIRE Geographical Names WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.inspire-gn?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-gn?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Arealreserver i kommuneplan WMS - SSB",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wms/arealreserver_i_kommuneplan?service=WMS&version=1.3.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wms/arealreserver_i_kommuneplan?service=WMS&version=1.3.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Miljøregisteringer i skog - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/mis?request=getcapabilities&service=wms"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/mis?request=getcapabilities&service=wms",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Helling jordbruksareal - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/helling?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/helling?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Nasjonale laksefjorder WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.laksefjorder?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.laksefjorder?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Kulturminner - Kulturmiljøer WFS",
+   "utgiver": "Riksantikvaren",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.kulturmiljoer?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.kulturmiljoer?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - THC-nivåer WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/thc/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/thc/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Administrative enheter WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.administrative_enheter?&service=WFS&acceptversions=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.administrative_enheter?&service=WFS&acceptversions=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "marin_vp_oppstart",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "http://wms.miljodirektoratet.no/geoserver/marin_verneplan/wms?service=wms&version=1.1.1&request=getcapabilities"
+   ],
+   "url": "http://wms.miljodirektoratet.no/geoserver/marin_verneplan/wms?service=wms&version=1.1.1&request=getcapabilities",
+   "forventet": "kart",
+   "status": 500,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Samlevedtak trukket tilbake WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.ssr2?service=wms&request=GetCapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.ssr2?service=wms&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Bakgrunnskart for Matrikkelen WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.matrikkel_bakgrunn2/?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.matrikkel_bakgrunn2/?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Digital overflatemodell prosjekt WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dom-prosjekt?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dom-prosjekt?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Topografisk Norgeskart WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.topo?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.topo?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Naturtyper - Elvedelta ArcGisREST",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart2.miljodirektoratet.no/arcgis/rest/services/elvedelta/MapServer"
+   ],
+   "url": "https://kart2.miljodirektoratet.no/arcgis/rest/services/elvedelta/MapServer",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Matrikkelen, Norges offisielle eiendomsregister - Matrikkelen WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://www.matrikkel.no/geoservergeo/wfs/MATRIKKEL?VERSION=1.1.0&SERVICE=WFS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://www.matrikkel.no/geoservergeo/wfs/MATRIKKEL?VERSION=1.1.0&SERVICE=WFS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 401,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Tare - høstefelt WFS",
+   "utgiver": "Fiskeridirektoratet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.tarehostefelt?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.tarehostefelt?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Restriksjonsområde - WFS",
+   "utgiver": "Landbruksdirektoratet",
+   "urls": [
+    "https://wfs02.nibio.no/cgi-bin/rein/reinrestriksjonsomrade?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs02.nibio.no/cgi-bin/rein/reinrestriksjonsomrade?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "INSPIRE LandCoverVector WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.inspire-lcv?service=WFS&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.inspire-lcv?service=WFS&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Forsvarets skyte- og øvingsfelt i sjø WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.ovingsfeltsjo?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.ovingsfeltsjo?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sjøkart - Dybdedata - Sjøkart - datakvalitet dybdedata WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.sjokart_datakvalitet?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.sjokart_datakvalitet?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Søketjeneste for stedsnavn",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://ws.geonorge.no/stedsnavn/v1/"
+   ],
+   "url": "https://ws.geonorge.no/stedsnavn/v1/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Glassvampsamfunn WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/polygon_glassvampbestander/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/polygon_glassvampbestander/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Brannalarmsentraler WFS",
+   "utgiver": "Direktoratet for samfunnssikkerhet og beredskap",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.brannalarmsentraler?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.brannalarmsentraler?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "FKB-TraktorvegSti - Traktorveg og Skogsbilveg WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.traktorveg_skogsbilveger?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.traktorveg_skogsbilveger?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Tilgjengelighet WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.tilgjengelighet3?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.tilgjengelighet3?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Svampskog WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/polygon_hardbunnssvampsamfunn/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/polygon_hardbunnssvampsamfunn/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Volcanicashforecast",
+   "utgiver": "Meteorologisk institutt",
+   "urls": [
+    "https://api.met.no/weatherapi/volcanicashforecast/0.1/swagger"
+   ],
+   "url": "https://api.met.no/weatherapi/volcanicashforecast/0.1/swagger",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Digitale ortofoto - Norge i bilder WMS-Ortofoto",
+   "utgiver": "Norge i bilder",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.nib?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.nib?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/vnd.ogc.se_xml"
+  },
+  {
+   "tittel": "Norges maritime grenser - Avtalt avgrensningslinje for kontinentalsokkel",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "http://wms.geonorge.no/skwms1/wms.nmg?"
+   ],
+   "url": "http://wms.geonorge.no/skwms1/wms.nmg?",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Høydedata - laser - Nasjonal høydemodell Digital overflatemodell 25832 WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dom-nhm-25832?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dom-nhm-25832?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "INSPIRE Buildings WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.inspire_bu?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.inspire_bu?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Kulturminner - Brukerminner WMS",
+   "utgiver": "Riksantikvaren",
+   "urls": [
+    "https://kart.ra.no/wms/brukerminner?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+   ],
+   "url": "https://kart.ra.no/wms/brukerminner?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Tilgjengelighet WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.tilgjengelighet?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.tilgjengelighet?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Befolkning på rutenett WFS, fra kart.ssb.no",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wfs/tettsteder?service=WFS&version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wfs/tettsteder?service=WFS&version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dumpefelt i sjø (forurenset sjøbunn) WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.dumpefelt_sjo?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.dumpefelt_sjo?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Hornkoraller - Paramuricea placomus WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/hornkorall_paramuricea_placomus/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/hornkorall_paramuricea_placomus/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Digital overflatemodell WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dom?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dom?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høyde DTM Sømløs WCS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wcs.geonorge.no/skwms1/wcs.hoyde-dtm_somlos"
+   ],
+   "url": "https://wcs.geonorge.no/skwms1/wcs.hoyde-dtm_somlos",
+   "forventet": "mulig-api",
+   "status": 400,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "NP Basiskart Svalbard WMS",
+   "utgiver": "Norsk Polarinstitutt",
+   "urls": [
+    "https://geodata.npolar.no/arcgis/services/Basisdata/NP_Basiskart_Svalbard_WMS/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://geodata.npolar.no/arcgis/services/Basisdata/NP_Basiskart_Svalbard_WMS/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Vindressurser WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Vindressurser/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Vindressurser/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "planregister",
+   "utgiver": "Eidsvoll kommune",
+   "urls": [
+    "https://www.arealplaner.no/eidsvoll3240/arealplaner/search"
+   ],
+   "url": "https://www.arealplaner.no/eidsvoll3240/arealplaner/search",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Forsvarets skyte- og øvingsfelt land WFS",
+   "utgiver": "Forsvarsbygg",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.forsvarets_skyteogovingsfelt?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.forsvarets_skyteogovingsfelt?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "NP Basiskart Svalbard WMTS 3857",
+   "utgiver": "Norsk Polarinstitutt",
+   "urls": [
+    "https://geodata.npolar.no/arcgis/rest/services/Basisdata/NP_Basiskart_Svalbard_WMTS_3857/MapServer/WMTS/1.0.0/WMTSCapabilities.xml?"
+   ],
+   "url": "https://geodata.npolar.no/arcgis/rest/services/Basisdata/NP_Basiskart_Svalbard_WMTS_3857/MapServer/WMTS/1.0.0/WMTSCapabilities.xml?",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Akvakultur - lokaliteter WFS",
+   "utgiver": "Fiskeridirektoratet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.akvakulturlokaliteter?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.akvakulturlokaliteter?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "SAT-SKOG - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/satskog?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/satskog?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Fjordlinjer - Kysttorskregulering WFS",
+   "utgiver": "Fiskeridirektoratet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.fjordlinjer?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.fjordlinjer?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Markagrensen WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.markagrensen?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.markagrensen?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Digital terrengmodell lokal høyde farge WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-lokal-hoyde-farge?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-lokal-hoyde-farge?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "DSBs WMS-tjenester",
+   "utgiver": "Direktoratet for samfunnssikkerhet og beredskap",
+   "urls": [
+    "https://ogc.dsb.no/wms.ashx?SERVICE=WMS&REQUEST=GetCapabilities&version=1.3.0"
+   ],
+   "url": "https://ogc.dsb.no/wms.ashx?SERVICE=WMS&REQUEST=GetCapabilities&version=1.3.0",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Artskart fremmede arter WMS",
+   "utgiver": "Artsdatabanken",
+   "urls": [
+    "https://kart.artsdatabanken.no/WMS/artskartfa.aspx?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.artsdatabanken.no/WMS/artskartfa.aspx?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Havvind WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Havvind/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Havvind/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Oppsamlingsområde - WFS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wfs02.nibio.no/cgi-bin/rein/oppsamlingsomrade?Service=WFS&Request=GetCapabilities"
+   ],
+   "url": "https://wfs02.nibio.no/cgi-bin/rein/oppsamlingsomrade?Service=WFS&Request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Barkbilleovervåking",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/barkbille?request=getcapabilities&service=wms"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/barkbille?request=getcapabilities&service=wms",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Aktsomhetskart for kvikkleireskred WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/KvikkleireskredAktsomhet/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/KvikkleireskredAktsomhet/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sårbare områder WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart2.miljodirektoratet.no/arcgis/services/sarbare_omrader/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart2.miljodirektoratet.no/arcgis/services/sarbare_omrader/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Vannstandsdata og vannstandsinformasjon - Vannstand API",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://vannstand.kartverket.no/tideapi_no.html"
+   ],
+   "url": "https://vannstand.kartverket.no/tideapi_no.html",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Kystbestandskartlegging Gytefelt torsk MB - WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/utbredelseskart/kysttorsk/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/data/utbredelseskart/kysttorsk/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Barmarksløyper i Finnmark WFS",
+   "utgiver": "Statsforvalteren",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.barmarksloyper?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.barmarksloyper?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - BDE-209-nivåer WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/bde209/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/bde209/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Høyde DOM 10 (UTM33) WCS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wcs.hoyde-dom10_33?request=GetCapabilities&service=WCS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wcs.hoyde-dom10_33?request=GetCapabilities&service=WCS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/vnd.ogc.se_xml"
+  },
+  {
+   "tittel": "Søketjeneste for åpne data (DCAT)",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "http://api.geonorge.no/metadata/dcat"
+   ],
+   "url": "http://api.geonorge.no/metadata/dcat",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/rdf+xml"
+  },
+  {
+   "tittel": "Kulturminner - Brannvern OGC API - Features",
+   "utgiver": "Riksantikvaren",
+   "urls": [
+    "https://api.ra.no/brannvern"
+   ],
+   "url": "https://api.ra.no/brannvern",
+   "forventet": "mulig-api",
+   "status": 502,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Indigenous peoples of the Arctic counties",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.arctic_people?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.arctic_people?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Reindrift - Årstidsbeite - Vårbeite - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://reindrift.nibio.no/cgi-bin/reindrift?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://reindrift.nibio.no/cgi-bin/reindrift?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "WMS- Kartdata- Midt- Telemark",
+   "utgiver": "Nome kommune",
+   "urls": [
+    "http://clusterB.gisline.no/wms-mt"
+   ],
+   "url": "http://clusterB.gisline.no/wms-mt",
+   "forventet": "kart",
+   "status": 401,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Hoved- og biled",
+   "utgiver": "Kystverket",
+   "urls": [
+    "https://services.kystverket.no/wms.ashx?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://services.kystverket.no/wms.ashx?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høyde DOM Sømløs WCS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wcs.geonorge.no/skwms1/wcs.hoyde-dom_somlos"
+   ],
+   "url": "https://wcs.geonorge.no/skwms1/wcs.hoyde-dom_somlos",
+   "forventet": "mulig-api",
+   "status": 400,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Kulturminner - Lokaliteter, Enkeltminner og Sikringssoner OGC API - Features",
+   "utgiver": "Riksantikvaren",
+   "urls": [
+    "https://api.ra.no/LokaliteterEnkeltminnerOgSikringssoner"
+   ],
+   "url": "https://api.ra.no/LokaliteterEnkeltminnerOgSikringssoner",
+   "forventet": "mulig-api",
+   "status": 502,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Steinsprang - aktsomhetsområder - Steinsprang - Atksomhetsområder WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/SkredSteinAktR/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/SkredSteinAktR/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sivilforsvarsdistrikter WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.sivilforsvarsdistrikter?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.sivilforsvarsdistrikter?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Svalbard Matrikkel Gråtone2 WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.svalbard_graatone2?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.svalbard_graatone2?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - Naftalen-nivåer WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/naftalen/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/naftalen/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Miljøtilstand i vann - Vannmiljø WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart3.miljodirektoratet.no/arcgis/services/vannmiljo/MapServer/WMSServer?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://kart3.miljodirektoratet.no/arcgis/services/vannmiljo/MapServer/WMSServer?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Friluftslivets ferdselsårer - dekningskart WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart2.miljodirektoratet.no/arcgis/services/friluftsliv_ferdselsareplan_dekning/MapServer/WMSServer?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+   ],
+   "url": "https://kart2.miljodirektoratet.no/arcgis/services/friluftsliv_ferdselsareplan_dekning/MapServer/WMSServer?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Nasjonal høydemodell Digital overflatemodell 25835 WCS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wcs.geonorge.no/skwms1/wcs.hoyde-dom-nhm-25835?service=wcs&request=getcapabilities"
+   ],
+   "url": "https://wcs.geonorge.no/skwms1/wcs.hoyde-dom-nhm-25835?service=wcs&request=getcapabilities",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Fiskeridirektoratets WFS",
+   "utgiver": "Fiskeridirektoratet",
+   "urls": [
+    "https://gis.fiskeridir.no/server/services/FiskeridirWFS/MapServer/WFSServer?SERVICE=WFS&REQUEST=GetCapabilities"
+   ],
+   "url": "https://gis.fiskeridir.no/server/services/FiskeridirWFS/MapServer/WFSServer?SERVICE=WFS&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Naturtyper på land og i ferskvann (HB13) WMS",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_hb13/mapserver/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_hb13/mapserver/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - Dieldrin-nivåer WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/dieldrin/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/dieldrin/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - PAH16-nivåer WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/pah16/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/pah16/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Referansedata - Videostasjoner WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.referansedata_videostasjoner?service=WFS&Version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.referansedata_videostasjoner?service=WFS&Version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Artsutbredelse WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/utbredelseskart/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/data/utbredelseskart/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Bygninger på rutenett WMS",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wms/bygninger_paa_rutenett?service=WMS&version=1.3.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wms/bygninger_paa_rutenett?service=WMS&version=1.3.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Organiske miljøgifter i marine sedimenter - Pyren-nivåer WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_kjemi/pyren/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_kjemi/pyren/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "INSPIRE - Protected Sites WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.protectedsites?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.protectedsites?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Statlige planretningslinjer for differensiert forvaltning av strandsonen langs sjøen WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.spr_strandsoner?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.spr_strandsoner?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Gyteområder WFS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.gyteomrader?service=wfs&request=getcapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.gyteomrader?service=wfs&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Statistisk havisfrekvens for Arktis for de siste 30 år (1996 - 2025)",
+   "utgiver": "Norsk Polarinstitutt",
+   "urls": [
+    "https://geodata.npolar.no/arcgis/services/Temadata/I_Isfrekvens_EPSG3575/MapServer/WFSServer?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://geodata.npolar.no/arcgis/services/Temadata/I_Isfrekvens_EPSG3575/MapServer/WFSServer?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "DTM1 Atom feed-tjeneste",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://nedlasting.geonorge.no/geonorge/ATOM/hoydedata/Hoydedata_ServiceFeed.atom"
+   ],
+   "url": "https://nedlasting.geonorge.no/geonorge/ATOM/hoydedata/Hoydedata_ServiceFeed.atom",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/atom+xml"
+  },
+  {
+   "tittel": "Naturtyper - utvalgte WMS2",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_utvalgte2/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.miljodirektoratet.no/arcgis/services/naturtyper_utvalgte2/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sikringstiltak i vassdrag WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Sikringstiltak2/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Sikringstiltak2/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dyrehold med produksjonsdyr - Mattilsynet - Varsomhetsområder for innsjøer",
+   "utgiver": "Mattilsynet",
+   "urls": [
+    "https://kart.mattilsynet.no/wmscache/service?Request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.mattilsynet.no/wmscache/service?Request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Følsomme områder (Avløpsdirektivet) - Miljødirektoratet Inspire atom feed",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://nedlasting.miljodirektoratet.no/Inspire/ATOM/Miljodir_INSPIRE_ServiceFeed.xml"
+   ],
+   "url": "https://nedlasting.miljodirektoratet.no/Inspire/ATOM/Miljodir_INSPIRE_ServiceFeed.xml",
+   "forventet": "mulig-api",
+   "status": 404,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Potensielt tilgjengelig strandsone WFS",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wfs/potensielt_tilgjengelig_strandsone?service=WFS&version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wfs/potensielt_tilgjengelig_strandsone?service=WFS&version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dyrehold med produksjonsdyr - Mattilsynets WMS",
+   "utgiver": "Mattilsynet",
+   "urls": [
+    "https://kart.mattilsynet.no/wmscache/service?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://kart.mattilsynet.no/wmscache/service?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Dyrkbar jord - WMS",
+   "utgiver": "Geovekst",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/dyrkbarjord_2?service=wms&request=getcapabilities"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/dyrkbarjord_2?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Bygninger på rutenett  WFS",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wfs/bygninger_paa_rutenett?service=WFS&version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wfs/bygninger_paa_rutenett?service=WFS&version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Vekstsesong - WMS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wms.nibio.no/cgi-bin/vekstsesong?request=getcapabilities&service=wms"
+   ],
+   "url": "https://wms.nibio.no/cgi-bin/vekstsesong?request=getcapabilities&service=wms",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Gassoppkommer - Marine gassoppkommer WMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/mapserver/MarinGassoppkommerWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0"
+   ],
+   "url": "https://geo.ngu.no/mapserver/MarinGassoppkommerWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Høydedata - laser - Digital terrengmodell prosjekt punkttetthet WMS",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-prosjekt-punkttetthet?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://wms.geonorge.no/skwms1/wms.hoyde-dtm-prosjekt-punkttetthet?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Skattemelding upersonlig API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Matrikkelen - Eiendomskart Teig - Eiendom REST-API for lokalisering",
+   "utgiver": "Statens kartverk",
+   "urls": [
+    "https://api.kartverket.no/eiendom/v1/"
+   ],
+   "url": "https://api.kartverket.no/eiendom/v1/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Arbeidsgiveravgift API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Faresonekart for skred i bratt terreng WMS",
+   "utgiver": "Norges vassdrags- og energidirektorat",
+   "urls": [
+    "https://kart.nve.no/enterprise/services/Skredfaresoner3/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.nve.no/enterprise/services/Skredfaresoner3/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Inntekt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Aksjonær i virksomhet API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Arealreserver i kommuneplan WFS - SSB",
+   "utgiver": "Statistisk sentralbyrå",
+   "urls": [
+    "https://kart.ssb.no/api/mapserver/v1/wfs/arealreserver_i_kommuneplan?service=WFS&version=2.0.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.ssb.no/api/mapserver/v1/wfs/arealreserver_i_kommuneplan?service=WFS&version=2.0.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Mva fastsetting API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Kystbestandskartlegging Gytefelt torsk MB - WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/utbredelseskart/kysttorsk/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/data/utbredelseskart/kysttorsk/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Kart fra Havforskningsinstituttet (tjenestelenker og filnedlasting)",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/datasett/#/"
+   ],
+   "url": "https://kart.hi.no/datasett/#/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Mva-register – avgiftssubjekter med skattemeldingsplikt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-hendelser-api/1.1.1"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-hendelser-api/1.1.1",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Formuesgrunnlag for eiendomsskatt API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Pensjonsgivendeinntekt for folketrygden API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mareano bunnprøver linjer WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_stasjoner/bunnprover_linjestasjoner/wms?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_stasjoner/bunnprover_linjestasjoner/wms?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Utleggstrekk API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Sårbare marine bunndyr - observasjonsdata Svampspikelbunn WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/vme_softbottom_spongegarden/ows?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/vme_softbottom_spongegarden/ows?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Mareano videostasjoner API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_stasjoner:videostasjoner_aarlig"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_stasjoner:videostasjoner_aarlig",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mareano referansestasjoner WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.mareanoreferansestasjoner?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.mareanoreferansestasjoner?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Mareano videostasjoner WMS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_stasjoner/videostasjoner_aarlig/wms?service=WMS&request=GetCapabilities"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_stasjoner/videostasjoner_aarlig/wms?service=WMS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Gytefelt for hvitting, hyse, lyr og sei OGC API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/kystbestandskartlegging/ogc/features/v1"
+   ],
+   "url": "https://kart.hi.no/data/kystbestandskartlegging/ogc/features/v1",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Norkyst Gjennomsnittlig sjøtemperatur - Norkyst - Gjennomsnittlig sjøtemperatur WCS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/oseanografi/wcs"
+   ],
+   "url": "https://kart.hi.no/data/oseanografi/wcs",
+   "forventet": "mulig-api",
+   "status": 500,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Dekningskart for gytefelt torsk MB",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/"
+   ],
+   "url": "https://kart.hi.no/data/",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Marine bentiske habitater - generelle biotoper - observerte forekomster OGC API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_sb:Biotoper_observerte_forekomster_for_modellering_2026_wgs84"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_sb:Biotoper_observerte_forekomster_for_modellering_2026_wgs84",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Mareano kjemistasjoner WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.mareanokjemistasjoner?service=WFS&Version=2.0.0&Request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.mareanokjemistasjoner?service=WFS&Version=2.0.0&Request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sårbare marine bunndyr - observasjonsdata",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_biologi:saarbare_marine_bunndyr_observert"
+   ],
+   "url": "https://kart.hi.no/mareano/ogc/features/v1/collections/mareano_biologi:saarbare_marine_bunndyr_observert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Hornkoraller - Paramuricea placomus WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/hornkorall_paramuricea_placomus/ows?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/hornkorall_paramuricea_placomus/ows?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "application/xml"
+  },
+  {
+   "tittel": "Artsmangfold – Svampobservasjoner per videotransekt WFS",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://wfs.geonorge.no/skwms1/wfs.artsmangfoldsvampobsvideo?service=WFS&request=GetCapabilities"
+   ],
+   "url": "https://wfs.geonorge.no/skwms1/wfs.artsmangfoldsvampobsvideo?service=WFS&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Sårbare marine biotoper – modellert utbredelse Umbellula bestander - bomtraal_arter",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/mareano/mareano_biologi/ows?service=WMS&version=1.3.0&request=GetCapabilities"
+   ],
+   "url": "https://kart.hi.no/mareano/mareano_biologi/ows?service=WMS&version=1.3.0&request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Artsutbredelse Fisk - Artsutbredelse OGC API Features",
+   "utgiver": "Havforskningsinstituttet",
+   "urls": [
+    "https://kart.hi.no/data/utbredelseskart/ogc/features/v1/collections?f=text%2Fhtml"
+   ],
+   "url": "https://kart.hi.no/data/utbredelseskart/ogc/features/v1/collections?f=text%2Fhtml",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "text/html"
+  },
+  {
+   "tittel": "Radon aktsomhet OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/radonaktsomhet"
+   ],
+   "url": "https://geo.ngu.no/api/features/radonaktsomhet",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Marin grense OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/maringrense"
+   ],
+   "url": "https://geo.ngu.no/api/features/maringrense",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Marine sedimentasjonsmiljø, detaljert",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/mapserver/MarinBunnsedimenterWMS/?request=getcapabilities&service=wms&version=1.3.0"
+   ],
+   "url": "https://geo.ngu.no/mapserver/MarinBunnsedimenterWMS/?request=getcapabilities&service=wms&version=1.3.0",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Skattemelding API",
+   "utgiver": "Skatteetaten",
+   "urls": [
+    "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0"
+   ],
+   "url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0",
+   "forventet": "dokumentasjon",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Bunnsedimenter (dannelse), detaljert - Bunnsedimenter dannelse detaljert OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/bunnsedimentdannelsedetaljert"
+   ],
+   "url": "https://geo.ngu.no/api/features/bunnsedimentdannelsedetaljert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Marine naturtyper WMS",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Marine landskap",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "http://geo.ngu.no/mapserver/MarinLandskapWMS?REQUEST=GetCapabilities&SERVICE=WMS"
+   ],
+   "url": "http://geo.ngu.no/mapserver/MarinLandskapWMS?REQUEST=GetCapabilities&SERVICE=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Løsmasser detaljert OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/losmassedetaljert"
+   ],
+   "url": "https://geo.ngu.no/api/features/losmassedetaljert",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Gravbarhet OGC API - Features",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/api/features/gravbarhet"
+   ],
+   "url": "https://geo.ngu.no/api/features/gravbarhet",
+   "forventet": "mulig-api",
+   "status": 200,
+   "ct": "application/json"
+  },
+  {
+   "tittel": "Løsmasser WMS 3",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/mapserver/LosmasserWMS3?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities"
+   ],
+   "url": "https://geo.ngu.no/mapserver/LosmasserWMS3?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Skredgrense under sjøbunnen (Det)",
+   "utgiver": "Norges geologiske undersøkelse",
+   "urls": [
+    "https://geo.ngu.no/mapserver/MarinGeofarerWMS?REQUEST=GetCapabilities&SERVICE=WMS"
+   ],
+   "url": "https://geo.ngu.no/mapserver/MarinGeofarerWMS?REQUEST=GetCapabilities&SERVICE=WMS",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Arealressurskart - AR50 - WFS",
+   "utgiver": "Norsk institutt for bioøkonomi",
+   "urls": [
+    "https://wfs.nibio.no/cgi-bin/ar50_2?Service=WFS&Request=GetCapabilities"
+   ],
+   "url": "https://wfs.nibio.no/cgi-bin/ar50_2?Service=WFS&Request=GetCapabilities",
+   "forventet": "kart",
+   "status": 200,
+   "ct": "text/xml"
+  },
+  {
+   "tittel": "Norwegian Offshore Directorate - FactMapsData - Norwegian Offshore Directorate FactMaps 3.0 WMS WGS84",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/services/Factmaps/FactMapsWGS84/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+   ],
+   "url": "https://factmaps.sodir.no/api/services/Factmaps/FactMapsWGS84/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "timeout"
+  },
+  {
+   "tittel": "Norwegian Offshore Directorate - FactMapsData - Norwegian Offshore Directorate FactMaps 3.0 WFS WGS84",
+   "utgiver": "Sokkeldirektoratet",
+   "urls": [
+    "https://factmaps.sodir.no/api/services/Factmaps/FactMapsWGS84/MapServer/WFSServer?request=GetCapabilities&service=WFS"
+   ],
+   "url": "https://factmaps.sodir.no/api/services/Factmaps/FactMapsWGS84/MapServer/WFSServer?request=GetCapabilities&service=WFS",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "timeout"
+  },
+  {
+   "tittel": "Miljøverdi, hav - verdi_sjopattedyr_filter_tid_grid3575",
+   "utgiver": "Miljødirektoratet",
+   "urls": [
+    "https://kart.miljodirektoratet.no/geoserver/miljoverdi_hav/wms?service=wms&version=1.3.0&request=getcapabilities"
+   ],
+   "url": "https://kart.miljodirektoratet.no/geoserver/miljoverdi_hav/wms?service=wms&version=1.3.0&request=getcapabilities",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "timeout"
+  },
+  {
+   "tittel": "Fiskeridirektoratets WMS",
+   "utgiver": "Fiskeridirektoratet",
+   "urls": [
+    "https://gis.fiskeridir.no/server/services/fiskeridirWMS/MapServer/WMSServer?service=wms&request=getcapabilities"
+   ],
+   "url": "https://gis.fiskeridir.no/server/services/fiskeridirWMS/MapServer/WMSServer?service=wms&request=getcapabilities",
+   "forventet": "kart",
+   "status": 0,
+   "ct": "",
+   "feil": "timeout"
+  }
+ ]
+}

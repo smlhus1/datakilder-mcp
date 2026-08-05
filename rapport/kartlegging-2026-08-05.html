@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8" />
+<title>Kartlegging av norske åpne data</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=Inter:wght@400;500;600&display=swap" />
+<style>
+  :root { --papir:#FAFAF7; --panel:#F1F1EC; --blekk:#16160F; --sek:#4A4A42;
+          --strek:#D8D8D0; --gronn:#184D40; --tint:#E8EEEA; }
+  @page { size: A4; margin: 16mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--papir); color:var(--blekk);
+         font:400 10.5pt/1.55 "Inter",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3 { font-family:"Fraunces",Georgia,serif; font-variation-settings:"opsz" 144,"WONK" 1; }
+  h1 { font-size:30pt; font-weight:600; line-height:1.05; letter-spacing:-.022em; margin:0 0 5pt; }
+  h2 { font-size:15pt; font-weight:600; letter-spacing:-.012em; margin:20pt 0 3pt;
+       padding-top:8pt; border-top:1px solid var(--strek);
+       /* Keep a heading with its block — an orphaned heading at a page foot reads
+          as a section with nothing in it. */
+       break-after:avoid; page-break-after:avoid; }
+  .ingress { font-size:12pt; line-height:1.5; color:var(--sek); margin:0 0 3pt; max-width:44em; }
+  .meta { font-size:8.5pt; color:var(--sek); letter-spacing:.05em; text-transform:uppercase; margin-bottom:16pt; }
+  p { margin:0 0 7pt; }
+
+  /* Two columns per topic: the same fact told twice, side by side. */
+  .par { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:9pt 0 4pt; break-inside:avoid; }
+  .par > div { padding:9pt 11pt; }
+  .tek { background:var(--panel); border-radius:3px 0 0 3px; }
+  .folk { background:var(--tint); border-radius:0 3px 3px 0; }
+  .merk { font-size:7.5pt; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+          color:var(--gronn); display:block; margin-bottom:4pt; }
+  .par p { margin:0 0 5pt; font-size:9.8pt; line-height:1.5; }
+  .par p:last-child { margin:0; }
+
+  .tall { display:flex; gap:8pt; margin:12pt 0 14pt; flex-wrap:wrap; }
+  .tall div { flex:1 1 100pt; background:var(--panel); border-radius:3px; padding:9pt 10pt; }
+  .tall .n { font-family:"Fraunces",Georgia,serif; font-variation-settings:"opsz" 144;
+             font-size:22pt; font-weight:600; line-height:1; color:var(--gronn); display:block; }
+  .tall .t { font-size:8.8pt; color:var(--sek); line-height:1.35; margin-top:4pt; display:block; }
+
+  table { width:100%; border-collapse:collapse; margin:8pt 0 12pt; font-size:9.8pt; }
+  th { text-align:left; font-weight:600; font-size:8pt; letter-spacing:.06em; text-transform:uppercase;
+       color:var(--sek); border-bottom:1px solid var(--strek); padding:0 7pt 4pt 0; }
+  td { padding:5pt 7pt 5pt 0; border-bottom:1px solid var(--strek); vertical-align:top; }
+  td.n { font-variant-numeric:tabular-nums; white-space:nowrap; }
+  code { font:500 9pt/1.4 ui-monospace,Menlo,monospace; background:var(--panel); padding:1pt 3pt; border-radius:2px; }
+  pre { background:var(--panel); padding:9pt 11pt; border-radius:3px;
+        font:500 8.5pt/1.5 ui-monospace,Menlo,monospace; margin:7pt 0 11pt; }
+  .fot { margin-top:20pt; padding-top:8pt; border-top:1px solid var(--strek); font-size:9pt; color:var(--sek); }
+  ul { margin:0 0 7pt; padding-left:14pt; } li { margin-bottom:3pt; }
+  strong { font-weight:600; }
+</style>
+</head>
+<body>
+
+<h1>Kartlegging av norske åpne data</h1>
+<p class="ingress">Hva ligger egentlig i den nasjonale datakatalogen? Jeg probet alle 1 063
+registrerte API-er og målte 300 datasett. Forklart to ganger: teknisk til venstre, på norsk til høyre.</p>
+<p class="meta">Stian Melhus · 5. august 2026 · metode og rådata er åpne og etterprøvbare</p>
+
+<div class="tall">
+  <div><span class="n">1 063</span><span class="t">API-er er registrert i katalogen</span></div>
+  <div><span class="n">234</span><span class="t">av dem har en adresse en maskin kan følge</span></div>
+  <div><span class="n">207</span><span class="t">av disse svarer når du ringer på</span></div>
+  <div><span class="n">40</span><span class="t">er levende, ekte API-er som ikke er kart</span></div>
+  <div><span class="n">24 av 31</span><span class="t">«dokumentasjonssider» skjulte en komplett API-definisjon</span></div>
+</div>
+
+<h2>Funn 1: Katalogen teller oppføringer, ikke tilgang</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p>Av 1 063 <code>data-service</code>-oppføringer har bare <strong>234 (22 %)</strong> et
+    utfylt <code>endpointUrl</code>- eller <code>endpointDescription</code>-felt. De øvrige 829 er
+    registrert uten en maskinlesbar inngang.</p>
+    <p>Uten det feltet finnes ingen programmatisk vei fra katalogen til tjenesten.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>Tenk på katalogen som en telefonkatalog. Fire av fem oppføringer har navn på bedriften,
+    men ingen telefonnummer.</p>
+    <p>Et menneske kan google seg fram. En maskin står fast med en gang.</p></div>
+</div>
+
+<h2>Funn 2: Det meste av det som svarer, er kart</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p>Av de 207 endepunktene som svarte 2xx/3xx er <strong>148 WMS/WFS-karttjenester</strong>,
+    31 er dokumentasjonssider (Swagger/OpenAPI), og 28 er andre HTTP-tjenester.</p>
+    <p>WMS er én protokoll. Én klient som snakker den, når alle sammen — også lag som legges til
+    i morgen.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>Det ser ut som hundrevis av forskjellige datakilder. Det er egentlig ett system, brukt om
+    igjen av mange etater — som at alle bruker samme type strømkontakt.</p>
+    <p>Godt nytt: løser du kontakten én gang, passer alt.</p></div>
+</div>
+
+<h2>Funn 3: Gullet er lite, og vi hadde funnet det meste</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p><strong>40 endepunkter</strong> er levende, svarer <code>application/json</code>, og er ikke
+    kartlag. Det er den reelle mengden «vanlige API-er» i katalogen.</p>
+    <p>14 av dem tilhører etater vi allerede har modul for. Blant de øvrige er Skatteetatens
+    (bak Maskinporten-autentisering), NVEs nettleietariffer, og Vestland fylkeskommunes medie-API-er.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>Av over tusen oppføringer er det rundt førti som er det folk flest mener med «et API» —
+    noe du kan spørre direkte og få svar fra.</p>
+    <p>De fem–seks viktigste — statistikk, foretak, vær, kart, kollektiv — hadde vi allerede.
+    Kartleggingen fant mest bekreftelse, pluss noen få ekte funn.</p></div>
+</div>
+
+<h2>Funn 4: Datasettene er stort sett regneark</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p>I et utvalg på 300 datasett hadde <strong>106 (35 %)</strong> ingen distribusjon i det hele
+    tatt. Av distribusjonene som pekte på en fil, var <strong>186 av 206 <code>.xlsx</code></strong>
+    — og <strong>null</strong> var et live API.</p>
+    <p>Tyngste publisister: Folkehelseinstituttet (64) og helseforetakene.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>En tredjedel av datasettene har ingenting å laste ned — bare en beskrivelse av noe som
+    finnes et sted.</p>
+    <p>Resten er stort sett Excel-ark fra helseforskning. Nyttig hvis du skal analysere noe selv,
+    ubrukelig hvis du vil at en maskin skal slå opp noe automatisk.</p></div>
+</div>
+
+<h2>Funn 5: Gullet ligger bak en dør merket feil</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p>31 av de levende endepunktene er Swagger/OpenAPI-<em>visere</em> — HTML. En viser laster
+    spesifikasjonen sin fra en URL som står i sidens kildekode.</p>
+    <p>Ved å lese siden i stedet for å gjette filstier ble <strong>24 av 31</strong> gjenfunnet som
+    maskinlesbar spec, med alle ruter og parametre. Eksempel:
+    <code>data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs</code> → åpent regnskapsregister,
+    ingen nøkkel.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>Mange oppføringer ser ut som «en nettside om et API». Men siden er bare et vindu — bak den
+    ligger en full bruksanvisning som en maskin kan lese.</p>
+    <p>Katalogen har registrert adressen til vinduet i stedet for til API-et. Data som så ut som
+    utilgjengelig, var åpent hele tiden.</p>
+    <p><strong>Konkret:</strong> Brønnøysunds regnskapstall er fritt tilgjengelige.
+    Equinor 2024: 72,5 mrd i driftsinntekter — hentet uten nøkkel, på ett kall.</p></div>
+</div>
+
+<h2>Feilen jeg gjorde, og hva den lærte meg</h2>
+<div class="par">
+  <div class="tek"><span class="merk">Teknisk</span>
+    <p>Første måling brukte 60 datasett og ga «94 % landingssider». Ved 300 datasett ble tallet
+    <strong>40 %</strong>. Katalogen returnerer ikke en tilfeldig rekkefølge, så de 60 første var
+    én type utgiver, ikke et tverrsnitt.</p>
+    <p>Sveipen hadde samme klasse feil: 12 parallelle kall mot et API med ~10 kall/minutt ble
+    avvist, og en <code>catch { continue }</code> svelget avvisningene. Den behandlet 34 av 1 063
+    og skrev ut summen som om den var komplett.</p></div>
+  <div class="folk"><span class="merk">Forklart</span>
+    <p>Jeg spurte for få, og de få jeg spurte lignet på hverandre. Som å måle nordmenns høyde på
+    et basketlag.</p>
+    <p>Andre gang gikk jeg for fort fram og ble avvist av tjenesten — men programmet mitt hoppet
+    stille over avvisningene og lot som alt gikk bra. Det er den farligste typen feil: den ser ut
+    som et svar.</p>
+    <p>Tredje gang konkluderte jeg for tidlig. «Det er ikke dokumentert» viste seg å bety «jeg
+    lette på feil sted».</p>
+    <p>Den tredje feilen var å gi opp: jeg avskrev flere kilder som «udokumenterte» etter å ha
+    gjettet på noen filstier. Å faktisk lese siden ga 24 API-definisjoner.</p>
+    <p>Alle tre ble oppdaget fordi tallene skulle etterprøves. Det er hele poenget med å publisere
+    metoden.</p></div>
+</div>
+
+<h2>Hva dette betyr i praksis</h2>
+
+<table>
+  <tr><th>Hvis du vil …</th><th>Så</th></tr>
+  <tr><td>slå opp noe automatisk (statistikk, foretak, vær, sted, kollektiv)</td>
+      <td>bruk de ~40 ekte API-ene direkte. Katalogen er omveien.</td></tr>
+  <tr><td>hente kartdata (flom, grunnforhold, arter, dybde)</td>
+      <td>skriv én WMS-klient. Den når 148 tjenester, ikke én.</td></tr>
+  <tr><td>analysere forskningsdata</td>
+      <td>katalogen er nyttig — men regn med Excel, ikke API.</td></tr>
+  <tr><td>finne ut om noe finnes i det hele tatt</td>
+      <td>katalogsøket er bra til nettopp dette, og bare dette.</td></tr>
+  <tr><td>vurdere en oppføring som «bare en nettside»</td>
+      <td>sjekk om det er en Swagger-viser først — 24 av 31 skjulte et ekte API.</td></tr>
+</table>
+
+<h2>Hva som ville hjulpet</h2>
+<ul>
+  <li><strong>Registrer et endepunkt.</strong> Fire av fem API-oppføringer mangler adressen. Ett felt.</li>
+  <li><strong>La dokumentasjonen serveres, ikke bare vises.</strong> Flere oppføringer peker på en
+  Swagger-side som ikke leverer selve spesifikasjonen — da kan ingen maskin lese den.</li>
+  <li><strong>Rydd bort det døde.</strong> 27 av 234 endepunkter svarer ikke. Minst én oppført kilde
+  svarer «410 Gone» — den er formelt nedlagt, men står fortsatt i katalogen.</li>
+  <li><strong>Registrer API-et, ikke dokumentasjonssiden.</strong> Et <code>endpointUrl</code> som
+  peker på en Swagger-viser gjør at et åpent API ser stengt ut.</li>
+  <li><strong>Skill kart fra resten.</strong> 148 kartlag blant 234 oppføringer gjør katalogen
+  vanskeligere å bruke, ikke rikere.</li>
+</ul>
+
+<h2>Etterprøv det selv</h2>
+<pre>git clone https://github.com/smlhus1/datakilder-mcp
+node scripts/sveip-apier.mjs        # prober alle API-ene (~6 min)
+node scripts/finn-spec.mjs          # graver fram spec bak dokumentasjonssidene
+python3 scripts/fdk-kvalitet.py 300 # måler datasett-lenkene</pre>
+<p>Tallene er et øyeblikksbilde fra 5. august 2026 og vil endre seg når etatene oppdaterer
+oppføringene sine. Det er meningen. Får du andre tall, er det metoden som virker — ikke at noen tok feil.</p>
+
+<p class="fot">Kode, rådata og metode: <strong>github.com/smlhus1/datakilder-mcp</strong> ·
+Samme repo inneholder svaret jeg endte på: typede verktøy mot de faktiske API-ene — SSB, Brønnøysund,
+MET, Kartverket, Entur, NVDB og en generisk kartklient. Åpen kildekode, ingen API-nøkler.</p>
+
+</body>
+</html>

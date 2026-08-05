@@ -7,18 +7,24 @@ modellen slipper å gjette API-formen.
 
 ## Hvorfor ikke bare katalogsøk?
 
-data.norge.no har allerede et søk. Problemet ligger ikke der. En måling av katalogen
-5. august 2026 (utvalg på 60 datasett):
+data.norge.no har allerede et søk. Problemet ligger ikke der. Vi probet **alle 1 063 registrerte
+API-er** og målte 300 datasett (5. august 2026):
 
 ```
-katalogen totalt:                    9 091 datasett  ·  1 063 API-er
-uten distribusjon i det hele tatt:   10 av 60
-  landingsside (HTML)   47   94,0 %
-  direkte datafil        3    6,0 %
+1 063  registrerte API-er
+  234  har en adresse en maskin kan følge   ← 4 av 5 mangler den
+  207  svarer når du kaller dem
+  148  av disse er WMS/WFS-kartlag
+   40  er levende, ekte API-er som ikke er kart
 ```
 
-**94 % av «nedlastingslenkene» peker på en nettside, ikke på data.** Og 58 % av «API-ene»
-(614 stk) er WMS/WFS-kartlag — ett protokollmønster, ikke 614 integrasjoner.
+**Fire av fem API-oppføringer mangler et maskinlesbart endepunkt.** Av datasettene har ~35 %
+ingen distribusjon i det hele tatt, og av filene som finnes er de aller fleste Excel-ark —
+ingen live API-er.
+
+⚠️ En tidligere versjon av denne READMEen påsto «94 % landingssider», målt på 60 datasett.
+Ved 300 datasett ble tallet ~40 %. Utvalget var for lite og ikke tilfeldig ordnet. Full
+gjennomgang, inkludert feilen: `rapport/`.
 
 Discovery er den lette halvdelen. Den vanskelige er at hver kilde har sin egen spørreform:
 SSB er en kube med opake dimensjonskoder, Brreg er flat REST, MET krever User-Agent og

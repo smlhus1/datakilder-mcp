@@ -86,6 +86,63 @@ async function søk({ navn, kommunenummer, antall = 10 }: { navn: string; kommun
   };
 }
 
+interface Regnskap {
+  regnskapsperiode?: { fraDato?: string; tilDato?: string };
+  valuta?: string;
+  resultatregnskapResultat?: {
+    aarsresultat?: number;
+    driftsresultat?: {
+      driftsinntekter?: { sumDriftsinntekter?: number };
+      driftskostnad?: { sumDriftskostnad?: number };
+      driftsresultat?: number;
+    };
+  };
+  eiendeler?: { sumEiendeler?: number };
+  egenkapitalGjeld?: { sumEgenkapitalGjeld?: number; egenkapital?: { sumEgenkapital?: number } };
+}
+
+/**
+ * Annual accounts.
+ *
+ * Found late, and only because the catalogue entry pointed at a Swagger *viewer*
+ * rather than the API: reading that page revealed the spec, and the spec revealed
+ * an open endpoint needing no key. Worth remembering — a catalogue entry that looks
+ * like documentation may be an API with the label on the wrong door.
+ *
+ * Verified live 2026-08-05: Equinor 2024, 72.5 bn revenue.
+ */
+async function regnskap({ orgnr }: { orgnr: string }) {
+  const id = normaliserOrgnr(orgnr);
+  const svar = await getJson<Regnskap[]>(`${BASE.replace("/enhetsregisteret/api", "")}/regnskapsregisteret/regnskap/${id}`, {
+    cacheTtlMs: TTL.uke,
+  });
+
+  if (!Array.isArray(svar) || svar.length === 0) {
+    throw new SourceError(
+      `Ingen regnskap registrert på ${id}. Små foretak og nystartede selskaper mangler ofte innsendt regnskap.`,
+    );
+  }
+
+  return {
+    orgnr: id,
+    antallAar: svar.length,
+    aar: svar.map((r) => {
+      const res = r.resultatregnskapResultat;
+      return {
+        fra: r.regnskapsperiode?.fraDato,
+        til: r.regnskapsperiode?.tilDato,
+        valuta: r.valuta,
+        driftsinntekter: res?.driftsresultat?.driftsinntekter?.sumDriftsinntekter,
+        driftskostnader: res?.driftsresultat?.driftskostnad?.sumDriftskostnad,
+        driftsresultat: res?.driftsresultat?.driftsresultat,
+        aarsresultat: res?.aarsresultat,
+        sumEiendeler: r.eiendeler?.sumEiendeler,
+        egenkapital: r.egenkapitalGjeld?.egenkapital?.sumEgenkapital,
+      };
+    }),
+  };
+}
+
 export const brreg: Source = {
   id: "brreg",
   name: "Brønnøysundregistrene (Enhetsregisteret)",
@@ -119,6 +176,16 @@ export const brreg: Source = {
         antall: z.number().int().min(1).max(50).optional(),
       },
       run: søk,
+    },
+    {
+      name: "regnskap",
+      title: "Brreg: årsregnskap for et foretak",
+      description:
+        "Henter innsendte årsregnskap — driftsinntekter, driftsresultat, årsresultat, eiendeler og " +
+        "egenkapital per år. Bruk den når spørsmålet er hvor stort eller hvor solid et selskap er, " +
+        "ikke bare om det finnes.",
+      inputSchema: { orgnr: z.string().describe("9 siffer") },
+      run: regnskap,
     },
   ],
 };
