@@ -25,6 +25,25 @@ SSB er en kube med opake dimensjonskoder, Brreg er flat REST, MET krever User-Ag
 koordinatavrunding, Entur er GraphQL. Det er den halvdelen denne serveren dekker.
 Katalogsøket ligger her også — som **fallback**, ikke som inngangsdør.
 
+## Hva kan du spørre om?
+
+Alle svarene under er ekte utdrag fra røyktesten — den kjører mot de faktiske API-ene:
+
+| Spørsmål | Verktøy | Svar |
+|---|---|---|
+| Hvor mange bor i Halden? | `ssb_*` | 32 082 |
+| Er Equinor fortsatt aktivt? | `brreg_foretak` | EQUINOR ASA — Allmennaksjeselskap, aktiv |
+| Hvordan er været på Venabu? | `kartverket_sted` → `met_varsel` | 19,2 °C, 4 m/s |
+| Hvor høyt over havet ligger dette punktet? | `kartverket_hoyde` | 46,91 moh |
+| Hva er fartsgrensen i denne gata? | `vegvesen_vegobjekter` | 30 km/h, Major Forbus gate |
+| Når går neste tog fra Oslo S? | `entur_avganger` | R21 mot Moss, med sanntid |
+| Hvilken kommune er dette koordinatet i? | `kart_punkt` | 3101 (Halden) |
+| Finnes det en montessoriskole i Halden? | `udir_skoler` | Halden montessoriskole AS |
+| Hva heter elg på latin? | `arter_art` | Alces alces |
+
+Poenget er kjedene: **stedsnavn → koordinat → høyde → værvarsel** er fire kall en modell kan gjøre
+selv, uten at noen har hardkodet en integrasjon.
+
 ## Kilder
 
 | Kilde | Verktøy | Lisens |
