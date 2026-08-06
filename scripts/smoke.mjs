@@ -228,6 +228,42 @@ const CASES = [
     describe: () => "fanger 422-som-JSON i stedet for å levere den som data",
   },
   {
+    // "matematikk" matches twelve curricula; the sixth-grader wants the ordinary
+    // one, not "fordypning i matematikk" — which is what the first hit used to be.
+    tool: "udir_kompetansemaal",
+    args: { fag: "matematikk", aarstrinn: 6 },
+    check: (r) =>
+      /1\.[–-]10\. trinn/.test(r.laereplan.tittel) &&
+      r.gjelderEtterTrinn === 6 &&
+      !r.merknad &&
+      r.maalsett[0].kompetansemaal.length > 5,
+    describe: (r) =>
+      `${r.laereplan.kode} (gyldig fra ${r.laereplan.gyldigFra}) — ${r.maalsett[0].kompetansemaal.length} mål etter 6. trinn`,
+  },
+  {
+    // LK20 sets goals after some years only. Asking for 3rd grade must answer,
+    // not fail — with the substitution stated.
+    tool: "udir_kompetansemaal",
+    args: { fag: "naturfag", aarstrinn: 3 },
+    check: (r) => r.gjelderEtterTrinn > 3 && /ikke kompetansemål etter 3\. trinn/.test(r.merknad),
+    describe: (r) => `3. trinn → målene etter ${r.gjelderEtterTrinn}. trinn, med merknad`,
+  },
+  {
+    // Upper secondary is vg1-vg3, not 11-13 — a plain number cannot address it.
+    tool: "udir_kompetansemaal",
+    args: { fag: "norsk", aarstrinn: "vg1" },
+    check: (r) => r.maalsett.some((s) => s.kompetansemaal.length > 0),
+    describe: (r) => `${r.laereplan.kode} vg1 — ${r.maalsett[0].kompetansemaal.length} mål`,
+  },
+  {
+    // MAT01-05 expired 2026-07-31 and MAT01-06 took over the next day. Answering
+    // from the expired plan would be silently wrong.
+    tool: "udir_laereplan",
+    args: { sok: "matematikk 1", antall: 5 },
+    check: (r) => r.laereplaner.every((p) => p.gjelder) && r.utgaatteSkjult >= 1,
+    describe: (r) => `${r.antallTreff} gjeldende, ${r.utgaatteSkjult} utgått skjult`,
+  },
+  {
     // nivaa comes from MET's own aqi_description, so an empty one means the scale
     // lookup broke — not that the air is fine.
     tool: "met_luftkvalitet",

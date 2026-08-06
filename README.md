@@ -52,6 +52,7 @@ Alle svarene under er ekte utdrag fra røyktesten — den kjører mot de faktisk
 | Hva heter elg på latin? | `arter_art` | Alces alces |
 | Hva står huset på, og er det radon her? | `ngu_grunnforhold` | Moderat til lav radon-aktsomhet, hav- og fjordavsetning, under marin grense, 137 brønner innen 1 km |
 | Hvor kommer lufta jeg puster i fra? | `met_luftkvalitet` | AQI 1,8 («lite», liten helserisiko) — verst er ozon, 100 % langtransportert |
+| Hva skal en 6.-klassing kunne i matte? | `udir_kompetansemaal` | 11 mål fra MAT01-06, gjeldende fra 1.8.2026 |
 
 Poenget er kjedene: **stedsnavn → koordinat → høyde → værvarsel** er fire kall en modell kan gjøre
 selv, uten at noen har hardkodet en integrasjon.
@@ -67,7 +68,7 @@ selv, uten at noen har hardkodet en integrasjon.
 | **Statens vegvesen** (NVDB) | `vegvesen_objekttyper` · `vegvesen_vegobjekter` | NLOD 2.0 |
 | **Entur** (kollektiv) | `entur_stoppested` · `entur_avganger` · `entur_reise` | NLOD 2.0 |
 | **Kart** (generisk WMS) | `kart_finn` · `kart_lag` · `kart_punkt` | varierer per tjeneste |
-| **UDIR** (skoleregister) | `udir_skoler` · `udir_skole` | NLOD 2.0 |
+| **UDIR** (skoleregister + LK20) | `udir_skoler` · `udir_skole` · `udir_kompetansemaal` · `udir_laereplan` | NLOD 2.0 |
 | **Artsdatabanken** | `arter_art` | CC BY 4.0 |
 | **Eurostat** | `eurostat_info` · `eurostat_data` | Eurostat-vilkår |
 | **Felles datakatalog** | `fdk_sok` · `fdk_detaljer` | NLOD 2.0 |
@@ -130,6 +131,21 @@ på tørr asfalt».
 Skalaen hardkodes ikke: MET serverer sin egen indeksbeskrivelse på `/aqi_description`, og teksten
 («lite» / «liten helserisiko») leses derfra. En kopiert skala drifter, en avledet kan ikke.
 Verdt å vite at varselet er modellert per **grunnkrets**, ikke målt på adressen — det står i svaret.
+
+### `udir_kompetansemaal` — hva skal eleven kunne på dette trinnet?
+Fag + årstrinn inn, kompetansemålene fra LK20 ut, med teksten om underveisvurdering. Tre ting måtte
+løses før svaret ble til å stole på:
+
+- **Utgåtte læreplaner ligger i katalogen.** MAT01-05 gikk ut 31.7.2026 og MAT01-06 overtok dagen
+  etter. Samme søk, to ulike sett med mål, avhengig av hvilken uke du spør. Bare gjeldende planer
+  telles — og de utgåtte kan hentes fram med et flagg, ikke ved et uhell.
+- **«matematikk» treffer tolv læreplaner.** Fordypning, X, 2P, S, R, vg1 … Å ta første treff ga
+  *fordypning i matematikk* til en sjetteklassing. Årstrinnet er det vi har til å skille dem, så
+  kandidatene rangeres på det og bekreftes mot dataene. Svaret sier hvilken plan det kom fra, og
+  hvilke andre det kunne vært.
+- **LK20 setter mål etter 2., 4., 7. og 10. trinn — ikke hvert år.** «Hva skal en 3.-klassing kunne»
+  er likevel et helt rimelig spørsmål. Verktøyet svarer med målene eleven jobber *mot*, og sier at
+  det er det som skjedde. Videregående er `vg1`–`vg3`, ikke 11–13; typen sier det.
 
 ### Nøkkelfritt er et krav, så auth sjekkes først
 `scripts/sjekk-auth.mjs` leser sikkerhetsskjemaet i hver spec sveipen fant. Av de 40 maskinlesbare
