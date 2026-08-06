@@ -228,6 +228,20 @@ const CASES = [
     describe: () => "fanger 422-som-JSON i stedet for å levere den som data",
   },
   {
+    // nivaa comes from MET's own aqi_description, so an empty one means the scale
+    // lookup broke — not that the air is fine.
+    tool: "met_luftkvalitet",
+    args: { lat: 59.9139, lon: 10.7522, timer: 3 },
+    check: (r) =>
+      r.naa.aqi > 0 &&
+      typeof r.naa.nivaa === "string" &&
+      r.timer.length === 3 &&
+      Object.keys(r.naa.konsentrasjon_ug_m3).length === 4 &&
+      r.naa.kilder.reduce((s, k) => s + k.andel, 0) > 0,
+    describe: (r) =>
+      `${r.sted.navn}: AQI ${r.naa.aqi} (${r.naa.nivaa}), verst ${r.naa.verstingstoff} — ${r.naa.kilder[0].navn} ${r.naa.kilder[0].andel} %`,
+  },
+  {
     tool: "ngu_grunnforhold",
     args: { lat: 59.1249, lon: 11.3875, radius_m: 1000 },
     check: (r) => r.radon?.beskrivelse && r.marin_grense === "under" && r.bronner.antall > 0,

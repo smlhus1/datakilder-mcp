@@ -50,7 +50,8 @@ Alle svarene under er ekte utdrag fra røyktesten — den kjører mot de faktisk
 | Hvilken kommune er dette koordinatet i? | `kart_punkt` | 3101 (Halden) |
 | Finnes det en montessoriskole i Halden? | `udir_skoler` | Halden montessoriskole AS |
 | Hva heter elg på latin? | `arter_art` | Alces alces |
-| Hva står huset på, og er det radon her? | `ngu_grunnforhold` | Moderat til lav radon-aktsomhet, hav- og fjordavsetning, under marin grense, 152 brønner innen 1 km |
+| Hva står huset på, og er det radon her? | `ngu_grunnforhold` | Moderat til lav radon-aktsomhet, hav- og fjordavsetning, under marin grense, 137 brønner innen 1 km |
+| Hvor kommer lufta jeg puster i fra? | `met_luftkvalitet` | AQI 1,8 («lite», liten helserisiko) — verst er ozon, 100 % langtransportert |
 
 Poenget er kjedene: **stedsnavn → koordinat → høyde → værvarsel** er fire kall en modell kan gjøre
 selv, uten at noen har hardkodet en integrasjon.
@@ -61,7 +62,7 @@ selv, uten at noen har hardkodet en integrasjon.
 |---|---|---|
 | **SSB** (PxWebApi) | `ssb_tabell_info` · `ssb_tabell_verdier` · `ssb_tabell_data` | NLOD 2.0 |
 | **Brønnøysund** (Enhetsregisteret) | `brreg_foretak` · `brreg_søk` | NLOD 2.0 |
-| **MET** (api.met.no) | `met_varsel` · `met_farevarsel` · `met_sol_og_mane` | NLOD 2.0 / CC BY 4.0 |
+| **MET** (api.met.no) | `met_varsel` · `met_farevarsel` · `met_luftkvalitet` · `met_sol_og_mane` | NLOD 2.0 / CC BY 4.0 |
 | **Kartverket / Geonorge** | `kartverket_sted` · `kartverket_adresse` · `kartverket_adresse_fra_punkt` · `kartverket_hoyde` | CC BY 4.0 |
 | **Statens vegvesen** (NVDB) | `vegvesen_objekttyper` · `vegvesen_vegobjekter` | NLOD 2.0 |
 | **Entur** (kollektiv) | `entur_stoppested` · `entur_avganger` · `entur_reise` | NLOD 2.0 |
@@ -119,6 +120,16 @@ To ting var avgjørende for at svaret blir riktig:
 
 Aktsomhetskart er ikke måling, og det står i svaret: radon må måles i boligen, og skredfaresoner er
 NVEs datasett — `kart_finn("skredfare")`.
+
+### `met_luftkvalitet` — og hvor forurensningen kommer fra
+Samlet indeks, konsentrasjon av NO2, PM10, PM2,5 og ozon, 56 timer fram — og kildefordelingen for
+stoffet som driver indeksen: trafikkeksos, veistøv, vedfyring, skipsfart, industri eller
+langtransportert. Det er forskjellen på «lufta er dårlig» og «lufta er dårlig fordi det er piggdekk
+på tørr asfalt».
+
+Skalaen hardkodes ikke: MET serverer sin egen indeksbeskrivelse på `/aqi_description`, og teksten
+(«lite» / «liten helserisiko») leses derfra. En kopiert skala drifter, en avledet kan ikke.
+Verdt å vite at varselet er modellert per **grunnkrets**, ikke målt på adressen — det står i svaret.
 
 ### Nøkkelfritt er et krav, så auth sjekkes først
 `scripts/sjekk-auth.mjs` leser sikkerhetsskjemaet i hver spec sveipen fant. Av de 40 maskinlesbare
