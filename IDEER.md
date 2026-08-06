@@ -1,6 +1,14 @@
 # Hva kan gjøre dette vesentlig bedre?
 
-> **Status 5.8.2026:** punkt 1, 2 og 3 er bygget. Resten står.
+> **Status 6.8.2026:** 1, 2, 3 og 5 er bygget. 4, 6, 7 og 8 står.
+>
+> Punkt 5 (overvåkning) ligger bevisst **utenfor** dette repoet: den er én maskins rigg — launchd,
+> en Discord-kanal og et sett koordinater — og importerer denne serveren som et bibliotek i stedet
+> for å gjenskape HTTP-kallene. Verktøyene her vet allerede formen på hvert API; en vakthund som
+> gjenskapte dem ville vært enda en ting å holde i takt med virkeligheten.
+> Mønsteret, for den som vil kopiere det: en vaktliste (verktøy + felt + regel), en tilstandsfil,
+> og varsling bare når regelen slår til — aldri på første kjøring, ellers fyrer hver ny sjekk én
+> gang uten grunn og folk lærer å overse kanalen.
 
 Brainstorm 5. august 2026, etter at 11 kilder og 28 røyktester var på plass.
 Rangert etter **nytte per innsats**, ikke etter hvor gøy de er å bygge.
