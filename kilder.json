@@ -101,7 +101,7 @@
       "tier": 2,
       "status": "done",
       "nokkel": null,
-      "hvorfor": "Skoledata — familie/Montessori-sporet."
+      "hvorfor": "Skoledata — familie/Montessori-sporet. Utvidet 6.8.2026 med GREP (læreplanverket LK20): udir_kompetansemaal + udir_laereplan. Tre fallgruver dokumentert i modulen: utgåtte planer ligger igjen i katalogen (MAT01-05 → MAT01-06 skiftet 1.8.2026), «matematikk» treffer 12 planer, og LK20 setter mål bare etter 2./4./7./10. trinn. NPR-API-et deres krever basic auth — ikke bygget."
     },
     {
       "id": "artsdatabanken",
