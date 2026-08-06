@@ -50,6 +50,7 @@ Alle svarene under er ekte utdrag fra røyktesten — den kjører mot de faktisk
 | Hvilken kommune er dette koordinatet i? | `kart_punkt` | 3101 (Halden) |
 | Finnes det en montessoriskole i Halden? | `udir_skoler` | Halden montessoriskole AS |
 | Hva heter elg på latin? | `arter_art` | Alces alces |
+| Hva står huset på, og er det radon her? | `ngu_grunnforhold` | Moderat til lav radon-aktsomhet, hav- og fjordavsetning, under marin grense, 152 brønner innen 1 km |
 
 Poenget er kjedene: **stedsnavn → koordinat → høyde → værvarsel** er fire kall en modell kan gjøre
 selv, uten at noen har hardkodet en integrasjon.
@@ -69,6 +70,7 @@ selv, uten at noen har hardkodet en integrasjon.
 | **Artsdatabanken** | `arter_art` | CC BY 4.0 |
 | **Eurostat** | `eurostat_info` · `eurostat_data` | Eurostat-vilkår |
 | **Felles datakatalog** | `fdk_sok` · `fdk_detaljer` | NLOD 2.0 |
+| **NGU** (geologi, 28 tjenester) | `ngu_grunnforhold` · `ngu_punkt` · `ngu_tjenester` | NLOD 2.0 / CC BY 4.0 |
 | **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
 
 Pluss `kilder` — lister alt serveren dekker.
@@ -81,9 +83,13 @@ er lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README
 hver utgiver — og et kartlag ingen har tenkt på ennå er allerede nåbart. `kart_punkt`
 (GetFeatureInfo) gjør et kartlag om til **data**: gi den et koordinat, få egenskapene tilbake.
 
-Det er også grunnen til at Kystverket, Riksantikvaren, NGU, NIBIO, Havforskningsinstituttet,
-Polarinstituttet, Landbruksdirektoratet og Norge i bilder ikke har egne moduler — API-ene deres
-*er* kartlag, og `kart_lag`/`kart_punkt` når dem allerede.
+Det er også grunnen til at Kystverket, Riksantikvaren, NIBIO, Polarinstituttet,
+Landbruksdirektoratet og Norge i bilder ikke har egne moduler — API-ene deres *er* kartlag, og
+`kart_lag`/`kart_punkt` når dem allerede.
+
+**NGU sto på den lista til 6. august, og det var feil.** De har 28 OGC API Features-tjenester ved
+siden av kartlagene sine — ekte JSON-API-er med egne spørreparametre. «Dekket av kartklienten» var
+en påstand om protokollen, ikke om utgiveren.
 
 **`kart_finn` gjør dem faktisk mulige å finne.** Verktøyene over krevde at du kjente URL-en til
 tjenesten, noe som gjorde den største dekningen i serveren praktisk usynlig. Nå søker du i en
@@ -97,6 +103,33 @@ Kommune, adresse, høyde, været nå, farevarsel og nærmeste holdeplasser for e
 Sammensatt av kilder som allerede finnes. Delvis feil er designet inn: hver del kjører uavhengig,
 og det som ikke lot seg hente står i feltet `mangler` — for «ingen farevarsel» og «vi fikk ikke
 sjekket farevarsel» må aldri se like ut.
+
+### `ngu_grunnforhold` — hva består grunnen av her?
+Radon-aktsomhet, løsmassetype, under eller over marin grense, og registrerte brønner i nærheten
+med boredybde og dyp til fjell. Ett kall, tre NGU-tjenester, laget for spørsmålet folk faktisk
+stiller foran et boligkjøp.
+
+To ting var avgjørende for at svaret blir riktig:
+
+- **Punktspørring, ikke nærhet.** En bbox på ±1 km rundt en adresse i Halden gir åtte
+  radon-polygoner, og det første sier «Usikker aktsomhet». En bbox med null areal gir det ene
+  polygonet adressen faktisk ligger i — «Moderat til lav aktsomhet». Et svar fra naboen er feil svar.
+- **`skipGeometry=true`.** Ett radon-polygon er 17,5 MB omriss vi aldri leser. Uten flagget sprengte
+  svaret klientens 8 MB-tak og radon kom tilbake som `null`. Med det: 2 kB, 0,7 s, samme svar.
+
+Aktsomhetskart er ikke måling, og det står i svaret: radon må måles i boligen, og skredfaresoner er
+NVEs datasett — `kart_finn("skredfare")`.
+
+### Nøkkelfritt er et krav, så auth sjekkes først
+`scripts/sjekk-auth.mjs` leser sikkerhetsskjemaet i hver spec sveipen fant. Av de 40 maskinlesbare
+spec-ene **oppgir 17 autentisering** — 10 av dem er Skatteetatens, som i tillegg handler om
+navngitte personer (`personidentifikator`) og krever Maskinporten og rettighetspakke-avtale.
+**23 er åpne.** Å telle spec-er er ikke å telle tilgjengelige data, og det er billigere å oppdage
+med et skript enn med en halv dags koding.
+
+Skriptet sier hvor du skal se, ikke hva som er sant: Brønnøysunds regnskaps-API oppgir `basicAuth`
+i spec-en, men svarer helt åpent — `brreg_regnskap` henter Equinors 2024-tall uten nøkkel i
+røyktesten. Kravet i spec-en er en påstand; kallet er beviset.
 
 ### Kilder som ikke lot seg bygge
 Ærlig ført i `kilder.json`, med grunn:

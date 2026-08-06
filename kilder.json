@@ -85,7 +85,7 @@
       "tier": 2,
       "status": "skipped",
       "nokkel": "usikker",
-      "hvorfor": "BLOKKERT: alle registrerte API-er ligger som SwaggerHub-spec og krever Maskinporten-autentisering (virksomhetssertifikat). Ikke åpne data."
+      "hvorfor": "BLOKKERT, verifisert på nytt 6.8.2026 med scripts/sjekk-auth.mjs: alle 10 spec-ene oppgir securityScheme maskinporten med hver sin rettighetspakke-scope. De handler dessuten om navngitte personer og foretak — parameteren er personidentifikator/organisasjonsnummer — så de er utenfor premisset om nøkkelfrie, åpne data selv med avtale. Ikke prøv igjen uten at Skatteetaten publiserer et åpent endepunkt."
     },
     {
       "id": "dsb",
@@ -147,9 +147,9 @@
       "id": "ngu",
       "navn": "Norges geologiske undersøkelse",
       "tier": 3,
-      "status": "skipped",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
+      "hvorfor": "Bygget 6.8.2026. «Dekket av kartklienten» var feil: NGU har 28 OGC API Features-tjenester ved siden av kartlagene, alle nøkkelfrie. ngu_grunnforhold (radon + løsmasser + marin grense + brønner), ngu_punkt (generisk mot alle 28) og ngu_tjenester (indeksen). To fallgruver, begge dokumentert i modulen: bbox med areal gir naboens svar, og ett radon-polygon er 17,5 MB uten skipGeometry=true."
     },
     {
       "id": "hi",

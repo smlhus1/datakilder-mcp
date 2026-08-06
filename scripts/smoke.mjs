@@ -228,6 +228,40 @@ const CASES = [
     describe: () => "fanger 422-som-JSON i stedet for å levere den som data",
   },
   {
+    tool: "ngu_grunnforhold",
+    args: { lat: 59.1249, lon: 11.3875, radius_m: 1000 },
+    check: (r) => r.radon?.beskrivelse && r.marin_grense === "under" && r.bronner.antall > 0,
+    describe: (r) =>
+      `Halden: radon ${r.radon.beskrivelse.toLowerCase()}, ${r.losmasse?.beskrivelse?.split(",")[0]}, ${r.bronner.antall} brønner`,
+  },
+  {
+    // The whole tool rests on the zero-area bbox being a real point query. Finse
+    // lies above the marine limit; if the query ever widens to "somewhere near",
+    // this flips to "under" and says so.
+    tool: "ngu_grunnforhold",
+    args: { lat: 60.6022, lon: 7.5053 },
+    check: (r) => r.marin_grense === "over",
+    describe: (r) => `Finse ligger ${r.marin_grense} marin grense`,
+  },
+  {
+    tool: "ngu_tjenester",
+    args: { sok: "løsmasser" },
+    check: (r) => r.antall >= 3 && r.av === 28 && r.tjenester.some((t) => t.id === "maringrense"),
+    describe: (r) => `${r.antall} av ${r.av} tjenester nevner løsmasser`,
+  },
+  {
+    tool: "ngu_punkt",
+    args: { tjeneste: "grunnvannborehull", lat: 59.1249, lon: 11.3875, radius_m: 1000, antall: 2 },
+    check: (r) => r.funn.some((f) => f.samling === "energibronn"),
+    describe: (r) => `${r.funn.length} samlinger med treff, ${r.uten_treff.length} uten`,
+  },
+  {
+    tool: "ngu_punkt",
+    args: { tjeneste: "finnes_ikke", lat: 59.1, lon: 11.3 },
+    expectError: /ngu_tjenester/,
+    describe: () => "peker på ngu_tjenester når tjenestenavnet er feil",
+  },
+  {
     // The error path matters as much as the happy path: a bad org number must
     // produce a sentence the model can act on, not a stack trace.
     tool: "brreg_foretak",
