@@ -133,6 +133,10 @@ async function grunnforhold({
         bruk: egenskap(f, "brønnBrukOmfang"),
       };
     })
+    // The bbox is a square, so its corners reach radius × √2 — a "500 m" search
+    // was quietly returning wells 700 m away. The parameter says radius, so the
+    // answer has to be a radius.
+    .filter((b) => b.meter !== undefined && b.meter <= radius_m)
     .sort((a, b) => (a.meter ?? Infinity) - (b.meter ?? Infinity));
 
   // "Areal under marin grense" / "Areal over marin grense" is stated by the
