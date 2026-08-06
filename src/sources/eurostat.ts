@@ -82,6 +82,7 @@ export const eurostat: Source = {
   name: "Eurostat (EU-statistikk)",
   homepage: "https://ec.europa.eu/eurostat/web/main/data/web-services",
   requiresKeyEnv: null,
+  helse: { verktoy: "info", args: { datasett: "prc_hicp_midx" } },
   attribution: {
     licence: "Eurostat copyright/licence policy (gjenbruk tillatt med kildehenvisning)",
     credit: "Kilde: Eurostat",

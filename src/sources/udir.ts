@@ -401,6 +401,7 @@ export const udir: Source = {
   name: "Utdanningsdirektoratet (skoleregister + læreplanverket)",
   homepage: "https://data-nsr.udir.no/",
   requiresKeyEnv: null,
+  helse: { verktoy: "laereplan", args: { sok: "MAT01", antall: 1 } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Utdanningsdirektoratet (NSR)",

@@ -88,6 +88,7 @@ export const fdk: Source = {
   name: "Felles datakatalog (data.norge.no) — kun oppslag, ikke datauttrekk",
   homepage: "https://data.norge.no/",
   requiresKeyEnv: null,
+  helse: { verktoy: "sok", args: { sok: "luftkvalitet", katalog: "data-services", antall: 1 } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Digitaliseringsdirektoratet / Felles datakatalog",

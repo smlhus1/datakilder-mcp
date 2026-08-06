@@ -50,7 +50,23 @@ function pathFor(key: string): string {
   return join(ensureDir(), `${hash}.json`);
 }
 
+/**
+ * When true, reads miss on purpose — writes still happen.
+ *
+ * Exists for one caller: `doctor` asks "is this source up RIGHT NOW", and a cache
+ * hit answers "it was up when we last asked", which is a different and useless
+ * question. Module-level rather than a parameter threaded through every tool
+ * signature; the cost is that a doctor run briefly makes other in-flight calls go
+ * to the network too, which is a slower answer, never a wrong one.
+ */
+let omgaaCache = false;
+
+export function settOmgaaCache(av: boolean): void {
+  omgaaCache = av;
+}
+
 export function readCache(key: string): string | null {
+  if (omgaaCache) return null;
   try {
     const raw = readFileSync(pathFor(key), "utf8");
     const { expires, body } = JSON.parse(raw) as { expires: number; body: string };

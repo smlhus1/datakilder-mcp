@@ -129,6 +129,7 @@ export const ngu: Source = {
   name: "Norges geologiske undersøkelse (grunnforhold)",
   homepage: "https://geo.ngu.no/api/features",
   requiresKeyEnv: null,
+  helse: { verktoy: "grunnforhold", args: { lat: 59.1249, lon: 11.3875, radius_m: 50 } },
   attribution: {
     licence: "NLOD 2.0 / CC BY 4.0",
     credit: "Kilde: Norges geologiske undersøkelse (NGU)",

@@ -148,6 +148,7 @@ export const brreg: Source = {
   name: "Brønnøysundregistrene (Enhetsregisteret)",
   homepage: "https://data.brreg.no/enhetsregisteret/api/dokumentasjon",
   requiresKeyEnv: null,
+  helse: { verktoy: "foretak", args: { orgnr: "923609016" } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Brønnøysundregistrene",

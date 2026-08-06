@@ -98,6 +98,7 @@ export const ssb: Source = {
   name: "Statistisk sentralbyrå (PxWebApi)",
   homepage: "https://data.ssb.no/api/",
   requiresKeyEnv: null,
+  helse: { verktoy: "tabell_info", args: { tabell: "07459" } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Statistisk sentralbyrå (SSB)",

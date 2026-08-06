@@ -180,6 +180,7 @@ export const entur: Source = {
   name: "Entur (kollektivtrafikk, alle norske operatører)",
   homepage: "https://developer.entur.org/",
   requiresKeyEnv: null,
+  helse: { verktoy: "stoppested", args: { sok: "Halden stasjon", antall: 1 } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Entur",

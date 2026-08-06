@@ -114,6 +114,7 @@ export const kartverket: Source = {
   name: "Kartverket / Geonorge (stedsnavn, adresser, høyde)",
   homepage: "https://ws.geonorge.no/",
   requiresKeyEnv: null,
+  helse: { verktoy: "sted", args: { sok: "Venabu", antall: 1 } },
   attribution: {
     licence: "CC BY 4.0",
     credit: "Kilde: Kartverket",

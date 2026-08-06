@@ -76,7 +76,7 @@ selv, uten at noen har hardkodet en integrasjon.
 | **OGC** (generisk, 138 samlinger) | `ogc_punkt` · `ogc_tjenester` | varierer per tjeneste |
 | **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
 
-Pluss `kilder` — lister alt serveren dekker.
+Pluss `kilder` — lister alt serveren dekker — og `doctor`, som sjekker om de faktisk svarer nå.
 
 **Attribusjonen følger med dataene:** hvert svar bærer et `_kilde`-felt. Norske offentlige data
 er lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README blir ikke lest.
@@ -161,6 +161,25 @@ løses før svaret ble til å stole på:
 - **LK20 setter mål etter 2., 4., 7. og 10. trinn — ikke hvert år.** «Hva skal en 3.-klassing kunne»
   er likevel et helt rimelig spørsmål. Verktøyet svarer med målene eleven jobber *mot*, og sier at
   det er det som skjedde. Videregående er `vg1`–`vg3`, ikke 11–13; typen sier det.
+
+### `doctor` — svarer kildene akkurat nå?
+Ett billig, ekte kall per kilde, med tid og feilmelding. Som MCP-verktøy, og som `npm run doctor`:
+
+```
+✓ nve            830 ms  NVE (nettleietariffer)
+✓ met            136 ms  Meteorologisk institutt (api.met.no)
+15 oppe · 0 nede · 0 mangler nøkkel · 0 ikke sjekket — 958 ms
+```
+
+Sonden er deklarert **på kilden**, ved siden av verktøyene den prøver: modulen vet hvilket av
+kallene sine som er billig, og en sentral liste ville driftet ved første omdøping. En kilde uten
+sonde rapporteres som `ikke_sjekket` — aldri som frisk. Røyktesten feiler hvis noen legger til en
+modul uten sonde.
+
+**Første versjon meldte 15/15 oppe på 855 ms — fra disk.** Cachen svarte, ikke API-ene. Det er den
+samme feilen som stillhet-er-ikke-levert, i ny drakt: en sjekk som ikke kan skille «kilden svarte»
+fra «vi husker at den svarte», sier alltid at alt er bra. `doctor` slår derfor av cache-lesing mens
+den kjører.
 
 ### Nøkkelfritt er et krav, så auth sjekkes først
 `scripts/sjekk-auth.mjs` leser sikkerhetsskjemaet i hver spec sveipen fant. Av de 40 maskinlesbare

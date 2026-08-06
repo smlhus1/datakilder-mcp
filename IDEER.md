@@ -1,6 +1,6 @@
 # Hva kan gjøre dette vesentlig bedre?
 
-> **Status 6.8.2026:** 1, 2, 3 og 5 er bygget. 4, 6, 7 og 8 står.
+> **Status 6.8.2026:** 1, 2, 3, 4 og 5 er bygget. 6, 7 og 8 står.
 >
 > Punkt 5 (overvåkning) ligger bevisst **utenfor** dette repoet: den er én maskins rigg — launchd,
 > en Discord-kanal og et sett koordinater — og importerer denne serveren som et bibliotek i stedet
@@ -50,11 +50,15 @@ En diskcache med TTL per kilde (vær: minutter · registre: døgn · kodeverk: u
 merkbart raskere, sparer API-ene for last, og fjerner den eneste grunnen til at UDIR-modulen
 føles treg. **Innsats: liten. Effekt: føles som et annet produkt.**
 
-## 4. `datakilder doctor` — er kildene oppe akkurat nå?
+## 4. `datakilder doctor` — er kildene oppe akkurat nå? ✅ BYGGET 6.8.2026
 
 Røyktesten finnes allerede; gjør den til et brukervendt verktøy som rapporterer hvilke kilder som
 svarer, hvor raskt, og hva som er nede. Nyttig for brukere, og det gjør API-endringer synlige
 tidlig i stedet for som en mystisk feil midt i en samtale.
+
+**Bygget som MCP-verktøyet `doctor` + `npm run doctor`.** To ting viste seg å være poenget:
+sonden må ligge på kilden (ikke i en sentral liste som drifter ved omdøping), og cachen må slås av
+mens den kjører — første versjon meldte 15/15 oppe på 855 ms rett fra disk.
 
 ## 5. Overvåkning: gjør data om til hendelser 🟡 mest interessant, størst løft
 

@@ -105,6 +105,7 @@ export const vegvesen: Source = {
   name: "Statens vegvesen (NVDB — nasjonal vegdatabank)",
   homepage: "https://nvdbapiles.atlas.vegvesen.no/dokumentasjon/",
   requiresKeyEnv: null,
+  helse: { verktoy: "objekttyper", args: { sok: "fartsgrense" } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Statens vegvesen (NVDB)",

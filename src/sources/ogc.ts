@@ -227,6 +227,7 @@ export const ogc: Source = {
   name: "OGC API Features (NGU, Havforskningsinstituttet m.fl.)",
   homepage: "https://ogcapi.ogc.org/features/",
   requiresKeyEnv: null,
+  helse: { verktoy: "tjenester", args: {} },
   attribution: {
     licence: "varierer per tjeneste",
     credit: "Kilder: Norges geologiske undersøkelse, Havforskningsinstituttet m.fl.",

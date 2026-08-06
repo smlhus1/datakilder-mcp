@@ -98,6 +98,7 @@ export const nve: Source = {
   name: "NVE (nettleietariffer)",
   homepage: "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json",
   requiresKeyEnv: null,
+  helse: { verktoy: "nettleie", args: { fraDato: "2026-07-01", tilDato: "2026-07-31", fylke: "Østfold" } },
   attribution: {
     licence: "NLOD 2.0",
     credit: "Kilde: Norges vassdrags- og energidirektorat (NVE)",

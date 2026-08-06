@@ -201,6 +201,7 @@ export const kart: Source = {
   name: "Generisk WMS-klient (norske karttjenester)",
   homepage: "https://kartkatalog.geonorge.no/",
   requiresKeyEnv: null,
+  helse: { verktoy: "lag", args: { url: "https://wms.geonorge.no/skwms1/wms.topo", sok: "topo" } },
   attribution: {
     licence: "varierer per tjeneste",
     credit: "Kilde: se den enkelte karttjenesten (oftest Kartverket, NVE eller Miljødirektoratet)",

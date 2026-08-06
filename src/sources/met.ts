@@ -220,6 +220,7 @@ export const met: Source = {
   name: "Meteorologisk institutt (api.met.no)",
   homepage: "https://api.met.no/",
   requiresKeyEnv: null,
+  helse: { verktoy: "farevarsel", args: { lat: 59.1265, lon: 11.3874 } },
   attribution: {
     licence: "NLOD 2.0 / CC BY 4.0",
     credit: "Kilde: Meteorologisk institutt (MET Norway)",

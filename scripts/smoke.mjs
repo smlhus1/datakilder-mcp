@@ -9,6 +9,7 @@
  *
  * Run: npm run build && npm run smoke
  */
+import { doctor } from "../dist/doctor.js";
 import { SOURCES } from "../dist/sources/index.js";
 
 const CASES = [
@@ -378,5 +379,22 @@ try {
   failed++;
 }
 
-console.log(failed ? `\n${failed} feilet` : `\nalle ${CASES.length + 1} OK`);
+// doctor is not a source tool, so it needs its own call. Every source must declare
+// a probe: an unchecked source in this list means someone added a module and left
+// it invisible to the health check.
+try {
+  const h = await doctor();
+  const uten = h.kilder.filter((k) => k.status === "ikke_sjekket").map((k) => k.id);
+  if (uten.length) throw new Error(`mangler helsesjekk: ${uten.join(", ")}`);
+  if (h.oppsummering.ok !== SOURCES.length) {
+    throw new Error(`${h.oppsummering.feil} nede: ${h.kilder.filter((k) => k.status === "feil").map((k) => `${k.id} (${k.detalj})`).join("; ")}`);
+  }
+  console.log(`✓ doctor — ${h.oppsummering.ok}/${SOURCES.length} kilder oppe på ${h.brukt_ms} ms`);
+} catch (err) {
+  console.log(`✗ doctor — ${err.message}`);
+  failed++;
+}
+
+// +2: the chained fdk case and the doctor sweep, neither of which lives in CASES.
+console.log(failed ? `\n${failed} feilet` : `\nalle ${CASES.length + 2} OK`);
 process.exit(failed ? 1 : 0);

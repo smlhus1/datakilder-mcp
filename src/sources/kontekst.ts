@@ -113,6 +113,7 @@ export const stedskontekst: Source = {
   name: "Stedskontekst (sammensatt av Kartverket, MET og Entur)",
   homepage: "https://github.com/smlhus1/datakilder-mcp",
   requiresKeyEnv: null,
+  helse: { verktoy: "kontekst", args: { lat: 59.1294, lon: 11.3794, timer: 1 } },
   attribution: {
     licence: "se de underliggende kildene",
     credit: "Kilder: Kartverket, Meteorologisk institutt, Entur",

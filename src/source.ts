@@ -45,6 +45,16 @@ export interface Source {
    */
   requiresKeyEnv: string | null;
   tools: SourceTool[];
+  /**
+   * The cheapest call that proves this source is reachable right now, used by the
+   * `doctor` tool.
+   *
+   * Declared by the source rather than kept in a list somewhere central: the
+   * module knows which of its calls is cheap and which needs half a megabyte, and
+   * a central list would drift the moment a tool is renamed. A source without one
+   * is reported as unchecked — never as healthy.
+   */
+  helse?: { verktoy: string; args: Record<string, unknown> };
 }
 
 /** Error whose message is meant to be read by the model, not just logged. */

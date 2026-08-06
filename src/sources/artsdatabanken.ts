@@ -49,6 +49,7 @@ export const artsdatabanken: Source = {
   name: "Artsdatabanken (Artskart)",
   homepage: "https://artskart.artsdatabanken.no/publicapi/",
   requiresKeyEnv: null,
+  helse: { verktoy: "art", args: { sok: "elg" } },
   attribution: {
     licence: "CC BY 4.0",
     credit: "Kilde: Artsdatabanken",

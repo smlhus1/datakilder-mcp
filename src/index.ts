@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { doctor } from "./doctor.js";
 import { SourceError } from "./source.js";
 import { SOURCES } from "./sources/index.js";
 
@@ -84,6 +85,22 @@ server.registerTool(
         ),
       },
     ],
+  }),
+);
+
+/** Health check across every source — implementation in doctor.ts, shared with `npm run doctor`. */
+server.registerTool(
+  "doctor",
+  {
+    title: "Er datakildene oppe akkurat nå?",
+    description:
+      "Kaller ett billig, ekte endepunkt per kilde og rapporterer hvilke som svarer, hvor raskt, " +
+      "og hva feilen er for dem som ikke gjør det. Bruk denne når et verktøy oppfører seg rart, " +
+      "eller for å se om en kilde har endret kontrakt. Tar noen sekunder — den går mot ekte API-er.",
+    inputSchema: {},
+  },
+  async () => ({
+    content: [{ type: "text" as const, text: JSON.stringify(await doctor(), null, 2) }],
   }),
 );
 
