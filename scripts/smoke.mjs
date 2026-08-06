@@ -294,22 +294,32 @@ const CASES = [
     describe: (r) => `Finse ligger ${r.marin_grense} marin grense`,
   },
   {
-    tool: "ngu_tjenester",
+    // The registry is NGU's live index plus the services that publish none.
+    tool: "ogc_tjenester",
     args: { sok: "løsmasser" },
-    check: (r) => r.antall >= 3 && r.av === 28 && r.tjenester.some((t) => t.id === "maringrense"),
+    check: (r) => r.antall >= 3 && r.av >= 30 && r.tjenester.some((t) => t.id === "ngu:maringrense"),
     describe: (r) => `${r.antall} av ${r.av} tjenester nevner løsmasser`,
   },
   {
-    tool: "ngu_punkt",
-    args: { tjeneste: "grunnvannborehull", lat: 59.1249, lon: 11.3875, radius_m: 1000, antall: 2 },
+    tool: "ogc_punkt",
+    args: { tjeneste: "ngu:grunnvannborehull", lat: 59.1249, lon: 11.3875, radius_m: 1000, antall: 2 },
     check: (r) => r.funn.some((f) => f.samling === "energibronn"),
     describe: (r) => `${r.funn.length} samlinger med treff, ${r.uten_treff.length} uten`,
   },
   {
-    tool: "ngu_punkt",
+    // Same client, different agency and a different dialect: HI ignores
+    // skipGeometry. The zero-area bbox works on both, which is what this proves —
+    // the vertex of a real spawning ground must intersect a point query.
+    tool: "ogc_punkt",
+    args: { tjeneste: "hi-gytefelt", lat: 60.40141809171934, lon: 6.256234594352324, antall: 1 },
+    check: (r) => r.funn.some((f) => f.samling.startsWith("Gytefelt")),
+    describe: (r) => `HI: ${r.funn[0].samling} — ${r.funn[0].egenskaper[0].navn}`,
+  },
+  {
+    tool: "ogc_punkt",
     args: { tjeneste: "finnes_ikke", lat: 59.1, lon: 11.3 },
-    expectError: /ngu_tjenester/,
-    describe: () => "peker på ngu_tjenester når tjenestenavnet er feil",
+    expectError: /ogc_tjenester/,
+    describe: () => "peker på ogc_tjenester når tjenestenavnet er feil",
   },
   {
     // The error path matters as much as the happy path: a bad org number must

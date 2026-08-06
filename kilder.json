@@ -149,15 +149,15 @@
       "tier": 3,
       "status": "done",
       "nokkel": null,
-      "hvorfor": "Bygget 6.8.2026. «Dekket av kartklienten» var feil: NGU har 28 OGC API Features-tjenester ved siden av kartlagene, alle nøkkelfrie. ngu_grunnforhold (radon + løsmasser + marin grense + brønner), ngu_punkt (generisk mot alle 28) og ngu_tjenester (indeksen). To fallgruver, begge dokumentert i modulen: bbox med areal gir naboens svar, og ett radon-polygon er 17,5 MB uten skipGeometry=true."
+      "hvorfor": "Bygget 6.8.2026. «Dekket av kartklienten» var feil: NGU har 28 OGC API Features-tjenester ved siden av kartlagene, alle nøkkelfrie. ngu_grunnforhold (radon + løsmasser + marin grense + brønner) er det NGU-spesifikke; de 27 andre tjenestene nås via den generiske ogc_punkt. To fallgruver, begge dokumentert i modulen: bbox med areal gir naboens svar, og ett radon-polygon er 17,5 MB uten skipGeometry=true."
     },
     {
       "id": "hi",
       "navn": "Havforskningsinstituttet",
       "tier": 3,
-      "status": "skipped",
+      "status": "done",
       "nokkel": null,
-      "hvorfor": "DEKKET AV kart_lag/kart_punkt: alle registrerte API-er er WMS/WFS-kartlag. Ingen egen modul trengs — den generiske kartklienten når dem allerede."
+      "hvorfor": "Nås via ogc_punkt fra 6.8.2026 (Mareano 104 samlinger + kystbestandskartlegging 6 gytefelt), ikke som egen modul: bevisst valg fordi 104 av 110 samlinger er havbunnsforskning ingen her spør om — protokolltilgang er nok, et komposittverktøy hadde vært teater. Dialektfunn: HI ignorerer skipGeometry (NGU respekterer det), men degenerert bbox virker begge steder."
     },
     {
       "id": "nibio",

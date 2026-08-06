@@ -72,7 +72,8 @@ selv, uten at noen har hardkodet en integrasjon.
 | **Artsdatabanken** | `arter_art` | CC BY 4.0 |
 | **Eurostat** | `eurostat_info` · `eurostat_data` | Eurostat-vilkår |
 | **Felles datakatalog** | `fdk_sok` · `fdk_detaljer` | NLOD 2.0 |
-| **NGU** (geologi, 28 tjenester) | `ngu_grunnforhold` · `ngu_punkt` · `ngu_tjenester` | NLOD 2.0 / CC BY 4.0 |
+| **NGU** (grunnforhold) | `ngu_grunnforhold` | NLOD 2.0 / CC BY 4.0 |
+| **OGC** (generisk, 138 samlinger) | `ogc_punkt` · `ogc_tjenester` | varierer per tjeneste |
 | **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
 
 Pluss `kilder` — lister alt serveren dekker.
@@ -92,6 +93,20 @@ Landbruksdirektoratet og Norge i bilder ikke har egne moduler — API-ene deres 
 **NGU sto på den lista til 6. august, og det var feil.** De har 28 OGC API Features-tjenester ved
 siden av kartlagene sine — ekte JSON-API-er med egne spørreparametre. «Dekket av kartklienten» var
 en påstand om protokollen, ikke om utgiveren.
+
+### `ogc_punkt` dekker 138 datasamlinger — og to dialekter
+Samme argument som for WMS: NGUs 28 tjenester og Havforskningsinstituttets 110 samlinger er ikke
+138 integrasjoner, de er én protokoll. Én klient, ett register, én linje per ny utgiver.
+
+Men «samme protokoll» er ikke «samme oppførsel», og forskjellene er av typen som feiler stille:
+
+- **Bbox med null areal er en punkt-i-polygon-spørring hos begge.** Verifisert på et hjørnepunkt i
+  et ekte gytefelt — et hjørnepunkt ligger på kanten, så det MÅ treffe hvis degenererte bokser
+  virker i det hele tatt. (Første test ga 0 treff hos HI og så ut som en forskjell. Punktet lå bare
+  i åpent hav.)
+- **`skipGeometry` respekteres av NGU og ignoreres av HI.** NGU sender 2 kB der den ellers sender
+  17,5 MB; HI sender omrisset uansett. Flagget sendes likevel — det er harmløst der det ignoreres —
+  og størrelsestaket i `http.ts` er sikkerhetsnettet. Geometri returneres aldri til kalleren.
 
 **`kart_finn` gjør dem faktisk mulige å finne.** Verktøyene over krevde at du kjente URL-en til
 tjenesten, noe som gjorde den største dekningen i serveren praktisk usynlig. Nå søker du i en
