@@ -330,6 +330,76 @@ const CASES = [
     expectError: /9 siffer/,
     describe: () => "avviser ugyldig orgnr med forklaring",
   },
+
+  // --- svenske kilder ---
+  {
+    tool: "scb_finn_tabell",
+    args: {},
+    check: (r) => r.mapper.some((m) => m.kode === "BE"),
+    describe: (r) => `${r.mapper.length} emneområder på toppnivå`,
+  },
+  {
+    // SCB names tables by path, not number — this is the step SSB does not have,
+    // and the one that decides whether a model can find anything at all.
+    tool: "scb_tabell_info",
+    args: { sti: "BE/BE0101/BE0101A/BefolkningNy" },
+    check: (r) => r.variabler.some((v) => v.kode === "Region"),
+    describe: (r) => `${r.variabler.length} variabler — "${r.tittel.slice(0, 40)}…"`,
+  },
+  {
+    tool: "scb_tabell_verdier",
+    args: { sti: "BE/BE0101/BE0101A/BefolkningNy", variabel: "Region", søk: "Malmö" },
+    check: (r) => r.verdier.some((v) => v.kode === "1280"),
+    describe: (r) => `Malmö = ${r.verdier.find((v) => v.tekst.includes("Malmö"))?.kode}`,
+  },
+  {
+    tool: "scb_finn_tabell",
+    args: { sti: "../../etc" },
+    expectError: /Ugyldig sti/,
+    describe: () => "avviser sti som prøver å klatre ut av katalogen",
+  },
+  {
+    tool: "smhi_parametere",
+    args: {},
+    check: (r) => r.parametere.some((p) => /lufttemperatur/i.test(p.navn)),
+    describe: (r) => `${r.parametere.length} målte parametere`,
+  },
+  {
+    // Malmö is the case that caught a real bug: the two decommissioned stations
+    // sort ahead of the working ones, so a model taking the first hit got an
+    // empty series. Active must come first.
+    tool: "smhi_stasjoner",
+    args: { parameter: "1", søk: "Malmö" },
+    check: (r) => r.stasjoner[0].aktiv === true,
+    describe: (r) => `${r.antallAktive} aktive av ${r.antallTreff} — første: ${r.stasjoner[0].navn}`,
+  },
+  {
+    tool: "smhi_observasjoner",
+    args: { parameter: "1", stasjon: "52350" },
+    check: (r) => r.antall > 0 && typeof r.målinger.at(-1).verdi === "number",
+    describe: (r) => `${r.stasjon}: ${r.målinger.at(-1).verdi} ${r.enhet}`,
+  },
+  {
+    // A decommissioned station has no "latest-day" resource: SMHI answers 404
+    // with a Tomcat HTML page. Passed through, the model reads markup instead of
+    // "pick another station".
+    tool: "smhi_observasjoner",
+    args: { parameter: "1", stasjon: "53360" },
+    expectError: /nedlagt/i,
+    describe: () => "oversetter 404 fra nedlagt stasjon til et råd",
+  },
+  {
+    tool: "skolverket_skoler",
+    args: { søk: "Katedralskolan" },
+    check: (r) => r.antallTreff > 0 && r.skoler[0].kode.length > 0,
+    describe: (r) => `${r.antallTreff} treff, første: ${r.skoler[0].navn}`,
+  },
+  {
+    tool: "skolverket_skole",
+    args: { kode: "77986149" },
+    check: (r) => typeof r.lat === "number" && r.navn.length > 0,
+    describe: (r) => `${r.navn} — ${r.lat}, ${r.lon}`,
+  },
 ];
 
 // fdk_detaljer needs an id from fdk_sok. Chaining beats hardcoding one that rots.

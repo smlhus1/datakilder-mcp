@@ -1,7 +1,7 @@
 # datakilder-mcp
 
-MCP-server med **typede verktøy for norske offentlige datakilder**. Én modul per kilde, så
-modellen slipper å gjette API-formen.
+MCP-server med **typede verktøy for nordiske offentlige datakilder** — 15 norske og 3 svenske.
+Én modul per kilde, så modellen slipper å gjette API-formen.
 
 **Ingen API-nøkler.** Alle kildene under er åpne — klon, bygg, kjør.
 
@@ -75,6 +75,27 @@ selv, uten at noen har hardkodet en integrasjon.
 | **NGU** (grunnforhold) | `ngu_grunnforhold` | NLOD 2.0 / CC BY 4.0 |
 | **OGC** (generisk, 138 samlinger) | `ogc_punkt` · `ogc_tjenester` | varierer per tjeneste |
 | **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
+
+### Svenske kilder
+
+| Kilde | Verktøy | Lisens |
+|---|---|---|
+| **SCB** (PxWebApi v1) | `scb_finn_tabell` · `scb_tabell_info` · `scb_tabell_verdier` · `scb_tabell_data` | CC0 1.0 |
+| **SMHI** (observasjoner) | `smhi_parametere` · `smhi_stasjoner` · `smhi_observasjoner` | CC BY 4.0 |
+| **Skolverket** (skolenhetsregistret) | `skolverket_skoler` · `skolverket_skole` | CC0 1.0 |
+
+Tre ting som ikke er som man skulle tro, og som kostet et spike-kall hver å finne ut:
+
+- **SCB navngir tabeller med en STI, ikke et nummer.** SSB har `07459`; SCB har
+  `BE/BE0101/BE0101A/BefolkningNy`. Ingen gjetter den, og PxWeb v1 har ikke fritekstsøk — derfor
+  har SCB et `finn_tabell` som SSB ikke trenger. Alt etter oppslaget er identisk: samme
+  metadataform, samme json-stat2, samme `flattenJsonStat`.
+- **SMHI er ikke det svenske MET.** Prognose-API-et (metfcst) svarte 404 på alle dokumenterte
+  stier 24.8.2026; observasjons-API-et virker. MET gir vær som *kommer*, dette gir vær som *har
+  vært*.
+- **Nedlagte SMHI-stasjoner ligger i registeret** og sorterte foran de virksomme. En modell som
+  tok første treff for «Malmö» fikk 404 og en Tomcat-side i fleisen. Aktive stasjoner sorteres
+  først, og 404 oversettes til et råd.
 
 Pluss `kilder` — lister alt serveren dekker — og `doctor`, som sjekker om de faktisk svarer nå.
 
