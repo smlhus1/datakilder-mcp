@@ -1,7 +1,7 @@
 # datakilder-mcp
 
-MCP-server med **typede verktøy for norske offentlige datakilder**. Én modul per kilde, så
-modellen slipper å gjette API-formen.
+MCP-server med **typede verktøy for nordiske offentlige datakilder** — 15 norske og 3 svenske.
+Én modul per kilde, så modellen slipper å gjette API-formen.
 
 **Ingen API-nøkler.** Alle kildene under er åpne — klon, bygg, kjør.
 
@@ -31,8 +31,8 @@ SSB er en kube med opake dimensjonskoder, Brreg er flat REST, MET krever User-Ag
 koordinatavrunding, Entur er GraphQL. Det er den halvdelen denne serveren dekker.
 
 **Derfor finnes det ikke noe `fetch_data`-verktøy her.** Et verktøy som laster ned hva enn en
-katalog-lenke peker på, laster i praksis ned en HTML-side 94 % av gangene. 10 av 11 kilder snakker
-direkte med det ekte API-et og returnerer strukturerte data. Den ellevte (`fdk`) er katalogoppslag
+katalog-lenke peker på, laster i praksis ned en HTML-side 94 % av gangene. 17 av 18 kilder snakker
+direkte med det ekte API-et og returnerer strukturerte data. Den attende (`fdk`) er katalogoppslag
 som *finner et API å bygge mot* — den henter aldri data, og sier det selv i verktøybeskrivelsen.
 
 ## Hva kan du spørre om?
@@ -76,10 +76,31 @@ selv, uten at noen har hardkodet en integrasjon.
 | **OGC** (generisk, 138 samlinger) | `ogc_punkt` · `ogc_tjenester` | varierer per tjeneste |
 | **Stedskontekst** (sammensatt) | `sted_kontekst` | se underliggende kilder |
 
+### Svenske kilder
+
+| Kilde | Verktøy | Lisens |
+|---|---|---|
+| **SCB** (PxWebApi v1) | `scb_finn_tabell` · `scb_tabell_info` · `scb_tabell_verdier` · `scb_tabell_data` | CC0 1.0 |
+| **SMHI** (observasjoner) | `smhi_parametere` · `smhi_stasjoner` · `smhi_observasjoner` | CC BY 4.0 |
+| **Skolverket** (skolenhetsregistret) | `skolverket_skoler` · `skolverket_skole` | CC0 1.0 |
+
+Tre ting som ikke er som man skulle tro, og som kostet et spike-kall hver å finne ut:
+
+- **SCB navngir tabeller med en STI, ikke et nummer.** SSB har `07459`; SCB har
+  `BE/BE0101/BE0101A/BefolkningNy`. Ingen gjetter den, og PxWeb v1 har ikke fritekstsøk — derfor
+  har SCB et `finn_tabell` som SSB ikke trenger. Alt etter oppslaget er identisk: samme
+  metadataform, samme json-stat2, samme `flattenJsonStat`.
+- **SMHI er ikke det svenske MET.** Prognose-API-et (metfcst) svarte 404 på alle dokumenterte
+  stier 24.8.2026; observasjons-API-et virker. MET gir vær som *kommer*, dette gir vær som *har
+  vært*.
+- **Nedlagte SMHI-stasjoner ligger i registeret** og sorterte foran de virksomme. En modell som
+  tok første treff for «Malmö» fikk 404 og en Tomcat-side i fleisen. Aktive stasjoner sorteres
+  først, og 404 oversettes til et råd.
+
 Pluss `kilder` — lister alt serveren dekker — og `doctor`, som sjekker om de faktisk svarer nå.
 
-**Attribusjonen følger med dataene:** hvert svar bærer et `_kilde`-felt. Norske offentlige data
-er lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README blir ikke lest.
+**Attribusjonen følger med dataene:** hvert svar bærer et `_kilde`-felt. Offentlige data er
+lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README blir ikke lest.
 
 ### `kart` dekker 614 av katalogens API-er
 58 % av det katalogen kaller API-er er WMS/WFS. Å pakke inn protokollen én gang slår å pakke inn
@@ -216,6 +237,32 @@ MCP-klient (Claude Code, `.mcp.json`) — bruk absolutt sti til `dist/index.js`:
 ```json
 { "mcpServers": { "datakilder": { "command": "node", "args": ["<sti>/dist/index.js"] } } }
 ```
+
+### Uten terminal: `.mcpb`-bundle
+
+Oppskriften over forutsetter Node, en terminal og en absolutt sti i en config-fil. For alle
+andre finnes bundlen:
+
+```bash
+npm run bundle          # → build/datakilder.mcpb (3,1 MB)
+```
+
+Mottakeren åpner **Claude → Settings → Extensions → Install Extension…** og velger fila.
+Ingen Node å installere, ingen `npm install`, ingen sti å skrive.
+
+Ferdigbygde bundler ligger under [Releases](https://github.com/smlhus1/datakilder-mcp/releases).
+Verifisert installert hos en ekstern bruker 24.8.2026 (SCB-oppslag mot ekte data).
+
+`npm run bundle` stager i en ren mappe framfor å pakke arbeidstreet: repoet har 48 MB
+`node_modules`, hvorav nøyaktig to pakker er produksjonsavhengigheter.
+
+**Verifiser før du sender den til noen:**
+```bash
+node scripts/verifiser-bundle.mjs
+```
+Den pakker ut bundlen i en tom mappe, starter serveren derfra og snakker MCP med den. At
+`mcpb pack` går igjennom beviser bare at det ble skrevet en zip — første forsøk pakket helt
+fint og krasjet ved oppstart, fordi `data/kartindeks.json` ikke var med.
 
 ## Legge til en kilde
 

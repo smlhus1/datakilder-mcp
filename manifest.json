@@ -1,0 +1,29 @@
+{
+  "manifest_version": "0.2",
+  "name": "datakilder",
+  "display_name": "Datakilder — nordiske offentlige data",
+  "version": "0.1.0",
+  "description": "Typede verktøy for norske og svenske offentlige datakilder. Ingen API-nøkler.",
+  "long_description": "MCP-server med én modul per datakilde, så modellen slipper å gjette API-formen. Dekker SSB, Brønnøysund, MET, Kartverket, Vegvesenet, Entur, UDIR, Artsdatabanken, NGU, NVE, Eurostat og generisk WMS/OGC på norsk side — og SCB, SMHI og Skolverket på svensk. Alle kildene er åpne: ingen registrering, ingen nøkler.",
+  "author": {
+    "name": "Stian Melhus",
+    "url": "https://github.com/smlhus1"
+  },
+  "homepage": "https://github.com/smlhus1/datakilder-mcp",
+  "documentation": "https://github.com/smlhus1/datakilder-mcp#readme",
+  "license": "MIT",
+  "keywords": ["data", "statistikk", "norge", "sverige", "ssb", "scb", "smhi", "met", "kart"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"]
+    }
+  },
+  "compatibility": {
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  }
+}
