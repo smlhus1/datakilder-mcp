@@ -238,6 +238,29 @@ MCP-klient (Claude Code, `.mcp.json`) — bruk absolutt sti til `dist/index.js`:
 { "mcpServers": { "datakilder": { "command": "node", "args": ["<sti>/dist/index.js"] } } }
 ```
 
+### Uten terminal: `.mcpb`-bundle
+
+Oppskriften over forutsetter Node, en terminal og en absolutt sti i en config-fil. For alle
+andre finnes bundlen:
+
+```bash
+npm run bundle          # → build/datakilder.mcpb (3,1 MB)
+```
+
+Mottakeren åpner **Claude → Settings → Extensions → Install Extension…** og velger fila.
+Ingen Node å installere, ingen `npm install`, ingen sti å skrive.
+
+`npm run bundle` stager i en ren mappe framfor å pakke arbeidstreet: repoet har 48 MB
+`node_modules`, hvorav nøyaktig to pakker er produksjonsavhengigheter.
+
+**Verifiser før du sender den til noen:**
+```bash
+node scripts/verifiser-bundle.mjs
+```
+Den pakker ut bundlen i en tom mappe, starter serveren derfra og snakker MCP med den. At
+`mcpb pack` går igjennom beviser bare at det ble skrevet en zip — første forsøk pakket helt
+fint og krasjet ved oppstart, fordi `data/kartindeks.json` ikke var med.
+
 ## Legge til en kilde
 
 Skriv **én fil** i `src/sources/`, legg til **én linje** i `src/sources/index.ts`.
