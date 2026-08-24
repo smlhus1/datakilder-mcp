@@ -31,8 +31,8 @@ SSB er en kube med opake dimensjonskoder, Brreg er flat REST, MET krever User-Ag
 koordinatavrunding, Entur er GraphQL. Det er den halvdelen denne serveren dekker.
 
 **Derfor finnes det ikke noe `fetch_data`-verktøy her.** Et verktøy som laster ned hva enn en
-katalog-lenke peker på, laster i praksis ned en HTML-side 94 % av gangene. 10 av 11 kilder snakker
-direkte med det ekte API-et og returnerer strukturerte data. Den ellevte (`fdk`) er katalogoppslag
+katalog-lenke peker på, laster i praksis ned en HTML-side 94 % av gangene. 17 av 18 kilder snakker
+direkte med det ekte API-et og returnerer strukturerte data. Den attende (`fdk`) er katalogoppslag
 som *finner et API å bygge mot* — den henter aldri data, og sier det selv i verktøybeskrivelsen.
 
 ## Hva kan du spørre om?
@@ -99,8 +99,8 @@ Tre ting som ikke er som man skulle tro, og som kostet et spike-kall hver å fin
 
 Pluss `kilder` — lister alt serveren dekker — og `doctor`, som sjekker om de faktisk svarer nå.
 
-**Attribusjonen følger med dataene:** hvert svar bærer et `_kilde`-felt. Norske offentlige data
-er lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README blir ikke lest.
+**Attribusjonen følger med dataene:** hvert svar bærer et `_kilde`-felt. Offentlige data er
+lisensiert, ikke fritt fram, og en kildehenvisning som bare står i en README blir ikke lest.
 
 ### `kart` dekker 614 av katalogens API-er
 58 % av det katalogen kaller API-er er WMS/WFS. Å pakke inn protokollen én gang slår å pakke inn
@@ -249,6 +249,9 @@ npm run bundle          # → build/datakilder.mcpb (3,1 MB)
 
 Mottakeren åpner **Claude → Settings → Extensions → Install Extension…** og velger fila.
 Ingen Node å installere, ingen `npm install`, ingen sti å skrive.
+
+Ferdigbygde bundler ligger under [Releases](https://github.com/smlhus1/datakilder-mcp/releases).
+Verifisert installert hos en ekstern bruker 24.8.2026 (SCB-oppslag mot ekte data).
 
 `npm run bundle` stager i en ren mappe framfor å pakke arbeidstreet: repoet har 48 MB
 `node_modules`, hvorav nøyaktig to pakker er produksjonsavhengigheter.
