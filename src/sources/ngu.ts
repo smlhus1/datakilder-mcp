@@ -17,7 +17,7 @@ import { bbox, features as ogcFeatures, meterMellom, type Feature } from "./ogc.
  * is knowing WHICH four services answer "is this a good place to buy a house", and
  * which field in each carries the answer.
  *
- * Verified live 2026-08-06 against geo.ngu.no.
+ * Verified live 2026-08-06 against geo.ngu.no; radon fields re-checked 2026-10-11 (dataset v2).
  */
 
 const BASE = "https://geo.ngu.no/api/features";
@@ -94,12 +94,19 @@ async function grunnforhold({
   // made: the marine limit varies from ~10 to ~220 moh across Norway.
   const marinTema = egenskap(marin?.[0], "annetKvTemaNavn");
 
+  // Radon dataset v2 (Sept 2026) renamed aktsomhetGrad → radonAktsomhetGrad and
+  // dropped the *Navn text field; the value is now a code like "megetHøy". A hit
+  // without the field means NGU changed the schema again — say so instead of
+  // returning an empty object that reads as "no radon risk".
+  const radonGrad = egenskap(radon?.[0], "radonAktsomhetGrad");
+  if (radon?.[0] && !radonGrad) mangler.push("radon (NGU svarte uten radonAktsomhetGrad — nytt skjema?)");
+
   return {
     posisjon: { lat, lon },
-    radon: radon?.[0]
+    radon: radonGrad
       ? {
-          grad: egenskap(radon[0], "aktsomhetGrad"),
-          beskrivelse: egenskap(radon[0], "aktsomhetGradNavn"),
+          grad: radonGrad,
+          beskrivelse: radonGrad.replace(/([a-zæøå])([A-ZÆØÅ])/g, "$1 $2").toLowerCase(),
         }
       : null,
     losmasse: losmasse?.[0]
