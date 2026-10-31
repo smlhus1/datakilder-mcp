@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { falskDns, falskFetch, svar, verktoy } from "./hjelp/nett.mjs";
+import { falskFetch, svar, verktoy } from "./hjelp/nett.mjs";
 
 const { kart } = await import("../dist/sources/kart.js");
 
@@ -10,7 +10,6 @@ const CAPABILITIES =
 const OPPTATT = "<ServiceExceptionReport><ServiceException>Server busy</ServiceException></ServiceExceptionReport>";
 
 test("C1: a WMS ServiceException (status 200) is not cached", async (t) => {
-  falskDns(t);
   let n = 0;
   const kall = falskFetch(t, () => svar(n++ === 0 ? OPPTATT : CAPABILITIES, { headers: { "content-type": "text/xml" } }));
   const url = "https://wms.geonorge.no/skwms1/wms.topo";

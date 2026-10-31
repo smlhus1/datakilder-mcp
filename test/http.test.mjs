@@ -21,6 +21,23 @@ test("T1: a body that drips forever times out instead of hanging", async (t) => 
   assert.match(r.feil?.message ?? "", /svarte ikke innen 30 s/);
 });
 
+test("T1p: the same drip times out on the pinned (publicHostsOnly) transport", async (t) => {
+  const kall = falskFetch(t, (_url, init) =>
+    svar(haengendeBody(init.signal), { headers: { "content-type": "text/xml" } }),
+  );
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+
+  const p = getText("https://drypp.example/wms", { publicHostsOnly: true });
+  await flush();
+  await flush();
+  t.mock.timers.tick(30_000);
+
+  const r = await innen(1000, p);
+  assert.notEqual(r, "HANG", "the pinned transport was still waiting for the body after 30 s");
+  assert.match(r.feil?.message ?? "", /svarte ikke innen 30 s/);
+  assert.equal(kall[0]?.init.redirect, "manual", "did not go through the pinned transport");
+});
+
 test("T2: Retry-After above the cap fails fast instead of sleeping", async (t) => {
   const kall = falskFetch(t, () => svar("busy", { status: 429, headers: { "retry-after": "86400" } }));
   // Mocked so the unfixed code's day-long sleep is a fake timer, not one that keeps

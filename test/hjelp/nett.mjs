@@ -1,9 +1,14 @@
 /**
  * Offline seam for every test: replaces the network at the http.ts boundary.
  *
- * http.ts is the only HTTP client, so faking `globalThis.fetch` and the DNS lookup
- * covers every source. Anything a test did not route throws, so a leaked live call
- * turns a test red instead of slow.
+ * http.ts is the only HTTP client. It has two transports — global fetch for our own
+ * URLs, node:http(s) with a checked connect-time lookup for untrusted ones — and
+ * both are faked here, together with DNS. Anything a test did not route throws, so
+ * a leaked live call turns a test red instead of slow.
+ *
+ * Both fakes resolve the host when they "connect", like the real thing, and record
+ * the address in `kall[].adresse`: that is how a test sees WHERE a request would
+ * have gone, not just which URL was asked for.
  *
  * Importing this module also points the disk cache at a fresh temp dir. cache.ts
  * reads XDG_CACHE_HOME when it is first imported, so test files import this module
@@ -11,25 +16,50 @@
  * process, so the dir (and module state) never leaks between files.
  */
 import dns from "node:dns";
+import { EventEmitter } from "node:events";
 import { mkdtempSync } from "node:fs";
+import http from "node:http";
+import https from "node:https";
+import { isIP } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { Readable } from "node:stream";
 
 process.env.XDG_CACHE_HOME = mkdtempSync(join(tmpdir(), "datakilder-test-"));
 
-/** Any public address. Never contacted: fetch is fake too. */
+/** Any public address. Never contacted: the transports are fake too. */
 export const OFFENTLIG_IP = "151.101.1.1";
 
 /**
- * Install a fake fetch for the duration of test `t`.
+ * Install fake DNS + fake transports for the duration of test `t`.
+ *
  * `ruter(url, init)` returns a Response, or undefined for "not expected".
- * Returns the list of calls made, so a test can assert that nothing was fetched.
+ * `navn` maps hostname → address, or → a list of addresses answered in turn (the
+ * last one repeats) to play a rebinding server. Unknown names resolve to a public
+ * address, so tests that do not care about DNS need not list every host.
+ *
+ * Returns the calls that reached a server — after DNS, so a request refused at
+ * lookup is not in the list.
  */
-export function falskFetch(t, ruter) {
+export function falskFetch(t, ruter, navn = {}) {
+  const svarFor = { localhost: "127.0.0.1", ...navn };
+  const oppslag = {};
+  t.mock.method(dns.promises, "lookup", async (host) => {
+    const svar = svarFor[host] ?? OFFENTLIG_IP;
+    const liste = Array.isArray(svar) ? svar : [svar];
+    const n = (oppslag[host] = (oppslag[host] ?? 0) + 1);
+    const address = liste[Math.min(n, liste.length) - 1];
+    return [{ address, family: isIP(address) }];
+  });
+
   const kall = [];
-  const falsk = async (url, init = {}) => {
+
+  const falskFetch = async (url, init = {}) => {
     const href = String(url);
-    kall.push({ url: href, init });
+    const host = new URL(href).hostname.replace(/^\[|\]$/g, "");
+    // Real fetch resolves the name itself when it connects.
+    const adresse = isIP(host) ? host : (await dns.promises.lookup(host, { all: true }))[0].address;
+    kall.push({ url: href, init, adresse });
     if (init.signal?.aborted) throw avbrutt();
     const res = await ruter(href, init);
     if (!res) throw new Error(`uventet nettverkskall: ${href}`);
@@ -37,24 +67,55 @@ export function falskFetch(t, ruter) {
     // test of redirect handling would pass against code that never looked.
     const location = res.headers.get("location");
     if (init.redirect !== "manual" && res.status >= 300 && res.status < 400 && location) {
-      return falsk(new URL(location, href).toString(), init);
+      return falskFetch(new URL(location, href).toString(), init);
     }
     return res;
   };
-  t.mock.method(globalThis, "fetch", falsk);
-  return kall;
-}
+  t.mock.method(globalThis, "fetch", falskFetch);
 
-/**
- * Install a fake DNS. `navn` maps hostname → address; unknown names resolve to a
- * public address, so tests that do not care about DNS need not list every host.
- */
-export function falskDns(t, navn = {}) {
-  const alle = { localhost: "127.0.0.1", ...navn };
-  t.mock.method(dns.promises, "lookup", async (host) => {
-    const address = alle[host] ?? OFFENTLIG_IP;
-    return [{ address, family: address.includes(":") ? 6 : 4 }];
-  });
+  /**
+   * Fake http(s).request. Like net.connect, it skips the lookup for an IP literal
+   * and otherwise calls the caller's `lookup` option — the hook under test — with
+   * `all: true`, as Node 20+ does with autoSelectFamily on. Never follows redirects.
+   */
+  const falskRequest = (url, opts, svarTil) => {
+    const req = new EventEmitter();
+    req.destroy = (err) => err && req.emit("error", err);
+    req.end = (body) => {
+      koble(String(url), opts, body).then(svarTil, (err) => req.emit("error", err));
+      return req;
+    };
+    return req;
+  };
+  const koble = async (href, opts, body) => {
+    const host = new URL(href).hostname.replace(/^\[|\]$/g, "");
+    const adresse = isIP(host)
+      ? host
+      : await new Promise((ok, feil) =>
+          opts.lookup(host, { all: true }, (err, a) => (err ? feil(err) : ok(Array.isArray(a) ? a[0].address : a))),
+        );
+    const init = { method: opts.method, headers: opts.headers, body, signal: opts.signal, redirect: "manual" };
+    kall.push({ url: href, init, adresse });
+    if (opts.signal?.aborted) throw avbrutt();
+    // The router gets no signal: on this transport the abort is Node's, not the
+    // stream's. Verified on Node 20 and 22 against a local server: aborting after
+    // headers fails the body read with Error "aborted", code ECONNRESET — NOT an
+    // AbortError, which is what fetch gives.
+    const res = await ruter(href, { ...init, signal: undefined });
+    if (!res) throw new Error(`uventet nettverkskall: ${href}`);
+    const melding = res.body ? Readable.fromWeb(res.body) : Readable.from([]);
+    melding.statusCode = res.status;
+    melding.statusMessage = res.statusText;
+    melding.headers = Object.fromEntries(res.headers);
+    opts.signal?.addEventListener("abort", () =>
+      melding.destroy(Object.assign(new Error("aborted"), { code: "ECONNRESET" })),
+    );
+    return melding;
+  };
+  t.mock.method(http, "request", falskRequest);
+  t.mock.method(https, "request", falskRequest);
+
+  return kall;
 }
 
 export function svar(body, { status = 200, headers = {} } = {}) {
