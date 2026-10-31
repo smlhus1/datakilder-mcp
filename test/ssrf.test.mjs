@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { falskDns, falskFetch, svar, verktoy } from "./hjelp/nett.mjs";
+import { falskFetch, svar, verktoy } from "./hjelp/nett.mjs";
 
 const { kart } = await import("../dist/sources/kart.js");
 const { ogc } = await import("../dist/sources/ogc.js");
@@ -33,8 +33,7 @@ const INTERNE = [
 ];
 
 test("S1: kart_lag, kart_punkt and ogc_punkt refuse internal hosts before any fetch", async (t) => {
-  falskDns(t, { "intern.example": "10.1.2.3" });
-  const kall = falskFetch(t, () => xml(CAPABILITIES));
+  const kall = falskFetch(t, () => xml(CAPABILITIES), { "intern.example": "10.1.2.3" });
 
   for (const url of INTERNE) {
     await assert.rejects(verktoy(kart, "lag")({ url }), /intern adresse/, `kart_lag ${url}`);
@@ -52,8 +51,30 @@ test("S1: kart_lag, kart_punkt and ogc_punkt refuse internal hosts before any fe
   );
 });
 
+test("S1b: IPv4-compatible IPv6 ([::127.0.0.1]) is refused", async (t) => {
+  const kall = falskFetch(t, () => xml(CAPABILITIES));
+  await assert.rejects(verktoy(kart, "lag")({ url: "http://[::127.0.0.1]/" }), /intern adresse/);
+  assert.deepEqual(kall, []);
+});
+
+test("R1: DNS rebinding — a name that answers public, then private, never connects inside", async (t) => {
+  // A TTL-0 rebinding host: the first lookup says public, every later one says
+  // loopback. Checking one answer and connecting with another is the hole.
+  const kall = falskFetch(t, () => xml(CAPABILITIES), { "rebind.example": ["151.101.1.1", "127.0.0.1"] });
+
+  await verktoy(kart, "lag")({ url: "http://rebind.example/wms" }).catch(() => {});
+
+  const inne = kall.filter((k) => k.adresse === "127.0.0.1").map((k) => k.url);
+  assert.deepEqual(inne, [], "connected to 127.0.0.1 after the check had seen a public address");
+});
+
+test("R2: a connect-time answer in the blocklist is refused", async (t) => {
+  const kall = falskFetch(t, () => xml(CAPABILITIES), { "intern2.example": "fd12::7" });
+  await assert.rejects(verktoy(kart, "lag")({ url: "https://intern2.example/wms" }), /intern adresse/);
+  assert.deepEqual(kall, []);
+});
+
 test("S2: a redirect from a public host to an internal one is not followed", async (t) => {
-  falskDns(t);
   const kall = falskFetch(t, (url) => {
     if (url.startsWith("https://wms.offentlig.example/")) {
       return svar(null, { status: 302, headers: { location: "http://127.0.0.1/admin" } });
@@ -69,7 +90,6 @@ test("S2: a redirect from a public host to an internal one is not followed", asy
 });
 
 test("S3: a landingPageUri from the NGU index cannot point us inside", async (t) => {
-  falskDns(t);
   const kall = falskFetch(t, (url) => {
     if (url.startsWith("https://geo.ngu.no/api/features?")) {
       return json({ apis: [{ id: "x", title: "X", landingPageUri: "http://127.0.0.1/x" }] });
@@ -85,7 +105,6 @@ test("S3: a landingPageUri from the NGU index cannot point us inside", async (t)
 });
 
 test("public WMS still works, including a redirect to another public host", async (t) => {
-  falskDns(t);
   falskFetch(t, (url) => {
     if (url.startsWith("https://gammel.example/")) {
       return svar(null, { status: 301, headers: { location: "https://wms.geonorge.no/skwms1/wms.topo?flyttet=1" } });
