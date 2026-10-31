@@ -77,12 +77,20 @@ export function falskFetch(t, ruter, navn = {}) {
    * Fake http(s).request. Like net.connect, it skips the lookup for an IP literal
    * and otherwise calls the caller's `lookup` option — the hook under test — with
    * `all: true`, as Node 20+ does with autoSelectFamily on. Never follows redirects.
+   *
+   * The response callback runs from a plain macrotask, outside any promise chain —
+   * as Node runs it from the HTTP parser. A throw in it is then an uncaught
+   * exception, which is what kills the real server; inside `.then()` it would
+   * quietly become a rejection nobody sees.
    */
   const falskRequest = (url, opts, svarTil) => {
     const req = new EventEmitter();
     req.destroy = (err) => err && req.emit("error", err);
     req.end = (body) => {
-      koble(String(url), opts, body).then(svarTil, (err) => req.emit("error", err));
+      koble(String(url), opts, body).then(
+        (melding) => setImmediate(() => svarTil(melding)),
+        (err) => req.emit("error", err),
+      );
       return req;
     };
     return req;
@@ -94,7 +102,15 @@ export function falskFetch(t, ruter, navn = {}) {
       : await new Promise((ok, feil) =>
           opts.lookup(host, { all: true }, (err, a) => (err ? feil(err) : ok(Array.isArray(a) ? a[0].address : a))),
         );
-    const init = { method: opts.method, headers: opts.headers, body, signal: opts.signal, redirect: "manual" };
+    const init = {
+      method: opts.method,
+      headers: opts.headers,
+      body,
+      signal: opts.signal,
+      redirect: "manual",
+      transport: "pinned",
+      agent: opts.agent,
+    };
     kall.push({ url: href, init, adresse });
     if (opts.signal?.aborted) throw avbrutt();
     // The router gets no signal: on this transport the abort is Node's, not the
@@ -103,10 +119,15 @@ export function falskFetch(t, ruter, navn = {}) {
     // AbortError, which is what fetch gives.
     const res = await ruter(href, { ...init, signal: undefined });
     if (!res) throw new Error(`uventet nettverkskall: ${href}`);
-    const melding = res.body ? Readable.fromWeb(res.body) : Readable.from([]);
+    const raatt = res instanceof RaattSvar;
+    const melding = raatt
+      ? Readable.from([Buffer.from(res.body)])
+      : res.body
+        ? Readable.fromWeb(res.body)
+        : Readable.from([]);
     melding.statusCode = res.status;
-    melding.statusMessage = res.statusText;
-    melding.headers = Object.fromEntries(res.headers);
+    melding.statusMessage = raatt ? "" : res.statusText;
+    melding.headers = raatt ? res.headers : Object.fromEntries(res.headers);
     opts.signal?.addEventListener("abort", () =>
       melding.destroy(Object.assign(new Error("aborted"), { code: "ECONNRESET" })),
     );
@@ -120,6 +141,20 @@ export function falskFetch(t, ruter, navn = {}) {
 
 export function svar(body, { status = 200, headers = {} } = {}) {
   return new Response(body, { status, headers });
+}
+
+/**
+ * A reply the fetch Response constructor refuses to build — 205 with a body, status
+ * 999 — but Node's HTTP parser accepts. Only the node:http fake can deliver it,
+ * which is the point: the pinned transport must not trust the wire to be valid.
+ */
+class RaattSvar {
+  constructor(status, body, headers) {
+    Object.assign(this, { status, body, headers });
+  }
+}
+export function raattSvar(status, body = "", headers = {}) {
+  return new RaattSvar(status, body, headers);
 }
 
 /**
