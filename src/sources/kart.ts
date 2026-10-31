@@ -53,13 +53,17 @@ function assertWmsUrl(url: string): URL {
 
 /**
  * WMS answers errors as XML with status 200, so the body has to be inspected —
- * a check that would be invisible if this used getJson.
+ * a check that would be invisible if this used getJson. It runs inside getText,
+ * before caching: checked afterwards, a passing "server busy" was cached for a week.
+ * The URL is the caller's, so it must be a public host.
  */
 async function wmsText(url: string, ttlMs: number): Promise<string> {
-  const text = await getText(url, { cacheTtlMs: ttlMs });
+  return getText(url, { cacheTtlMs: ttlMs, publicHostsOnly: true, validate: avvisServiceException });
+}
+
+function avvisServiceException(text: string): void {
   const feil = /<ServiceException[^>]*>([\s\S]*?)<\/ServiceException>/.exec(text);
   if (feil) throw new SourceError(`Tjenesten avviste spørringen: ${feil[1].trim().slice(0, 200)}`);
-  return text;
 }
 
 function tag(xml: string, name: string): string | undefined {

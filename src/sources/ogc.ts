@@ -53,19 +53,30 @@ interface NguIndeks {
   apis?: Array<{ id: string; title?: string; description?: string; landingPageUri?: string }>;
 }
 
-/** NGU publishes an index of its own services, so it is read rather than listed here. */
-async function registeret(): Promise<Tjeneste[]> {
-  const ngu = await getJson<NguIndeks>(`${NGU_INDEKS}?f=json`, { cacheTtlMs: TTL.uke }).catch(
-    () => ({}) as NguIndeks,
-  );
-  return [
-    ...(ngu.apis ?? []).map((a) => ({
-      id: `ngu:${a.id}`,
-      navn: `NGU — ${a.title}`,
-      base: a.landingPageUri ?? `${NGU_INDEKS}/${a.id}`,
-    })),
-    ...KJENTE,
-  ];
+/**
+ * NGU publishes an index of its own services, so it is read rather than listed here.
+ *
+ * The HI services work without NGU's index, so a failed read degrades instead of
+ * throwing — but it is named in `mangler`. Swallowed, doctor reported a dead index
+ * as healthy.
+ */
+async function registeret(): Promise<{ tjenester: Tjeneste[]; mangler?: string }> {
+  let ngu: NguIndeks;
+  try {
+    ngu = await getJson<NguIndeks>(`${NGU_INDEKS}?f=json`, { cacheTtlMs: TTL.uke });
+  } catch (err) {
+    return { tjenester: KJENTE, mangler: `NGU-indeksen (${(err as Error).message.slice(0, 80)})` };
+  }
+  return {
+    tjenester: [
+      ...(ngu.apis ?? []).map((a) => ({
+        id: `ngu:${a.id}`,
+        navn: `NGU — ${a.title}`,
+        base: a.landingPageUri ?? `${NGU_INDEKS}/${a.id}`,
+      })),
+      ...KJENTE,
+    ],
+  };
 }
 
 async function finnBase(tjeneste: string): Promise<string> {
@@ -78,7 +89,7 @@ async function finnBase(tjeneste: string): Promise<string> {
     return tjeneste.replace(/\/+$/, "");
   }
 
-  const treff = (await registeret()).find((t) => t.id === tjeneste);
+  const treff = (await registeret()).tjenester.find((t) => t.id === tjeneste);
   if (!treff) {
     throw new SourceError(
       `Kjenner ikke tjenesten "${tjeneste}". Bruk ogc_tjenester for gyldige navn, ` +
@@ -124,6 +135,9 @@ interface FeatureSvar {
  * Geology and seabed mapping are not news: these datasets carry an extraction date
  * that moves a few times a year. A month of caching is polite to a free service and
  * invisible to the answer.
+ *
+ * `base` comes from the caller or from NGU's index (upstream data), so it must be
+ * a public host — here and in `samlinger`.
  */
 export async function features(
   base: string,
@@ -135,7 +149,7 @@ export async function features(
   const svar = await getJson<FeatureSvar>(
     `${base}/collections/${encodeURIComponent(samling)}/items` +
       `?bbox=${boks}&limit=${antall}&f=json${medGeometri ? "" : "&skipGeometry=true"}`,
-    { cacheTtlMs: TTL.maned },
+    { cacheTtlMs: TTL.maned, publicHostsOnly: true },
   );
   return svar.features ?? [];
 }
@@ -156,7 +170,10 @@ interface Samlinger {
 }
 
 export async function samlinger(base: string): Promise<string[]> {
-  const svar = await getJson<Samlinger>(`${base}/collections?f=json`, { cacheTtlMs: TTL.uke });
+  const svar = await getJson<Samlinger>(`${base}/collections?f=json`, {
+    cacheTtlMs: TTL.uke,
+    publicHostsOnly: true,
+  });
   return (svar.collections ?? []).map((c) => c.id);
 }
 
@@ -211,7 +228,7 @@ async function punkt({
 }
 
 async function tjenester({ sok }: { sok?: string }) {
-  const alle = await registeret();
+  const { tjenester: alle, mangler } = await registeret();
   const q = sok?.toLowerCase();
   const treff = q ? alle.filter((t) => `${t.id} ${t.navn}`.toLowerCase().includes(q)) : alle;
 
@@ -219,6 +236,7 @@ async function tjenester({ sok }: { sok?: string }) {
     antall: treff.length,
     av: alle.length,
     tjenester: treff.map((t) => ({ id: t.id, navn: t.navn })),
+    mangler: mangler ? [mangler] : undefined,
   };
 }
 
