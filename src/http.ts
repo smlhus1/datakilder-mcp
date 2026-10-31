@@ -32,6 +32,14 @@ const MAX_RETRY_AFTER_S = 30;
 const MAX_REDIRECTS = 5;
 
 /**
+ * Own agents for the pinned transport, never the global ones: with
+ * NODE_USE_ENV_PROXY set, the global agents send requests via HTTP(S)_PROXY, and
+ * the proxy — not our lookup hook — would resolve the name.
+ */
+const PINNED_HTTP_AGENT = new http.Agent();
+const PINNED_HTTPS_AGENT = new https.Agent();
+
+/**
  * Addresses a caller-supplied URL must never reach: "this network", RFC 1918,
  * CGNAT (the tailnet lives in 100.64/10), loopback, link-local (169.254.169.254 is
  * the cloud metadata service), multicast/reserved — and the IPv6 equivalents.
@@ -204,30 +212,61 @@ async function requestPinned(url: string, init: Forespørsel): Promise<Response>
   const host = u.hostname.replace(/^\[|\]$/g, "");
   if (isIP(host)) assertPublicAddress(u.hostname, host);
 
-  const transport = u.protocol === "https:" ? https : http;
+  const secure = u.protocol === "https:";
+  const transport = secure ? https : http;
   return new Promise((resolve, reject) => {
     const req = transport.request(
       u,
-      { method: init.method, headers: init.headers, signal: init.signal, lookup: checkedLookup },
+      {
+        method: init.method,
+        headers: init.headers,
+        signal: init.signal,
+        lookup: checkedLookup,
+        agent: secure ? PINNED_HTTPS_AGENT : PINNED_HTTP_AGENT,
+      },
       (res) => {
-        const headers = new Headers();
-        for (const [navn, verdi] of Object.entries(res.headers)) {
-          if (verdi !== undefined) headers.set(navn, Array.isArray(verdi) ? verdi.join(", ") : verdi);
+        // This callback runs from Node's HTTP parser, outside any promise: a throw
+        // here is an uncaught exception that takes the whole stdio server down. The
+        // wire is the remote's to shape, so everything that can throw on it is caught.
+        try {
+          resolve(toWebResponse(url, res));
+        } catch (err) {
+          res.destroy();
+          reject(
+            err instanceof SourceError
+              ? err
+              : new SourceError(`${url} ga et svar vi ikke kan lese: ${(err as Error).message}`),
+          );
         }
-        const status = res.statusCode ?? 0;
-        // Response refuses a body for these; drain the socket instead.
-        if (status === 204 || status === 304) {
-          res.resume();
-          resolve(new Response(null, { status, statusText: res.statusMessage, headers }));
-          return;
-        }
-        const body = Readable.toWeb(res) as unknown as ReadableStream<Uint8Array>;
-        resolve(new Response(body, { status, statusText: res.statusMessage, headers }));
       },
     );
     req.on("error", reject);
     req.end(init.body);
   });
+}
+
+/**
+ * Response accepts only 200–599 and refuses a body on the null-body statuses; Node's
+ * parser accepts any three digits. 1xx never reaches the response callback in a
+ * well-behaved exchange, so anything outside 200–599 is a broken reply.
+ */
+const NULL_BODY = new Set([204, 205, 304]);
+
+function toWebResponse(url: string, res: http.IncomingMessage): Response {
+  const status = res.statusCode ?? 0;
+  if (status < 200 || status > 599) {
+    throw new SourceError(`${url} svarte med ugyldig HTTP-status ${status}.`, status);
+  }
+  const headers = new Headers();
+  for (const [navn, verdi] of Object.entries(res.headers)) {
+    if (verdi !== undefined) headers.set(navn, Array.isArray(verdi) ? verdi.join(", ") : verdi);
+  }
+  if (NULL_BODY.has(status)) {
+    res.resume();
+    return new Response(null, { status, statusText: res.statusMessage, headers });
+  }
+  const body = Readable.toWeb(res) as unknown as ReadableStream<Uint8Array>;
+  return new Response(body, { status, statusText: res.statusMessage, headers });
 }
 
 /**
