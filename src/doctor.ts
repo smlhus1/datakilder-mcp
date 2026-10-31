@@ -68,8 +68,21 @@ async function sjekkAlle(start: number) {
 
       const t0 = Date.now();
       try {
-        await verktoy.run(kilde.helse.args);
-        return { ...felles, status: "ok", ms: Date.now() - t0 };
+        const svar = await verktoy.run(kilde.helse.args);
+        const ms = Date.now() - t0;
+        // Composites (sted, ngu) and ogc's index degrade instead of throwing, and
+        // name what failed in `mangler`. Counting that as "ok" made doctor report
+        // all three healthy with every upstream down.
+        const mangler = (svar as { mangler?: unknown } | null)?.mangler;
+        if (Array.isArray(mangler) && mangler.length) {
+          return {
+            ...felles,
+            status: "feil",
+            ms,
+            detalj: `Delvis svar, mangler: ${mangler.join("; ")}`.slice(0, 200),
+          };
+        }
+        return { ...felles, status: "ok", ms };
       } catch (err) {
         return {
           ...felles,

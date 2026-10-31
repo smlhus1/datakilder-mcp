@@ -300,6 +300,11 @@ høylytt når en kilde endrer kontrakt — som er nøyaktig da vi vil høre det.
 Den dekker også feilstiene: ugyldig organisasjonsnummer, stedsnavn brukt som Entur-id, for stort
 kartutsnitt. En feilmelding en modell kan handle på er en funksjon, ikke en detalj.
 
+`npm test` er det motsatte: offline, med falsk `fetch` og DNS ved grensen i `http.ts`. Den tester
+det et ekte API ikke kan fås til å gjøre på kommando — en body som drypper, `Retry-After: 86400`,
+en redirect til `127.0.0.1`, en WMS-feil med status 200, alle kilder nede samtidig. Formen på
+API-ene er fortsatt røyktestens jobb.
+
 ## Lisens
 
 MIT. Dataene har sine egne lisenser — se tabellen over og `_kilde`-feltet i hvert svar.
